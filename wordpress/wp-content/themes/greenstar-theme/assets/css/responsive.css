@@ -1,0 +1,147 @@
+/* ==========================================================================
+   GreenStar Vietnam – Responsive Styles
+   File: assets/css/responsive.css
+   Breakpoints: xl=1200px | lg=1024px | md=768px | sm=640px | xs=480px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Large Desktop (≤1280px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+    .features-grid   { grid-template-columns: repeat(2, 1fr); }
+    .category-grid   { grid-template-columns: repeat(4, 1fr); }
+    .certs-grid      { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Laptop / Tablet Landscape (≤1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    :root { --section-py: 4rem; }
+
+    .main-nav { display: none; }
+    .nav-toggle { display: flex; }
+
+    /* Mobile Nav Panel */
+    .main-nav.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; left: 0;
+        width: min(320px, 85vw); height: 100vh;
+        background: var(--color-white);
+        box-shadow: var(--shadow-lg);
+        padding: 5rem 1.5rem 2rem;
+        z-index: 999;
+        overflow-y: auto;
+        animation: slideInLeft .3s ease;
+    }
+    @keyframes slideInLeft {
+        from { transform: translateX(-100%); }
+        to   { transform: translateX(0); }
+    }
+    .main-nav.mobile-open ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav.mobile-open > ul > li > a {
+        padding: .85rem 1rem;
+        border-radius: var(--radius-md);
+        font-size: var(--fs-base);
+        border-bottom: 1px solid var(--color-light-gray);
+    }
+    .main-nav.mobile-open .nav-dropdown {
+        position: static;
+        opacity: 1; visibility: visible; transform: none;
+        box-shadow: none; border: none;
+        border-radius: 0;
+        background: var(--color-off-white);
+        margin-top: 0;
+        display: none;
+    }
+    .main-nav.mobile-open .nav-dropdown.sub-open { display: block; }
+
+    /* Nav overlay */
+    .nav-overlay {
+        display: none;
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,.45);
+        z-index: 998;
+    }
+    .nav-overlay.visible { display: block; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+
+    .export-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .export-map   { display: none; }
+
+    .product-grid  { grid-template-columns: repeat(3, 1fr); }
+    .category-grid { grid-template-columns: repeat(3, 1fr); }
+    .certs-grid    { grid-template-columns: repeat(2, 1fr); }
+    .about-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet Portrait (≤768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    :root {
+        --section-py:  3rem;
+        --gutter:      1rem;
+        --fs-hero:     2.75rem;
+        --fs-2xl:      1.75rem;
+    }
+
+    .hero { min-height: 80vh; }
+    .hero__stats { position: relative; }
+    .hero__stats-inner { flex-wrap: wrap; }
+    .hero__stat { max-width: 50%; min-width: 50%; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .hero__stat:nth-child(even) { border-right: none; }
+
+    .features-grid  { grid-template-columns: 1fr 1fr; }
+    .product-grid   { grid-template-columns: repeat(2, 1fr); }
+    .category-grid  { grid-template-columns: repeat(2, 1fr); }
+    .certs-grid     { grid-template-columns: repeat(2, 1fr); }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .top-bar__contact > *:not(:first-child) { display: none; }
+
+    .hero__scroll { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile (≤640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .hero__actions .btn { width: 100%; justify-content: center; }
+    .hero__actions { flex-direction: column; }
+
+    .features-grid  { grid-template-columns: 1fr; }
+    .product-grid   { grid-template-columns: 1fr; }
+
+    .section-title { font-size: var(--fs-xl); }
+
+    .cta-section { padding: 4rem 0; }
+
+    .footer-bottom {
+        flex-direction: column; text-align: center; gap: .5rem;
+    }
+
+    .export-stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .about-gallery { grid-template-columns: 1fr; }
+    .about-gallery__item img { aspect-ratio: 16/9; }
+}
+
+/* --------------------------------------------------------------------------
+   Extra Small (≤480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    :root { --gutter: .75rem; }
+
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+    .certs-grid    { grid-template-columns: repeat(2, 1fr); }
+
+    .products-tabs { gap: .35rem; }
+    .tab-btn       { padding: .45rem 1rem; font-size: var(--fs-xs); }
+
+    .hero__badge { font-size: .65rem; }
+}
