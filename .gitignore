@@ -18,19 +18,9 @@ env/
 .env
 
 # WordPress Core & Setup
-wordpress/wp-admin/
-wordpress/wp-includes/
-wordpress/wp-content/uploads/
-wordpress/wp-content/upgrade/
-wordpress/wp-content/cache/
-wordpress/*.php
-!wordpress/wp-config.php
-
-# Ignore everything in wp-content except our theme
-wordpress/wp-content/*
-!wordpress/wp-content/themes/
-wordpress/wp-content/themes/*
-!wordpress/wp-content/themes/greenstar-theme/
+wp-config.php
+wp-content/uploads/
+.htaccess
 
 # Playwright / Screenshots
 reference/*.png
@@ -42,3 +32,5 @@ reference/*.jpg
 .vscode/
 *.swp
 *.swo
+
+*.sql
