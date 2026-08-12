@@ -33,4 +33,15 @@ reference/*.jpg
 *.swp
 *.swo
 
+# Database & Logs
 *.sql
+*.gz
+*.zip
+error_log
+*.log
+
+# WordPress Configs and Core unused files
+wp-config-docker.php
+wp-config-sample.php
+readme.html
+license.txt

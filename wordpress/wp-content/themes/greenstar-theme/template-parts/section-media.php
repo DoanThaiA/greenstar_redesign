@@ -13,7 +13,7 @@ $media_logos = array(
 );
 ?>
 
-<section class="media-section section-py" style="background-color: var(--color-off-white);" id="media" aria-labelledby="media-title">
+<section class="media-section section-py" style="background-color: #fafafa; border-top: 1px solid #eaeaea;" id="media" aria-labelledby="media-title">
     <div class="container">
         
         <div class="text-center" data-reveal>

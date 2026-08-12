@@ -23,50 +23,7 @@
     <?php esc_html_e( 'Skip to content', 'greenstar-theme' ); ?>
 </a>
 
-<!-- ================================================
-     Top Bar
-     ================================================ -->
-<div class="top-bar" role="banner">
-    <div class="container">
-        <div class="top-bar__inner">
-
-            <div class="top-bar__contact">
-                <?php $phone = get_theme_mod( 'greenstar_phone', '0933 898 896' ); ?>
-                <?php $hours = get_theme_mod( 'greenstar_hours', 'Business Hours: 8:00 AM – 5:00 PM' ); ?>
-
-                <span>
-                    <span aria-hidden="true">🕒</span>
-                    <?php echo esc_html( $hours ); ?>
-                </span>
-
-                <a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $phone ) ); ?>" style="color:var(--color-primary);font-weight:700;">
-                    <span aria-hidden="true">📞</span>
-                    <?php esc_html_e( 'Hotline:', 'greenstar-theme' ); ?> <?php echo esc_html( $phone ); ?>
-                </a>
-            </div>
-
-            <div class="top-bar__social" aria-label="<?php esc_attr_e( 'Social Media Links', 'greenstar-theme' ); ?>">
-                <?php
-                $socials = array(
-                    'facebook'  => array( 'icon' => 'f',  'label' => 'Facebook' ),
-                    'instagram' => array( 'icon' => 'ig', 'label' => 'Instagram' ),
-                    'linkedin'  => array( 'icon' => 'in', 'label' => 'LinkedIn' ),
-                    'youtube'   => array( 'icon' => 'yt', 'label' => 'YouTube' ),
-                );
-                foreach ( $socials as $network => $data ) :
-                    $url = get_theme_mod( "greenstar_{$network}", '#' );
-                    if ( '#' === $url ) continue;
-                ?>
-                    <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer"
-                       aria-label="<?php echo esc_attr( $data['label'] ); ?>">
-                        <?php echo esc_html( $data['icon'] ); ?>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-
-        </div><!-- .top-bar__inner -->
-    </div><!-- .container -->
-</div><!-- .top-bar -->
+<!-- Top Bar Removed -->
 
 
 <!-- ================================================

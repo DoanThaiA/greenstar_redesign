@@ -5,12 +5,10 @@
  * @package greenstar-theme
  */
 
-// Get hero settings from Customizer
-$hero_badge    = get_theme_mod( 'greenstar_hero_badge',    __( 'Natural &amp; Certified Products', 'greenstar-theme' ) );
-$hero_title    = get_theme_mod( 'greenstar_hero_title',    "From Vietnam's Farms\nTo The World" );
-$hero_subtitle = get_theme_mod( 'greenstar_hero_subtitle', __( 'GreenStar Vietnam produces premium freeze-dried herbs, vegetables and natural supplements — trusted by partners in over 30 countries.', 'greenstar-theme' ) );
-$hero_cta1     = get_theme_mod( 'greenstar_hero_cta1',     __( 'Explore Products', 'greenstar-theme' ) );
-$hero_cta2     = get_theme_mod( 'greenstar_hero_cta2',     __( 'Contact Us', 'greenstar-theme' ) );
+// Get hero settings
+$hero_badge    = __( 'ABOUT GREENSTAR', 'greenstar-theme' );
+$hero_title    = "Premium Vietnamese\nRice Products";
+$hero_subtitle = __( 'With over 20 years of experience, Greenstar brings the best of Vietnamese cuisine to the world. We specialize in exporting high-quality rice noodles, pho, and rice paper to global markets.', 'greenstar-theme' );
 
 // Hero background image
 $hero_bg_id  = get_theme_mod( 'greenstar_hero_bg', 0 );
@@ -41,7 +39,6 @@ foreach ( $title_parts as $part ) {
 
             <!-- Badge -->
             <div class="hero__badge">
-                <span>🌿</span>
                 <?php echo wp_kses_post( $hero_badge ); ?>
             </div>
 
@@ -53,20 +50,7 @@ foreach ( $title_parts as $part ) {
             <!-- Description -->
             <p class="hero__desc"><?php echo esc_html( $hero_subtitle ); ?></p>
 
-            <!-- CTAs -->
-            <div class="hero__actions">
-                <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>"
-                   class="btn btn-primary btn-lg"
-                   id="hero-cta-primary">
-                    <?php echo esc_html( $hero_cta1 ); ?> &rarr;
-                </a>
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"
-                   class="btn btn-outline btn-lg"
-                   style="color:#fff;border-color:rgba(255,255,255,.6);"
-                   id="hero-cta-secondary">
-                    <?php echo esc_html( $hero_cta2 ); ?>
-                </a>
-            </div>
+            <!-- CTAs removed per user request -->
 
         </div>
     </div><!-- .container -->
@@ -76,20 +60,20 @@ foreach ( $title_parts as $part ) {
         <div class="container">
             <div class="hero__stats-inner">
                 <div class="hero__stat">
-                    <span class="hero__stat-num" data-count="15" data-suffix="+">15+</span>
+                    <span class="hero__stat-num" data-count="20" data-suffix="+">20+</span>
                     <span class="hero__stat-label"><?php esc_html_e( 'Years Experience', 'greenstar-theme' ); ?></span>
                 </div>
                 <div class="hero__stat">
-                    <span class="hero__stat-num" data-count="30" data-suffix="+">30+</span>
-                    <span class="hero__stat-label"><?php esc_html_e( 'Countries Exported', 'greenstar-theme' ); ?></span>
+                    <span class="hero__stat-num" data-count="7" data-suffix="+">7+</span>
+                    <span class="hero__stat-label"><?php esc_html_e( 'Product Categories', 'greenstar-theme' ); ?></span>
                 </div>
                 <div class="hero__stat">
-                    <span class="hero__stat-num" data-count="200" data-suffix="+">200+</span>
-                    <span class="hero__stat-label"><?php esc_html_e( 'Products Available', 'greenstar-theme' ); ?></span>
+                    <span class="hero__stat-num" data-count="5" data-suffix="+">5+</span>
+                    <span class="hero__stat-label"><?php esc_html_e( 'Major Markets', 'greenstar-theme' ); ?></span>
                 </div>
                 <div class="hero__stat">
-                    <span class="hero__stat-num" data-count="500" data-suffix="+">500+</span>
-                    <span class="hero__stat-label"><?php esc_html_e( 'Global Partners', 'greenstar-theme' ); ?></span>
+                    <span class="hero__stat-num" data-count="100" data-suffix="%">100%</span>
+                    <span class="hero__stat-label"><?php esc_html_e( 'Committed Team', 'greenstar-theme' ); ?></span>
                 </div>
             </div>
         </div>

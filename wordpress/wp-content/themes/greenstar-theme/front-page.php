@@ -31,11 +31,7 @@ get_header();
      */
     get_template_part( 'template-parts/section', 'categories' );
 
-    /**
-     * Featured Products Section
-     * Product cards pulling from gs_product CPT.
-     */
-    get_template_part( 'template-parts/section', 'products' );
+    // Featured Products Section removed per user request
 
     /**
      * Certifications Section
@@ -43,11 +39,7 @@ get_header();
      */
     get_template_part( 'template-parts/section', 'certifications' );
 
-    /**
-     * Global Export Section
-     * World map SVG, stats counters, country list.
-     */
-    get_template_part( 'template-parts/section', 'export' );
+    // Global Export Section removed per user request
 
     /**
      * Media Mentions Section

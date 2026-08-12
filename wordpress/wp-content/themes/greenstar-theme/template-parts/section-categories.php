@@ -27,7 +27,7 @@ $fallback_cats = array(
 $use_fallback = is_wp_error( $product_cats ) || empty( $product_cats );
 ?>
 
-<section class="products-section section-py" id="categories" aria-labelledby="categories-title">
+<section class="products-section section-py" style="background-color: #f4f7f4; border-top: 1px solid #e2e8e2; border-bottom: 1px solid #e2e8e2;" id="categories" aria-labelledby="categories-title">
     <div class="container">
 
         <!-- Heading -->

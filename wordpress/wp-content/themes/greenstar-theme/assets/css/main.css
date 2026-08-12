@@ -250,10 +250,12 @@ input, textarea, select { font-family: inherit; }
 
 .main-nav > ul > li > a {
     display: flex; align-items: center; gap: .3rem;
-    padding: .5rem .9rem;
+    padding: .5rem 1.1rem;
     border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: var(--fs-sm);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
     color: var(--color-text);
     transition: color var(--transition), background var(--transition);
 }
