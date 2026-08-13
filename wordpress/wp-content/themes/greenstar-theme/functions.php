@@ -275,7 +275,33 @@ function greenstar_nav_fallback() {
     echo '<nav class="main-nav" id="site-navigation" aria-label="' . esc_attr__( 'Primary Navigation', 'greenstar-theme' ) . '">';
     echo '<ul role="menubar">';
     echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'greenstar-theme' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( home_url( '/products/' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a></li>';
+    
+    // Get product categories
+    $categories = get_terms( array(
+        'taxonomy'   => 'gs_category',
+        'hide_empty' => false,
+    ) );
+    
+    if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+        echo '<li class="menu-item-has-children gs-mega-menu-item"><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a>';
+        echo '<div class="gs-mega-menu-wrapper">';
+        
+        echo '<div class="gs-mega-menu-cats">';
+        foreach ( $categories as $category ) {
+            // Get category image if we had a taxonomy meta, else placeholder
+            $img_url = esc_url( GREENSTAR_URI . '/assets/images/placeholder.jpg' );
+            echo '<a href="' . esc_url( get_term_link( $category ) ) . '" class="gs-mega-cat">';
+            echo '<div class="gs-mega-cat-img"><img src="' . $img_url . '" alt="' . esc_attr( $category->name ) . '"></div>';
+            echo '<span class="gs-mega-cat-name">' . esc_html( $category->name ) . '</span>';
+            echo '</a>';
+        }
+        echo '</div>'; // .gs-mega-menu-cats
+        
+        echo '</div></li>'; // .gs-mega-menu-wrapper, li
+    } else {
+        echo '<li><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a></li>';
+    }
+    
     echo '<li><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About Us', 'greenstar-theme' ) . '</a></li>';
     echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'greenstar-theme' ) . '</a></li>';
     echo '</ul></nav>';
@@ -464,3 +490,108 @@ add_filter( 'body_class', function( $classes ) {
     if ( is_singular( 'gs_product' ) ) $classes[] = 'single-product';
     return $classes;
 } );
+
+/**
+ * Handle custom sorting for gs_product archives.
+ */
+function greenstar_product_sorting( $query ) {
+    if ( ! is_admin() && $query->is_main_query() && ( is_post_type_archive( 'gs_product' ) || is_tax( 'gs_category' ) ) ) {
+        // Set posts per page to 9 to perfectly fill a 3-column grid
+        $query->set( 'posts_per_page', 9 );
+        
+        $orderby = isset( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : 'menu_order';
+
+        switch ( $orderby ) {
+            case 'date':
+                $query->set( 'orderby', 'date' );
+                $query->set( 'order', 'DESC' );
+                break;
+            case 'title_asc':
+                $query->set( 'orderby', 'title' );
+                $query->set( 'order', 'ASC' );
+                break;
+            case 'title_desc':
+                $query->set( 'orderby', 'title' );
+                $query->set( 'order', 'DESC' );
+                break;
+            case 'menu_order':
+            default:
+                $query->set( 'orderby', 'menu_order title' );
+                $query->set( 'order', 'ASC' );
+                break;
+        }
+    }
+}
+add_action( 'pre_get_posts', 'greenstar_product_sorting' );
+
+/**
+ * Append product categories to the Products menu item if it exists.
+ */
+function greenstar_append_product_categories_to_menu( $items, $args ) {
+    // Only apply to primary menu
+    if ( $args->theme_location !== 'primary' ) {
+        return $items;
+    }
+
+    $products_item_id = 0;
+    foreach ( $items as $item ) {
+        // Simple heuristic: if the title is Products or URL is /products/
+        if ( strtolower( $item->title ) === 'products' || strpos( $item->url, '/products' ) !== false ) {
+            $products_item_id = $item->ID;
+            // Add class for dropdown
+            $item->classes[] = 'menu-item-has-children';
+            break;
+        }
+    }
+
+    if ( $products_item_id ) {
+        $categories = get_terms( array(
+            'taxonomy'   => 'gs_category',
+            'hide_empty' => false,
+        ) );
+        if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+            $order = 1;
+            foreach ( $categories as $category ) {
+                $new_item = new stdClass();
+                $new_item->ID = 100000 + $category->term_id; // Fake ID
+                $new_item->db_id = $new_item->ID;
+                $new_item->title = $category->name;
+                $new_item->url = get_term_link( $category );
+                $new_item->menu_order = $order++;
+                $new_item->menu_item_parent = $products_item_id;
+                $new_item->type = 'custom';
+                $new_item->object = 'custom';
+                $new_item->object_id = $new_item->ID;
+                $new_item->classes = array( 'menu-item', 'menu-item-type-custom', 'menu-item-object-custom' );
+                $new_item->target = '';
+                $new_item->attr_title = '';
+                $new_item->description = '';
+                $new_item->xfn = '';
+                $new_item->status = 'publish';
+                $items[] = $new_item;
+            }
+        }
+    }
+
+    return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'greenstar_append_product_categories_to_menu', 10, 2 );
+
+/**
+ * Fix active menu classes for the Products custom post type archive.
+ */
+function greenstar_fix_nav_classes( $classes, $item, $args ) {
+    if ( is_post_type_archive( 'gs_product' ) || is_tax( 'gs_category' ) || is_singular( 'gs_product' ) ) {
+        // If the item URL is the home URL, remove current classes
+        if ( trailingslashit( $item->url ) === trailingslashit( home_url( '/' ) ) ) {
+            $classes = array_diff( $classes, array( 'current-menu-item', 'current_page_item' ) );
+        }
+        // Add current class to Products menu item
+        if ( strtolower( $item->title ) === 'products' || strpos( $item->url, '/products' ) !== false ) {
+            $classes[] = 'current-menu-item';
+        }
+    }
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'greenstar_fix_nav_classes', 10, 3 );
+
