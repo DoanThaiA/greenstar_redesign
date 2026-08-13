@@ -15,16 +15,18 @@ $product_cats = get_terms( array(
     'number'     => 10,
 ) );
 
-// Fallback categories for a fresh install
-$fallback_cats = array(
-    array( 'name' => __( 'Freeze-Dried Vegetables', 'greenstar-theme' ), 'slug' => 'vegetables', 'count' => 0, 'icon' => '🥦' ),
-    array( 'name' => __( 'Freeze-Dried Fruits',     'greenstar-theme' ), 'slug' => 'fruits',     'count' => 0, 'icon' => '🍓' ),
-    array( 'name' => __( 'Herbal Powders',           'greenstar-theme' ), 'slug' => 'powders',    'count' => 0, 'icon' => '🌿' ),
-    array( 'name' => __( 'Spices & Seasonings',      'greenstar-theme' ), 'slug' => 'spices',     'count' => 0, 'icon' => '🌶️' ),
-    array( 'name' => __( 'Mushroom Extracts',         'greenstar-theme' ), 'slug' => 'mushrooms',  'count' => 0, 'icon' => '🍄' ),
+$use_fallback = is_wp_error( $product_cats ) || empty( $product_cats );
+
+// Icon mapping for our custom categories
+$custom_icons = array(
+    'dried-rice-vermicelli' => '🍜',
+    'dried-pho-noodles'     => '🍲',
+    'rice-paper'            => '🌯',
+    'glass-noodle'          => '🍝',
+    'coffee'                => '☕',
 );
 
-$use_fallback = is_wp_error( $product_cats ) || empty( $product_cats );
+
 ?>
 
 <section class="products-section section-py" style="background-color: #f4f7f4; border-top: 1px solid #e2e8e2; border-bottom: 1px solid #e2e8e2;" id="categories" aria-labelledby="categories-title">
@@ -60,7 +62,12 @@ $use_fallback = is_wp_error( $product_cats ) || empty( $product_cats );
                 <?php foreach ( $product_cats as $cat ) :
                     $cat_link  = get_term_link( $cat );
                     $cat_img   = get_term_meta( $cat->term_id, 'gs_category_image', true );
-                    $cat_icon  = get_term_meta( $cat->term_id, 'gs_category_icon', true ) ?: '🌿';
+                    $cat_icon  = get_term_meta( $cat->term_id, 'gs_category_icon', true );
+                    if ( ! $cat_icon && isset( $custom_icons[ $cat->slug ] ) ) {
+                        $cat_icon = $custom_icons[ $cat->slug ];
+                    } elseif ( ! $cat_icon ) {
+                        $cat_icon = '🌿';
+                    }
                 ?>
                     <a href="<?php echo esc_url( is_wp_error( $cat_link ) ? '#' : $cat_link ); ?>"
                        class="category-card"

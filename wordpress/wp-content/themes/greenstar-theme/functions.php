@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Theme version constant
-define( 'GREENSTAR_VERSION', '1.0.0' );
+define( 'GREENSTAR_VERSION', '1.0.1' );
 define( 'GREENSTAR_DIR', get_template_directory() );
 define( 'GREENSTAR_URI', get_template_directory_uri() );
 
@@ -288,9 +288,12 @@ function greenstar_nav_fallback() {
         
         echo '<div class="gs-mega-menu-cats">';
         foreach ( $categories as $category ) {
-            // Get category image if we had a taxonomy meta, else placeholder
             $img_url = esc_url( GREENSTAR_URI . '/assets/images/placeholder.jpg' );
-            echo '<a href="' . esc_url( get_term_link( $category ) ) . '" class="gs-mega-cat">';
+            $cat_link = get_term_link( $category );
+            if ( is_wp_error( $cat_link ) ) {
+                $cat_link = '#';
+            }
+            echo '<a href="' . esc_url( $cat_link ) . '" class="gs-mega-cat">';
             echo '<div class="gs-mega-cat-img"><img src="' . $img_url . '" alt="' . esc_attr( $category->name ) . '"></div>';
             echo '<span class="gs-mega-cat-name">' . esc_html( $category->name ) . '</span>';
             echo '</a>';
@@ -475,6 +478,42 @@ function greenstar_register_cpts() {
     ) );
 }
 add_action( 'init', 'greenstar_register_cpts' );
+
+/**
+ * Automatically insert the 5 required product categories and delete any others.
+ */
+function greenstar_insert_required_categories() {
+    if ( ! get_option( 'gs_custom_categories_inserted_v3' ) ) {
+        $cats = array(
+            'Dried Rice Vermicelli',
+            'Dried Pho Noodles',
+            'Rice Paper',
+            'Glass Noodle',
+            'Coffee'
+        );
+        
+        // Insert required ones
+        foreach ( $cats as $cat ) {
+            if ( ! term_exists( $cat, 'gs_category' ) ) {
+                wp_insert_term( $cat, 'gs_category' );
+            }
+        }
+        
+        // Delete any others
+        $all_terms = get_terms( array( 'taxonomy' => 'gs_category', 'hide_empty' => false ) );
+        if ( ! is_wp_error( $all_terms ) ) {
+            foreach ( $all_terms as $term ) {
+                $term_name = htmlspecialchars_decode( $term->name );
+                if ( ! in_array( $term_name, $cats, true ) ) {
+                    wp_delete_term( $term->term_id, 'gs_category' );
+                }
+            }
+        }
+        
+        update_option( 'gs_custom_categories_inserted_v3', true );
+    }
+}
+add_action( 'init', 'greenstar_insert_required_categories' );
 
 /* ==========================================================================
    8. Miscellaneous

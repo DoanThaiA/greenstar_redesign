@@ -252,11 +252,15 @@
     /* -----------------------------------------------------------------------
        9. Active nav link based on current page
     ----------------------------------------------------------------------- */
-    const currentPath = window.location.pathname;
+    const currentUrl = window.location.pathname + window.location.search + window.location.hash;
     qsa('.main-nav a').forEach((link) => {
         try {
-            const linkPath = new URL(link.href).pathname;
-            if (currentPath === linkPath || (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+            link.classList.remove('active');
+            const urlObj = new URL(link.href);
+            const linkUrl = urlObj.pathname + urlObj.search + urlObj.hash;
+            if (currentUrl === linkUrl) {
+                link.classList.add('active');
+            } else if (linkUrl !== '/' && linkUrl !== '/#' && currentUrl.startsWith(linkUrl)) {
                 link.classList.add('active');
             }
         } catch (_) {}
