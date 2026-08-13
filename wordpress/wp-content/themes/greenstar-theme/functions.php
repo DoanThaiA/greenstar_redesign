@@ -163,6 +163,29 @@ function greenstar_scripts() {
             true
         );
     }
+
+    // About page CSS (only on pages using the About Page template)
+    if ( is_page_template( 'page-about.php' ) ) {
+        wp_enqueue_style(
+            'greenstar-about',
+            GREENSTAR_URI . '/assets/css/about.css',
+            array( 'greenstar-main' ),
+            filemtime( GREENSTAR_DIR . '/assets/css/about.css' )
+        );
+    }
+
+    // News/Blog CSS (for home.php and archive.php)
+    if ( is_home() || is_archive() || is_category() ) {
+        // Only enqueue if it's not a product archive
+        if ( ! is_post_type_archive( 'gs_product' ) && ! is_tax( 'gs_category' ) ) {
+            wp_enqueue_style(
+                'greenstar-news',
+                GREENSTAR_URI . '/assets/css/news.css',
+                array( 'greenstar-main' ),
+                filemtime( GREENSTAR_DIR . '/assets/css/news.css' )
+            );
+        }
+    }
 }
 add_action( 'wp_enqueue_scripts', 'greenstar_scripts' );
 
@@ -323,7 +346,15 @@ function greenstar_nav_fallback() {
         echo '<li><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a></li>';
     }
     
-    echo '<li><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About Us', 'greenstar-theme' ) . '</a></li>';
+    
+    $about_active = ( is_page_template( 'page-about.php' ) || is_page( array( 'about', 'about-us', 99 ) ) ) ? ' class="current_page_item"' : '';
+    echo '<li' . $about_active . '><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About Us', 'greenstar-theme' ) . '</a></li>';
+    
+    $news_active = ( is_home() || is_archive() || is_category() ) && ! is_post_type_archive( 'gs_product' ) ? ' class="current_page_item"' : '';
+    $news_page_id = get_option( 'page_for_posts' );
+    $news_url = $news_page_id ? get_permalink( $news_page_id ) : home_url( '/news/' );
+    echo '<li' . $news_active . '><a href="' . esc_url( $news_url ) . '">' . esc_html__( 'News', 'greenstar-theme' ) . '</a></li>';
+    
     echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'greenstar-theme' ) . '</a></li>';
     echo '</ul></nav>';
 }
