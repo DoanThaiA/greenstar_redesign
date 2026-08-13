@@ -237,9 +237,9 @@ class Greenstar_Nav_Walker extends Walker_Nav_Menu {
  */
 function greenstar_logo() {
     if ( has_custom_logo() ) {
-        echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="site-logo" rel="home" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
-        the_custom_logo();
-        echo '</a>';
+        $custom_logo_markup = get_custom_logo();
+        $custom_logo_markup = str_replace( 'custom-logo-link', 'site-logo', $custom_logo_markup );
+        echo $custom_logo_markup;
     } else {
         echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="site-logo" rel="home">';
         echo '<span class="site-logo__text">';
