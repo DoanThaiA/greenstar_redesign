@@ -43,7 +43,7 @@ $features = array(
         <div class="text-center" data-reveal>
             <span class="section-label"><?php esc_html_e( 'Why Choose GreenStar', 'greenstar-theme' ); ?></span>
             <h2 class="section-title" id="about-title">
-                <?php esc_html_e( 'Vietnam\'s Leading Natural Product Manufacturer', 'greenstar-theme' ); ?>
+                <?php esc_html_e( 'Vietnam\'s Leading Rice-Based Product Manufacturer', 'greenstar-theme' ); ?>
             </h2>
             <p class="section-subtitle">
                 <?php esc_html_e( 'From seed to shipment, we control every step of the process to deliver the highest quality natural products to global markets.', 'greenstar-theme' ); ?>
