@@ -146,6 +146,23 @@ function greenstar_scripts() {
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
+
+    // Single product CSS + JS
+    if ( is_singular( 'gs_product' ) ) {
+        wp_enqueue_style(
+            'gsp-single',
+            GREENSTAR_URI . '/assets/css/single-product.css',
+            array( 'greenstar-main' ),
+            filemtime( GREENSTAR_DIR . '/assets/css/single-product.css' )
+        );
+        wp_enqueue_script(
+            'gsp-single',
+            GREENSTAR_URI . '/assets/js/single-product.js',
+            array(),
+            filemtime( GREENSTAR_DIR . '/assets/js/single-product.js' ),
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'greenstar_scripts' );
 
@@ -288,7 +305,8 @@ function greenstar_nav_fallback() {
         
         echo '<div class="gs-mega-menu-cats">';
         foreach ( $categories as $category ) {
-            $img_url = esc_url( GREENSTAR_URI . '/assets/images/placeholder.jpg' );
+            $cat_img = get_term_meta( $category->term_id, 'gs_category_image', true );
+            $img_url = $cat_img ? esc_url( $cat_img ) : esc_url( GREENSTAR_URI . '/assets/images/placeholder.jpg' );
             $cat_link = get_term_link( $category );
             if ( is_wp_error( $cat_link ) ) {
                 $cat_link = '#';
@@ -516,6 +534,208 @@ function greenstar_insert_required_categories() {
 add_action( 'init', 'greenstar_insert_required_categories' );
 
 /* ==========================================================================
+   8. Product Meta Boxes
+   ========================================================================== */
+
+/**
+ * Register meta boxes for gs_product.
+ */
+function gsp_register_meta_boxes() {
+    add_meta_box(
+        'gsp-product-fields',
+        __( 'Product Details', 'greenstar-theme' ),
+        'gsp_render_product_meta_box',
+        'gs_product',
+        'normal',
+        'high'
+    );
+    add_meta_box(
+        'gsp-product-gallery',
+        __( 'Product Gallery (additional images)', 'greenstar-theme' ),
+        'gsp_render_gallery_meta_box',
+        'gs_product',
+        'side',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes', 'gsp_register_meta_boxes' );
+
+/**
+ * Render the main product fields meta box.
+ */
+function gsp_render_product_meta_box( $post ) {
+    wp_nonce_field( 'gsp_save_product_meta', 'gsp_product_nonce' );
+
+    $fields = array(
+        'gs_price'         => array( 'label' => 'Price',          'type' => 'text',     'placeholder' => 'Contact for quotation' ),
+        'gs_origin'        => array( 'label' => 'Origin',         'type' => 'text',     'placeholder' => 'Vietnam (Hanoi)' ),
+        'gs_manufacturer'  => array( 'label' => 'Manufacturer',   'type' => 'text',     'placeholder' => 'Truong Phuc Vina' ),
+        'gs_net_weight'    => array( 'label' => 'Net Weight',      'type' => 'text',     'placeholder' => '400g' ),
+        'gs_packaging'     => array( 'label' => 'Packaging',       'type' => 'text',     'placeholder' => 'Bagged' ),
+        'gs_certifications'=> array( 'label' => 'Certifications',  'type' => 'text',     'placeholder' => 'HACCP, ISO, FDA, Halal' ),
+        'gs_shelf_life'    => array( 'label' => 'Shelf Life',      'type' => 'text',     'placeholder' => '24 months' ),
+        'gs_ingredients'   => array( 'label' => 'Ingredients',     'type' => 'text',     'placeholder' => 'Rice' ),
+        'gs_color'         => array( 'label' => 'Color',           'type' => 'text',     'placeholder' => 'White' ),
+        'gs_strand_size'   => array( 'label' => 'Strand Size',     'type' => 'text',     'placeholder' => '1.2mm' ),
+        'gs_style'         => array( 'label' => 'Style',           'type' => 'text',     'placeholder' => 'Noodle strands' ),
+        'gs_labeling'      => array( 'label' => 'Labeling',        'type' => 'text',     'placeholder' => 'Private label available' ),
+        'gs_specification' => array( 'label' => 'Specification',   'type' => 'text',     'placeholder' => '400g/pack, 40 packs/carton' ),
+        'gs_short_specs'   => array( 'label' => 'Short Specs (one bullet per line, shown above CTA)', 'type' => 'textarea', 'placeholder' => "Raw material: Rice\nType: Rice vermicelli, 1mm strand\nNet weight: 400g per pack" ),
+        'gs_splash_image'  => array( 'label' => 'Splash / Editorial Image URL (optional)', 'type' => 'text', 'placeholder' => 'https://…' ),
+    );
+
+    echo '<table class="form-table">';
+    foreach ( $fields as $key => $f ) {
+        $val = get_post_meta( $post->ID, $key, true );
+        echo '<tr>';
+        echo '<th scope="row"><label for="' . esc_attr( $key ) . '">' . esc_html( $f['label'] ) . '</label></th>';
+        echo '<td>';
+        if ( $f['type'] === 'textarea' ) {
+            echo '<textarea id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" rows="4" style="width:100%;">' . esc_textarea( $val ) . '</textarea>';
+        } else {
+            echo '<input type="text" id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $val ) . '" placeholder="' . esc_attr( $f['placeholder'] ) . '" style="width:100%;">';
+        }
+        echo '</td></tr>';
+    }
+    echo '</table>';
+}
+
+/**
+ * Render gallery meta box.
+ */
+function gsp_render_gallery_meta_box( $post ) {
+    wp_enqueue_media();
+    $gallery_ids = get_post_meta( $post->ID, 'gs_gallery', true );
+    $ids_arr     = $gallery_ids ? json_decode( $gallery_ids, true ) : array();
+    ?>
+    <div id="gsp-gallery-wrap">
+        <div id="gsp-gallery-preview" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <?php foreach ( $ids_arr as $id ) : ?>
+                <div class="gsp-gal-item" style="position:relative;">
+                    <?php echo wp_get_attachment_image( $id, array( 60, 60 ) ); ?>
+                    <button type="button" class="gsp-gal-remove" data-id="<?php echo esc_attr( $id ); ?>" style="position:absolute;top:0;right:0;background:red;color:#fff;border:none;cursor:pointer;font-size:10px;padding:1px 4px;">✕</button>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <input type="hidden" id="gs_gallery" name="gs_gallery" value="<?php echo esc_attr( $gallery_ids ); ?>">
+        <button type="button" class="button" id="gsp-add-gallery-images"><?php _e( 'Add Gallery Images', 'greenstar-theme' ); ?></button>
+    </div>
+    <script>
+    jQuery(function($){
+        var frame;
+        var ids = <?php echo json_encode( $ids_arr ); ?>;
+
+        function renderPreviews() {
+            var html = '';
+            ids.forEach(function(id){
+                html += '<div class="gsp-gal-item" style="position:relative;"><img src="" style="width:60px;height:60px;object-fit:cover;"><button type="button" class="gsp-gal-remove" data-id="'+id+'" style="position:absolute;top:0;right:0;background:red;color:#fff;border:none;cursor:pointer;font-size:10px;padding:1px 4px;">✕</button></div>';
+            });
+            // simple: just update hidden field, previews already set on load
+            $('#gs_gallery').val(JSON.stringify(ids));
+        }
+
+        $('#gsp-add-gallery-images').on('click', function(e){
+            e.preventDefault();
+            if (frame) { frame.open(); return; }
+            frame = wp.media({ title: 'Select Gallery Images', button: { text: 'Add to Gallery' }, multiple: true });
+            frame.on('select', function(){
+                var selection = frame.state().get('selection');
+                selection.each(function(att){
+                    if (ids.indexOf(att.id) === -1) {
+                        ids.push(att.id);
+                        var preview = '<div class="gsp-gal-item" style="position:relative;"><img src="'+att.attributes.sizes.thumbnail.url+'" style="width:60px;height:60px;object-fit:cover;"><button type="button" class="gsp-gal-remove" data-id="'+att.id+'" style="position:absolute;top:0;right:0;background:red;color:#fff;border:none;cursor:pointer;font-size:10px;padding:1px 4px;">✕</button></div>';
+                        $('#gsp-gallery-preview').append(preview);
+                    }
+                });
+                $('#gs_gallery').val(JSON.stringify(ids));
+            });
+            frame.open();
+        });
+
+        $(document).on('click', '.gsp-gal-remove', function(){
+            var rmId = parseInt($(this).data('id'), 10);
+            ids = ids.filter(function(i){ return i !== rmId; });
+            $(this).closest('.gsp-gal-item').remove();
+            $('#gs_gallery').val(JSON.stringify(ids));
+        });
+    });
+    </script>
+    <?php
+}
+
+/**
+ * Save product meta fields.
+ */
+function gsp_save_product_meta( $post_id ) {
+    if ( ! isset( $_POST['gsp_product_nonce'] ) || ! wp_verify_nonce( $_POST['gsp_product_nonce'], 'gsp_save_product_meta' ) ) return;
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+    $text_fields = array(
+        'gs_price', 'gs_origin', 'gs_manufacturer', 'gs_net_weight',
+        'gs_packaging', 'gs_certifications', 'gs_shelf_life', 'gs_ingredients',
+        'gs_color', 'gs_strand_size', 'gs_style', 'gs_labeling',
+        'gs_specification', 'gs_splash_image',
+    );
+    foreach ( $text_fields as $field ) {
+        if ( isset( $_POST[ $field ] ) ) {
+            update_post_meta( $post_id, $field, sanitize_text_field( $_POST[ $field ] ) );
+        }
+    }
+    // Textarea fields
+    if ( isset( $_POST['gs_short_specs'] ) ) {
+        update_post_meta( $post_id, 'gs_short_specs', sanitize_textarea_field( $_POST['gs_short_specs'] ) );
+    }
+    // Gallery (JSON array of IDs)
+    if ( isset( $_POST['gs_gallery'] ) ) {
+        $gallery_raw = stripslashes( $_POST['gs_gallery'] );
+        $gallery_arr = json_decode( $gallery_raw, true );
+        if ( is_array( $gallery_arr ) ) {
+            $gallery_arr = array_map( 'absint', $gallery_arr );
+            update_post_meta( $post_id, 'gs_gallery', json_encode( $gallery_arr ) );
+        }
+    }
+}
+add_action( 'save_post_gs_product', 'gsp_save_product_meta' );
+
+/**
+ * AJAX handler for product inquiry form.
+ */
+function gsp_handle_inquiry() {
+    check_ajax_referer( 'gsp_inquiry_nonce', 'gsp_nonce' );
+
+    $name         = sanitize_text_field( $_POST['gsp_name']    ?? '' );
+    $company      = sanitize_text_field( $_POST['gsp_company'] ?? '' );
+    $email        = sanitize_email(      $_POST['gsp_email']   ?? '' );
+    $phone        = sanitize_text_field( $_POST['gsp_phone']   ?? '' );
+    $message      = sanitize_textarea_field( $_POST['gsp_message'] ?? '' );
+    $product_name = sanitize_text_field( $_POST['product_name'] ?? '' );
+    $product_url  = esc_url_raw( $_POST['product_url'] ?? '' );
+
+    if ( ! $name || ! $email || ! $message ) {
+        wp_send_json_error( __( 'Please fill in all required fields.', 'greenstar-theme' ) );
+    }
+
+    $to      = get_theme_mod( 'greenstar_email', get_option( 'admin_email' ) );
+    $subject = sprintf( '[GreenStar Inquiry] %s – from %s', $product_name, $name );
+    $body    = "Product: {$product_name}\nURL: {$product_url}\n\n";
+    $body   .= "Name: {$name}\nCompany: {$company}\nEmail: {$email}\nPhone: {$phone}\n\nMessage:\n{$message}";
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        "Reply-To: {$name} <{$email}>",
+    );
+
+    $sent = wp_mail( $to, $subject, $body, $headers );
+    if ( $sent ) {
+        wp_send_json_success();
+    } else {
+        wp_send_json_error( __( 'Could not send email. Please contact us directly.', 'greenstar-theme' ) );
+    }
+}
+add_action( 'wp_ajax_gsp_inquiry',        'gsp_handle_inquiry' );
+add_action( 'wp_ajax_nopriv_gsp_inquiry', 'gsp_handle_inquiry' );
+
+/* ==========================================================================
    8. Miscellaneous
    ========================================================================== */
 
@@ -562,6 +782,113 @@ function greenstar_product_sorting( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'greenstar_product_sorting' );
+
+
+/* ==========================================================================
+   9. Category Image Uploader in Admin
+   ========================================================================== */
+
+// 1. Enqueue media script on taxonomy pages
+function greenstar_category_image_enqueue( $hook_suffix ) {
+    if ( in_array( $hook_suffix, array( 'edit-tags.php', 'term.php' ) ) ) {
+        wp_enqueue_media();
+    }
+}
+add_action( 'admin_enqueue_scripts', 'greenstar_category_image_enqueue' );
+
+// 2. Add field to "Add New Category" form
+function greenstar_add_category_image_field() {
+    ?>
+    <div class="form-field term-group">
+        <label for="gs_category_image"><?php _e( 'Category Image', 'greenstar-theme' ); ?></label>
+        <input type="hidden" id="gs_category_image" name="gs_category_image" value="">
+        <div id="category-image-wrapper"></div>
+        <p>
+            <input type="button" class="button button-secondary gs_tax_media_button" id="gs_tax_media_button" name="gs_tax_media_button" value="<?php _e( 'Add Image', 'greenstar-theme' ); ?>" />
+            <input type="button" class="button button-secondary gs_tax_media_remove" id="gs_tax_media_remove" name="gs_tax_media_remove" value="<?php _e( 'Remove Image', 'greenstar-theme' ); ?>" style="display:none;" />
+        </p>
+    </div>
+    <script>
+    jQuery(document).ready(function($){
+        var frame;
+        $('#gs_tax_media_button').on('click', function(e) {
+            e.preventDefault();
+            if ( frame ) { frame.open(); return; }
+            frame = wp.media({ title: 'Select or Upload Category Image', button: { text: 'Use this image' }, multiple: false });
+            frame.on('select', function() {
+                var attachment = frame.state().get('selection').first().toJSON();
+                $('#gs_category_image').val(attachment.url);
+                $('#category-image-wrapper').html('<img src="'+attachment.url+'" style="max-width:100%; height:auto;" />');
+                $('#gs_tax_media_remove').show();
+            });
+            frame.open();
+        });
+        $('#gs_tax_media_remove').on('click', function(e){
+            e.preventDefault();
+            $('#gs_category_image').val('');
+            $('#category-image-wrapper').html('');
+            $(this).hide();
+        });
+    });
+    </script>
+    <?php
+}
+add_action( 'gs_category_add_form_fields', 'greenstar_add_category_image_field', 10, 2 );
+
+// 3. Add field to "Edit Category" form
+function greenstar_edit_category_image_field( $term, $taxonomy ) {
+    $image_url = get_term_meta( $term->term_id, 'gs_category_image', true );
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row"><label for="gs_category_image"><?php _e( 'Category Image', 'greenstar-theme' ); ?></label></th>
+        <td>
+            <input type="hidden" id="gs_category_image" name="gs_category_image" value="<?php echo esc_attr( $image_url ); ?>">
+            <div id="category-image-wrapper">
+                <?php if ( $image_url ) : ?>
+                    <img src="<?php echo esc_url( $image_url ); ?>" style="max-width: 150px; height: auto;" />
+                <?php endif; ?>
+            </div>
+            <p>
+                <input type="button" class="button button-secondary gs_tax_media_button" id="gs_tax_media_button" name="gs_tax_media_button" value="<?php _e( 'Upload/Edit Image', 'greenstar-theme' ); ?>" />
+                <input type="button" class="button button-secondary gs_tax_media_remove" id="gs_tax_media_remove" name="gs_tax_media_remove" value="<?php _e( 'Remove Image', 'greenstar-theme' ); ?>" <?php echo $image_url ? '' : 'style="display:none;"'; ?> />
+            </p>
+        </td>
+    </tr>
+    <script>
+    jQuery(document).ready(function($){
+        var frame;
+        $('#gs_tax_media_button').on('click', function(e) {
+            e.preventDefault();
+            if ( frame ) { frame.open(); return; }
+            frame = wp.media({ title: 'Select or Upload Category Image', button: { text: 'Use this image' }, multiple: false });
+            frame.on('select', function() {
+                var attachment = frame.state().get('selection').first().toJSON();
+                $('#gs_category_image').val(attachment.url);
+                $('#category-image-wrapper').html('<img src="'+attachment.url+'" style="max-width:150px; height:auto;" />');
+                $('#gs_tax_media_remove').show();
+            });
+            frame.open();
+        });
+        $('#gs_tax_media_remove').on('click', function(e){
+            e.preventDefault();
+            $('#gs_category_image').val('');
+            $('#category-image-wrapper').html('');
+            $(this).hide();
+        });
+    });
+    </script>
+    <?php
+}
+add_action( 'gs_category_edit_form_fields', 'greenstar_edit_category_image_field', 10, 2 );
+
+// 4. Save the image
+function greenstar_save_category_image( $term_id, $tt_id ) {
+    if ( isset( $_POST['gs_category_image'] ) ) {
+        update_term_meta( $term_id, 'gs_category_image', sanitize_url( $_POST['gs_category_image'] ) );
+    }
+}
+add_action( 'created_gs_category', 'greenstar_save_category_image', 10, 2 );
+add_action( 'edited_gs_category', 'greenstar_save_category_image', 10, 2 );
 
 /**
  * Append product categories to the Products menu item if it exists.

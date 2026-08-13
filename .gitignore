@@ -19,7 +19,7 @@ env/
 
 # WordPress Core & Setup
 wp-config.php
-wp-content/uploads/
+wordpress/wp-content/uploads/
 .htaccess
 
 # Playwright / Screenshots
