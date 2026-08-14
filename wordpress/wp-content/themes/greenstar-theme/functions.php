@@ -186,6 +186,36 @@ function greenstar_scripts() {
             );
         }
     }
+
+    // Single News/Blog CSS
+    if ( is_single() && 'post' === get_post_type() ) {
+        wp_enqueue_style(
+            'greenstar-single-news',
+            GREENSTAR_URI . '/assets/css/single-news.css',
+            array( 'greenstar-main' ),
+            filemtime( GREENSTAR_DIR . '/assets/css/single-news.css' )
+        );
+    }
+
+    // Technology Page CSS
+    if ( is_page_template( 'page-technology.php' ) ) {
+        wp_enqueue_style(
+            'greenstar-technology',
+            GREENSTAR_URI . '/assets/css/technology.css',
+            array( 'greenstar-main' ),
+            filemtime( GREENSTAR_DIR . '/assets/css/technology.css' )
+        );
+    }
+
+    // Contact Page CSS
+    if ( is_page_template( 'page-contact.php' ) ) {
+        wp_enqueue_style(
+            'greenstar-contact',
+            GREENSTAR_URI . '/assets/css/contact.css',
+            array( 'greenstar-main' ),
+            filemtime( GREENSTAR_DIR . '/assets/css/contact.css' )
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'greenstar_scripts' );
 
@@ -355,8 +385,33 @@ function greenstar_nav_fallback() {
     $news_url = $news_page_id ? get_permalink( $news_page_id ) : home_url( '/news/' );
     echo '<li' . $news_active . '><a href="' . esc_url( $news_url ) . '">' . esc_html__( 'News', 'greenstar-theme' ) . '</a></li>';
     
+    $tech_active = is_page_template( 'page-technology.php' ) ? ' class="current_page_item"' : '';
+    echo '<li' . $tech_active . '><a href="' . esc_url( home_url( '/our-technology/' ) ) . '">' . esc_html__( 'Our Technology', 'greenstar-theme' ) . '</a></li>';
+    
     echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'greenstar-theme' ) . '</a></li>';
     echo '</ul></nav>';
+}
+
+/**
+ * Force add Our Technology to the primary menu if it's a custom menu.
+ */
+add_filter( 'wp_nav_menu_items', 'greenstar_add_tech_to_menu', 10, 2 );
+function greenstar_add_tech_to_menu( $items, $args ) {
+    if ( $args->theme_location === 'primary' ) {
+        if ( strpos( $items, 'Our Technology' ) === false && strpos( $items, 'our-technology' ) === false && strpos( $items, 'nha-may' ) === false ) {
+            $tech_active = is_page_template( 'page-technology.php' ) ? ' current-menu-item current_page_item' : '';
+            // Insert it before the Contact link or just at the end if Contact is not found
+            $tech_link = '<li class="menu-item' . $tech_active . '"><a href="' . esc_url( home_url( '/nha-may/' ) ) . '">' . esc_html__( 'Our Technology', 'greenstar-theme' ) . '</a></li>';
+            
+            // Try to insert before Contact link
+            if ( strpos( $items, 'Contact' ) !== false ) {
+                $items = preg_replace( '/(<li[^>]*><a[^>]*>Contact<\/a><\/li>)/i', $tech_link . '$1', $items );
+            } else {
+                $items .= $tech_link;
+            }
+        }
+    }
+    return $items;
 }
 
 /**

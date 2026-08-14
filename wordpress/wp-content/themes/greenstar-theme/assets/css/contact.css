@@ -1,0 +1,228 @@
+/* ==========================================================================
+   GreenStar – Contact Page Styles
+   File: assets/css/contact.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Hero Section
+   -------------------------------------------------------------------------- */
+.contact-hero {
+    background: var(--color-primary-dark);
+    padding: 6rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/cta-bg.jpg'); /* Reuse existing pattern/image */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+.contact-hero__container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.contact-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.6s ease both;
+}
+.contact-hero__subtitle {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.8);
+    line-height: var(--lh-loose);
+    animation: fadeUp 0.6s ease 0.1s both;
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Contact Section (Grid)
+   -------------------------------------------------------------------------- */
+.contact-main {
+    padding: 6rem 0;
+    background: var(--color-off-white);
+}
+.contact-main__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   3. Contact Info Cards (Left Column)
+   -------------------------------------------------------------------------- */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.contact-card {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+.contact-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(45, 122, 45, 0.1);
+    color: var(--color-primary);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.contact-card__content {
+    flex: 1;
+}
+.contact-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+.contact-card__text {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+.contact-card__text a {
+    color: inherit;
+    transition: color var(--transition);
+}
+.contact-card__text a:hover {
+    color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. Contact Form (Right Column)
+   -------------------------------------------------------------------------- */
+.contact-form-wrapper {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+.contact-form-wrapper h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+.contact-form-wrapper p {
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+}
+
+.gs-contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.gs-contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+.gs-contact-form label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+.gs-contact-form input[type="text"],
+.gs-contact-form input[type="email"],
+.gs-contact-form input[type="tel"],
+.gs-contact-form textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--radius-md);
+    background: var(--color-off-white);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: all var(--transition);
+}
+.gs-contact-form input:focus,
+.gs-contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(45, 122, 45, 0.1);
+}
+.gs-contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+.gs-contact-form button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Map Section
+   -------------------------------------------------------------------------- */
+.contact-map {
+    width: 100%;
+    height: 500px;
+    background: var(--color-light-gray);
+    position: relative;
+}
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .contact-main__grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .contact-form-wrapper {
+        padding: 2.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .contact-hero {
+        padding: 4rem 0 3rem;
+    }
+    .gs-contact-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 0;
+    }
+    .contact-form-wrapper {
+        padding: 2rem 1.5rem;
+    }
+    .contact-map {
+        height: 350px;
+    }
+}
