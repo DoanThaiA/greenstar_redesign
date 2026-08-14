@@ -580,8 +580,96 @@ function greenstar_register_cpts() {
         'show_admin_column' => true,
         'rewrite'           => array( 'slug' => 'product-category' ),
     ) );
+
+    /* Partner custom post type */
+    register_post_type( 'gs_partner', array(
+        'labels' => array(
+            'name'               => __( 'Partners', 'greenstar-theme' ),
+            'singular_name'      => __( 'Partner', 'greenstar-theme' ),
+            'add_new'            => __( 'Add New Partner', 'greenstar-theme' ),
+            'add_new_item'       => __( 'Add New Partner', 'greenstar-theme' ),
+            'edit_item'          => __( 'Edit Partner', 'greenstar-theme' ),
+            'new_item'           => __( 'New Partner', 'greenstar-theme' ),
+            'view_item'          => __( 'View Partner', 'greenstar-theme' ),
+            'search_items'       => __( 'Search Partners', 'greenstar-theme' ),
+            'not_found'          => __( 'No partners found.', 'greenstar-theme' ),
+            'not_found_in_trash' => __( 'No partners found in Trash.', 'greenstar-theme' ),
+            'menu_name'          => __( 'Partners', 'greenstar-theme' ),
+        ),
+        'public'             => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'menu_position'      => 6,
+        'menu_icon'          => 'dashicons-networking',
+        'supports'           => array( 'title', 'thumbnail' ),
+        'has_archive'        => false,
+    ) );
+
+    /* Certification custom post type */
+    register_post_type( 'gs_certification', array(
+        'labels' => array(
+            'name'               => __( 'Certifications', 'greenstar-theme' ),
+            'singular_name'      => __( 'Certification', 'greenstar-theme' ),
+            'add_new'            => __( 'Add New Certification', 'greenstar-theme' ),
+            'add_new_item'       => __( 'Add New Certification', 'greenstar-theme' ),
+            'edit_item'          => __( 'Edit Certification', 'greenstar-theme' ),
+            'new_item'           => __( 'New Certification', 'greenstar-theme' ),
+            'view_item'          => __( 'View Certification', 'greenstar-theme' ),
+            'search_items'       => __( 'Search Certifications', 'greenstar-theme' ),
+            'not_found'          => __( 'No certifications found.', 'greenstar-theme' ),
+            'not_found_in_trash' => __( 'No certifications found in Trash.', 'greenstar-theme' ),
+            'menu_name'          => __( 'Certifications', 'greenstar-theme' ),
+        ),
+        'public'             => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'menu_position'      => 7,
+        'menu_icon'          => 'dashicons-awards',
+        'supports'           => array( 'title', 'thumbnail' ),
+        'has_archive'        => false,
+    ) );
 }
 add_action( 'init', 'greenstar_register_cpts' );
+
+/**
+ * Register Meta Box for Partner URL
+ */
+function gs_partner_add_meta_box() {
+    add_meta_box(
+        'gs_partner_url',
+        __( 'Partner Website URL', 'greenstar-theme' ),
+        'gs_partner_url_html',
+        'gs_partner',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'gs_partner_add_meta_box' );
+
+function gs_partner_url_html( $post ) {
+    $value = get_post_meta( $post->ID, '_gs_partner_url', true );
+    wp_nonce_field( 'gs_partner_url_nonce', 'gs_partner_url_nonce_field' );
+    ?>
+    <label for="gs_partner_url_input"><?php _e( 'Website URL:', 'greenstar-theme' ); ?></label>
+    <input type="url" id="gs_partner_url_input" name="gs_partner_url_input" value="<?php echo esc_attr( $value ); ?>" style="width:100%; margin-top:10px;" placeholder="https://example.com" />
+    <?php
+}
+
+function gs_partner_save_meta_box( $post_id ) {
+    if ( ! isset( $_POST['gs_partner_url_nonce_field'] ) || ! wp_verify_nonce( $_POST['gs_partner_url_nonce_field'], 'gs_partner_url_nonce' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+    if ( isset( $_POST['gs_partner_url_input'] ) ) {
+        update_post_meta( $post_id, '_gs_partner_url', esc_url_raw( $_POST['gs_partner_url_input'] ) );
+    }
+}
+add_action( 'save_post', 'gs_partner_save_meta_box' );
 
 /**
  * Automatically insert the 5 required product categories and delete any others.

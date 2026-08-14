@@ -28,10 +28,10 @@
                 <div class="social-links" aria-label="<?php esc_attr_e( 'Social Media', 'greenstar-theme' ); ?>">
                     <?php
                     $socials = array(
-                        'facebook'  => array( 'icon' => 'f',  'label' => 'Facebook' ),
-                        'instagram' => array( 'icon' => 'ig', 'label' => 'Instagram' ),
-                        'linkedin'  => array( 'icon' => 'in', 'label' => 'LinkedIn' ),
-                        'youtube'   => array( 'icon' => 'yt', 'label' => 'YouTube' ),
+                        'facebook'  => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',  'label' => 'Facebook' ),
+                        'instagram' => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>', 'label' => 'Instagram' ),
+                        'linkedin'  => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>', 'label' => 'LinkedIn' ),
+                        'youtube'   => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 7.17c0-1.6 1.3-2.9 2.9-2.9h13.2c1.6 0 2.9 1.3 2.9 2.9v9.66c0 1.6-1.3 2.9-2.9 2.9H5.4c-1.6 0-2.9-1.3-2.9-2.9V7.17z"/><path d="m10 15 5-3-5-3v6z"/></svg>', 'label' => 'YouTube' ),
                     );
                     foreach ( $socials as $network => $data ) :
                         $url = get_theme_mod( "greenstar_{$network}", '#' );
@@ -39,7 +39,7 @@
                         <a href="<?php echo esc_url( $url ); ?>"
                            target="_blank" rel="noopener noreferrer"
                            aria-label="<?php echo esc_attr( $data['label'] ); ?>">
-                            <?php echo esc_html( $data['icon'] ); ?>
+                            <?php echo $data['icon']; ?>
                         </a>
                     <?php endforeach; ?>
                 </div>

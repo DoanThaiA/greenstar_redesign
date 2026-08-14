@@ -122,9 +122,9 @@ get_header();
 
     <!-- Map Section -->
     <section class="contact-map" aria-label="<?php esc_attr_e( 'Our Location', 'greenstar-theme' ); ?>">
-        <!-- Standard placeholder iframe pointing to Hanoi, Vietnam -->
+        <!-- Map pointing to Viet Tower, Thai Ha, Hanoi -->
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d119176.0461877478!2d105.77258071804107!3d21.022696680414457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2sHanoi%2C%20Ho%C3%A0n%20Ki%E1%BA%BFm%2C%20Hanoi%2C%20Vietnam!5e0!3m2!1sen!2s!4v1714528190000!5m2!1sen!2s" 
+            src="https://maps.google.com/maps?q=Viet%20Tower,%201%20Thai%20Ha,%20Dong%20Da,%20Hanoi&t=&z=16&ie=UTF8&iwloc=&output=embed" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade"

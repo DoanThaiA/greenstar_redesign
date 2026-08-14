@@ -734,33 +734,137 @@ input, textarea, select { font-family: inherit; }
 
 .cert-intro { max-width: 680px; margin: 0 auto 3rem; text-align: center; }
 
+.certs-slider-wrapper {
+    position: relative;
+    padding: 0 50px;
+}
 .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.certs-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+.certs-grid > * {
+    flex: 0 0 calc(25% - 1.125rem);
+    scroll-snap-align: start;
 }
 
 .cert-card {
     display: flex; flex-direction: column; align-items: center;
-    padding: 2rem 1.25rem;
+    padding: 1rem;
     background: var(--color-white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     text-align: center;
     transition: all var(--transition);
+    border: 2px solid transparent;
 }
-.cert-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.cert-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+    transform: translateY(-6px);
+}
 
-.cert-card__icon {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-light-gray), var(--color-off-white));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.cert-card__img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    cursor: zoom-in;
 }
-.cert-card__name { font-weight: 700; font-size: var(--fs-base); color: var(--color-dark); }
-.cert-card__body { font-size: var(--fs-sm); color: var(--color-text-light); margin-top: .4rem; }
+
+/* Lightbox */
+.cert-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.cert-lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+.cert-lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.cert-lightbox.active .cert-lightbox-content {
+    transform: scale(1);
+}
+.cert-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 10000;
+}
+.cert-lightbox-close:hover {
+    color: var(--color-primary);
+}
+
+.cert-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    z-index: 10;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+    transition: all var(--transition);
+}
+.cert-slider-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+.cert-slider-btn.prev { left: 0; }
+.cert-slider-btn.next { right: 0; }
+
+@media (max-width: 992px) {
+    .certs-grid > * { flex: 0 0 calc(33.333% - 1rem); }
+}
+@media (max-width: 768px) {
+    .certs-grid > * { flex: 0 0 calc(50% - 0.75rem); }
+    .certs-slider-wrapper { padding: 0 20px; }
+    .cert-slider-btn { width: 34px; height: 34px; font-size: 1rem; }
+    .cert-slider-btn.prev { left: -10px; }
+    .cert-slider-btn.next { right: -10px; }
+}
+@media (max-width: 480px) {
+    .certs-grid > * { flex: 0 0 100%; }
+}
 
 /* --------------------------------------------------------------------------
    12. Global Export Section
@@ -1357,3 +1461,46 @@ input, textarea, select { font-family: inherit; }
     margin-top: 5px;
 }
 
+/* --------------------------------------------------------------------------
+   14. Partners Section
+   -------------------------------------------------------------------------- */
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: center;
+}
+.partner-card {
+    display: block;
+    width: 150px;
+    height: 80px;
+    background: transparent;
+    border-radius: var(--radius-md);
+    box-shadow: none;
+    padding: 0;
+    transition: all var(--transition);
+    border: none;
+    text-align: center;
+    overflow: hidden;
+}
+.partner-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all var(--transition);
+}
+.partner-card:hover {
+    transform: translateY(-6px);
+}
+
+@media (max-width: 768px) {
+    .partners-grid {
+        gap: 1.5rem;
+    }
+    .partner-card {
+        width: calc(50% - 0.75rem);
+        max-width: 140px;
+    }
+}
