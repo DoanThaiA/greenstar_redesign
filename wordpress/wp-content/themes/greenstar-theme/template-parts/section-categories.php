@@ -12,6 +12,7 @@
 $product_cats = get_terms( array(
     'taxonomy'   => 'gs_category',
     'hide_empty' => false,
+    'parent'     => 0,
     'number'     => 10,
 ) );
 

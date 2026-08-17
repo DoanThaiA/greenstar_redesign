@@ -68,13 +68,36 @@ $page_title = $current_term ? $current_term->name : __( 'GreenStar Products', 'g
                             $categories = get_terms( array(
                                 'taxonomy'   => 'gs_category',
                                 'hide_empty' => false,
+                                'parent'     => 0,
                             ) );
                             
                             if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
                                 foreach ( $categories as $category ) {
                                     $is_active = ( $current_term && $current_term->term_id === $category->term_id ) ? 'active' : '';
-                                    echo '<li class="cat-item ' . esc_attr( $is_active ) . '">';
-                                    echo '<a href="' . esc_url( get_term_link( $category ) ) . '">' . esc_html( $category->name ) . '</a>';
+
+                                    $subcats = get_terms( array(
+                                        'taxonomy'   => 'gs_category',
+                                        'hide_empty' => false,
+                                        'parent'     => $category->term_id,
+                                    ) );
+                                    $has_subcats = ! is_wp_error( $subcats ) && ! empty( $subcats );
+
+                                    echo '<li class="cat-item ' . esc_attr( $is_active ) . ( $has_subcats ? ' has-subcats' : '' ) . '">';
+                                    echo '<a href="' . esc_url( get_term_link( $category ) ) . '">';
+                                    echo '<span>' . esc_html( $category->name ) . '</span>';
+                                    if ( $has_subcats ) {
+                                        echo '<span class="cat-item__arrow">&rsaquo;</span>';
+                                    }
+                                    echo '</a>';
+
+                                    if ( $has_subcats ) {
+                                        echo '<ul class="cat-item__subflyout">';
+                                        foreach ( $subcats as $subcat ) {
+                                            echo '<li><a href="' . esc_url( get_term_link( $subcat ) ) . '">' . esc_html( $subcat->name ) . '</a></li>';
+                                        }
+                                        echo '</ul>';
+                                    }
+
                                     echo '</li>';
                                 }
                             }

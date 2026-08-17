@@ -543,10 +543,10 @@ input, textarea, select { font-family: inherit; }
     background: var(--color-white);
     transition: all var(--transition);
 }
-.feature-card:hover {
+.features-grid .feature-card:hover {
     box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
     border-color: var(--color-primary-light);
+    transform: translateY(-6px);
 }
 
 .feature-card__icon {
@@ -641,6 +641,10 @@ input, textarea, select { font-family: inherit; }
     font-weight: 700;
     font-size: var(--fs-sm);
     color: var(--color-dark);
+    transition: color var(--transition);
+}
+.category-card:hover .category-card__name {
+    color: var(--color-primary-dark);
 }
 .category-card__count { font-size: var(--fs-xs); color: var(--color-text-light); margin-top: .25rem; }
 
@@ -1233,13 +1237,67 @@ input, textarea, select { font-family: inherit; }
     margin: 0;
 }
 .gs-category-list li {
+    position: relative;
     margin-bottom: 16px;
 }
 .gs-category-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
     color: #8bc34a;
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
+    transition: color var(--transition);
+}
+.gs-category-list li a:hover {
+    color: var(--color-primary-dark);
+}
+.cat-item__arrow {
+    color: var(--color-primary-light);
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Sub-category flyout (e.g. Coffee's children) */
+.cat-item__subflyout {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    position: absolute;
+    top: -10px;
+    left: calc(100% + 14px);
+    width: 220px;
+    background: #f0f3eb;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-8px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    z-index: 20;
+}
+.cat-item.has-subcats:hover .cat-item__subflyout {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+.cat-item__subflyout li {
+    margin-bottom: 0;
+}
+.cat-item__subflyout li a {
+    display: block;
+    padding: 10px 20px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.cat-item__subflyout li:last-child a { border-bottom: none; }
+.cat-item__subflyout li a:hover {
+    color: var(--color-primary-dark);
+    background: #f8faf6;
 }
 .gs-explore-btn {
     display: block;
@@ -1421,9 +1479,6 @@ input, textarea, select { font-family: inherit; }
     overflow: visible;
     padding: 20px;
     margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     aspect-ratio: 1; /* Keep it square for the blob */
 }
 .gs-product-card__img-wrapper::before {
@@ -1435,8 +1490,11 @@ input, textarea, select { font-family: inherit; }
     z-index: -1;
 }
 .gs-product-card__img-wrapper img {
-    max-width: 100%;
-    height: auto;
+    position: absolute;
+    inset: 20px; /* matches wrapper padding, since absolutely-positioned children ignore it */
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    object-fit: contain;
     display: block;
 }
 .gs-product-card__body {
