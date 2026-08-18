@@ -19,7 +19,6 @@ env/
 
 # WordPress Core & Setup
 wp-config.php
-wordpress/wp-content/uploads/
 .htaccess
 
 # Playwright / Screenshots
