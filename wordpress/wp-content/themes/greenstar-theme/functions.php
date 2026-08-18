@@ -33,7 +33,7 @@ function greenstar_setup() {
 
     // Custom image sizes
     add_image_size( 'greenstar-hero',    1920, 900, true );
-    add_image_size( 'greenstar-card',    600,  400, true );
+    add_image_size( 'greenstar-card',    600,  400, false );
     add_image_size( 'greenstar-thumb',   300,  300, true );
     add_image_size( 'greenstar-gallery', 800,  600, true );
 
@@ -131,7 +131,7 @@ function greenstar_scripts() {
         'greenstar-main',
         GREENSTAR_URI . '/assets/js/main.js',
         array(),
-        GREENSTAR_VERSION,
+        filemtime( GREENSTAR_DIR . '/assets/js/main.js' ),
         true   // load in footer
     );
 
@@ -346,16 +346,17 @@ function greenstar_nav_fallback() {
     echo '<ul role="menubar">';
     echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'greenstar-theme' ) . '</a></li>';
     
-    // Get product categories
+    // Get top-level product categories only (sub-categories are not shown in this menu)
     $categories = get_terms( array(
         'taxonomy'   => 'gs_category',
         'hide_empty' => false,
+        'parent'     => 0,
     ) );
-    
+
     if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
         echo '<li class="menu-item-has-children gs-mega-menu-item"><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a>';
         echo '<div class="gs-mega-menu-wrapper">';
-        
+
         echo '<div class="gs-mega-menu-cats">';
         foreach ( $categories as $category ) {
             $cat_img = get_term_meta( $category->term_id, 'gs_category_image', true );
@@ -364,13 +365,14 @@ function greenstar_nav_fallback() {
             if ( is_wp_error( $cat_link ) ) {
                 $cat_link = '#';
             }
+
             echo '<a href="' . esc_url( $cat_link ) . '" class="gs-mega-cat">';
             echo '<div class="gs-mega-cat-img"><img src="' . $img_url . '" alt="' . esc_attr( $category->name ) . '"></div>';
             echo '<span class="gs-mega-cat-name">' . esc_html( $category->name ) . '</span>';
             echo '</a>';
         }
         echo '</div>'; // .gs-mega-menu-cats
-        
+
         echo '</div></li>'; // .gs-mega-menu-wrapper, li
     } else {
         echo '<li><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a></li>';

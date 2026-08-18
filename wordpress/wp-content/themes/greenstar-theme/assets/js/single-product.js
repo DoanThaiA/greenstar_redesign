@@ -9,6 +9,7 @@
 
     /* ── Gallery ──────────────────────────────────────────────────────── */
     const mainImg   = document.getElementById( 'gsp-main-image' );
+    const mainWrap  = document.getElementById( 'gsp-main-image-wrap' );
     const thumbsEl  = document.getElementById( 'gsp-thumbs' );
     const prevBtn   = document.querySelector( '.gsp-gallery__prev' );
     const nextBtn   = document.querySelector( '.gsp-gallery__next' );
@@ -17,18 +18,35 @@
         const images  = gspData.images || [];
         let current   = 0;
 
+        // Match the frame's aspect ratio to the actual photo so nothing is cropped or letterboxed
+        function matchAspect( imgEl ) {
+            if ( mainWrap && imgEl.naturalWidth && imgEl.naturalHeight ) {
+                mainWrap.style.aspectRatio = imgEl.naturalWidth + ' / ' + imgEl.naturalHeight;
+            }
+        }
+        if ( mainImg.complete ) {
+            matchAspect( mainImg );
+        } else {
+            mainImg.addEventListener( 'load', () => matchAspect( mainImg ), { once: true } );
+        }
+
         function setImage( index, smooth = true ) {
             if ( ! images[ index ] ) return;
             current = index;
 
+            const applyImage = () => {
+                mainImg.addEventListener( 'load', () => matchAspect( mainImg ), { once: true } );
+                mainImg.src = images[ index ];
+            };
+
             if ( smooth ) {
                 mainImg.classList.add( 'fade' );
                 setTimeout( () => {
-                    mainImg.src = images[ index ];
+                    applyImage();
                     mainImg.classList.remove( 'fade' );
                 }, 220 );
             } else {
-                mainImg.src = images[ index ];
+                applyImage();
             }
 
             // update thumbs
@@ -66,6 +84,29 @@
             galleryEl.addEventListener( 'keydown', ( e ) => {
                 if ( e.key === 'ArrowLeft' )  setImage( ( current - 1 + images.length ) % images.length );
                 if ( e.key === 'ArrowRight' ) setImage( ( current + 1 ) % images.length );
+            } );
+        }
+
+        // Hover-to-zoom on the main image (desktop/mouse only)
+        if ( mainWrap && window.matchMedia( '(hover: hover) and (pointer: fine)' ).matches ) {
+            mainWrap.classList.add( 'can-zoom' );
+
+            mainWrap.addEventListener( 'mouseenter', () => {
+                mainWrap.classList.add( 'zooming' );
+            } );
+
+            mainWrap.addEventListener( 'mousemove', ( e ) => {
+                const rect = mainImg.getBoundingClientRect();
+                const xPct = ( ( e.clientX - rect.left ) / rect.width ) * 100;
+                const yPct = ( ( e.clientY - rect.top ) / rect.height ) * 100;
+                mainImg.style.transformOrigin =
+                    Math.max( 0, Math.min( 100, xPct ) ) + '% ' +
+                    Math.max( 0, Math.min( 100, yPct ) ) + '%';
+            } );
+
+            mainWrap.addEventListener( 'mouseleave', () => {
+                mainWrap.classList.remove( 'zooming' );
+                mainImg.style.transformOrigin = '50% 50%';
             } );
         }
     }
