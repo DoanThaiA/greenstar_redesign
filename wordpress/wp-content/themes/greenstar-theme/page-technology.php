@@ -80,20 +80,20 @@ get_header();
         <div class="container">
             <h2 class="tech-gallery__title"><?php esc_html_e( 'Our Facilities', 'greenstar-theme' ); ?></h2>
             <div class="tech-gallery__grid">
-                
+
                 <div class="gallery-item">
                     <!-- Assuming images are available via wp-content/uploads or theme assets. Using placeholder paths based on standard WordPress. We will use a generic placeholder or dynamic loading if they are attachments. Since these were static in the screenshot, I'll link them assuming they exist in the media library, or I will use a reliable placeholder for the demonstration if I don't have the exact image paths. -->
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder.jpg' ); ?>" alt="Factory Floor">
                 </div>
-                
+
                 <div class="gallery-item">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder.jpg' ); ?>" alt="Drying Area">
                 </div>
-                
+
                 <div class="gallery-item">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder.jpg' ); ?>" alt="Processing Machinery">
                 </div>
-                
+
             </div>
         </div>
     </section>

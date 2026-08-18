@@ -16,7 +16,7 @@ error_log
 wp-config.php
 wp-config-docker.php
 wp-config-sample.php
-wp-content/uploads/
 wp-content/upgrade/
+wp-content/ai1wm-backups/
 readme.html
 license.txt
