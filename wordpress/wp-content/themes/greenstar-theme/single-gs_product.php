@@ -210,6 +210,7 @@ endwhile;
     <!-- ── Tabs: Description / Specifications ──────────────────────────── -->
     <section class="gsp-tabs-section">
         <div class="container">
+            <div class="gsp-tabs-card">
             <div class="gsp-tabs" role="tablist" aria-label="<?php esc_attr_e( 'Product information', 'greenstar-theme' ); ?>">
                 <button class="gsp-tab-btn active" role="tab" aria-selected="true" aria-controls="tab-description" id="tab-btn-description">
                     <?php esc_html_e( 'Description', 'greenstar-theme' ); ?>
@@ -217,7 +218,11 @@ endwhile;
                 <button class="gsp-tab-btn" role="tab" aria-selected="false" aria-controls="tab-specs" id="tab-btn-specs">
                     <?php esc_html_e( 'Specifications', 'greenstar-theme' ); ?>
                 </button>
+                <button class="gsp-tab-btn" role="tab" aria-selected="false" aria-controls="tab-store-info" id="tab-btn-store-info">
+                    <?php esc_html_e( 'Store Information', 'greenstar-theme' ); ?>
+                </button>
             </div>
+            <div class="gsp-tab-panels">
 
             <!-- Description tab -->
             <div class="gsp-tab-panel" id="tab-description" role="tabpanel" aria-labelledby="tab-btn-description">
@@ -266,6 +271,19 @@ endwhile;
                 </div>
                 <?php endif; ?>
             </div>
+
+            <!-- Store Information tab -->
+            <div class="gsp-tab-panel" id="tab-store-info" role="tabpanel" aria-labelledby="tab-btn-store-info" hidden>
+                <div class="gsp-description-content gsp-store-info">
+                    <h2><?php esc_html_e( 'Green Star Vietnam Import–Export Joint Stock Company', 'greenstar-theme' ); ?></h2>
+                    <p>📍 <?php esc_html_e( 'Address: 4th Floor, Viet Tower Building, No. 1 Thai Ha Street, Trung Liet Ward, Dong Da District, Hanoi, Vietnam.', 'greenstar-theme' ); ?></p>
+                    <p>📞 <?php esc_html_e( 'Hotline: 0933 898 896', 'greenstar-theme' ); ?></p>
+                    <p>🌐 <?php esc_html_e( 'Website:', 'greenstar-theme' ); ?> <a href="https://greenstarvietnam.com/" target="_blank" rel="noopener">GreenStarVietNam.Com</a></p>
+                    <p>📧 <?php esc_html_e( 'Email: ketoangreenstar2023@gmail.com', 'greenstar-theme' ); ?></p>
+                </div>
+            </div>
+            </div><!-- .gsp-tab-panels -->
+            </div><!-- .gsp-tabs-card -->
 
         </div>
     </section>

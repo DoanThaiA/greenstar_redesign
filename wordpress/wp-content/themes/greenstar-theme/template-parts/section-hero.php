@@ -10,8 +10,9 @@ $hero_badge    = __( 'ABOUT GREENSTAR', 'greenstar-theme' );
 $hero_title    = "Premium Vietnamese\nRice Products";
 $hero_subtitle = __( 'With over 20 years of experience, Greenstar brings the best of Vietnamese cuisine to the world. We specialize in exporting high-quality rice noodles, pho, and rice paper to global markets.', 'greenstar-theme' );
 
-// Hero background image
-$hero_bg_id  = get_theme_mod( 'greenstar_hero_bg', 0 );
+// Hero background image (homepage-only; see greenstar_hero_bg for the
+// About page hero, kept separate so setting one doesn't affect the other)
+$hero_bg_id  = get_theme_mod( 'greenstar_home_hero_bg', 0 );
 $hero_bg_url = $hero_bg_id
     ? wp_get_attachment_image_url( $hero_bg_id, 'greenstar-hero' )
     : get_template_directory_uri() . '/assets/images/hero-bg.jpg';

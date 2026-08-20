@@ -181,6 +181,26 @@
     padding: 1rem;
     font-size: 1.1rem;
 }
+.gsp-form-status {
+    margin-top: 1rem;
+    padding: .75rem 1rem;
+    border-radius: var(--radius-md);
+    display: none;
+    text-align: center;
+    font-size: var(--fs-sm);
+}
+.gsp-form-status.success {
+    display: block;
+    background: rgba(45,122,45,.08);
+    color: var(--color-primary-dark);
+    border: 1px solid rgba(45,122,45,.2);
+}
+.gsp-form-status.error {
+    display: block;
+    background: rgba(200,0,0,.06);
+    color: #c00;
+    border: 1px solid rgba(200,0,0,.15);
+}
 
 /* --------------------------------------------------------------------------
    5. Map Section

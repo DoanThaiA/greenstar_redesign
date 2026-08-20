@@ -81,8 +81,8 @@ get_header();
                     <h2><?php esc_html_e( 'Send us a message', 'greenstar-theme' ); ?></h2>
                     <p><?php esc_html_e( 'Fill out the form below and our team will get back to you shortly.', 'greenstar-theme' ); ?></p>
                     
-                    <form action="#" method="POST" class="gs-contact-form" aria-label="<?php esc_attr_e( 'Contact Form', 'greenstar-theme' ); ?>">
-                        
+                    <form id="gs-contact-form" method="POST" class="gs-contact-form" aria-label="<?php esc_attr_e( 'Contact Form', 'greenstar-theme' ); ?>">
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contact_name"><?php esc_html_e( 'Full Name *', 'greenstar-theme' ); ?></label>
@@ -110,9 +110,11 @@ get_header();
                             <textarea id="contact_message" name="contact_message" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" id="gs-contact-submit-btn" class="btn btn-primary">
                             <?php esc_html_e( 'Send Message', 'greenstar-theme' ); ?>
                         </button>
+
+                        <p id="gs-contact-status" class="gsp-form-status" role="status" aria-live="polite"></p>
                     </form>
                 </div>
 

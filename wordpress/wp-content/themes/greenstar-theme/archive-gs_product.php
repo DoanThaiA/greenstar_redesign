@@ -70,7 +70,7 @@ $page_title = $current_term ? $current_term->name : __( 'GreenStar Products', 'g
                                 'hide_empty' => false,
                                 'parent'     => 0,
                             ) );
-                            
+
                             if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
                                 foreach ( $categories as $category ) {
                                     $is_active = ( $current_term && $current_term->term_id === $category->term_id ) ? 'active' : '';

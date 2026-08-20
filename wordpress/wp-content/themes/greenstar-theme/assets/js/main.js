@@ -250,7 +250,141 @@
     }
 
     /* -----------------------------------------------------------------------
-       9. Active nav link based on current page
+       9. Newsletter subscribe form (CTA banner)
+    ----------------------------------------------------------------------- */
+    const newsletterForm = qs('#cta-newsletter-form');
+    if (newsletterForm && window.greenstarData) {
+        const msg = qs('#cta-newsletter-msg');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailField = qs('#cta-newsletter-email', newsletterForm);
+            const email = emailField.value.trim();
+            const submitBtn = qs('button[type="submit"]', newsletterForm);
+
+            submitBtn.disabled = true;
+            if (msg) { msg.textContent = ''; msg.className = 'cta-section__newsletter-msg'; }
+
+            const body = new URLSearchParams({
+                action: 'greenstar_subscribe',
+                nonce: greenstarData.nonce,
+                email,
+            });
+
+            fetch(greenstarData.ajaxUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (msg) {
+                        msg.textContent = data.data || '';
+                        msg.classList.add(data.success ? 'is-success' : 'is-error');
+                    }
+                    if (data.success) {
+                        newsletterForm.reset();
+                    }
+                })
+                .catch(() => {
+                    if (msg) {
+                        msg.textContent = 'Something went wrong. Please try again.';
+                        msg.classList.add('is-error');
+                    }
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                });
+        });
+    }
+
+    /* -----------------------------------------------------------------------
+       10. Contact page form
+    ----------------------------------------------------------------------- */
+    const contactForm = qs('#gs-contact-form');
+    if (contactForm && window.greenstarData) {
+        const contactStatus  = qs('#gs-contact-status');
+        const contactSubmit  = qs('#gs-contact-submit-btn');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            contactSubmit.disabled = true;
+            if (contactStatus) { contactStatus.textContent = ''; contactStatus.className = 'gsp-form-status'; }
+
+            const body = new URLSearchParams({
+                action: 'greenstar_contact',
+                nonce: greenstarData.nonce,
+                contact_name: qs('#contact_name', contactForm).value,
+                contact_email: qs('#contact_email', contactForm).value,
+                contact_phone: qs('#contact_phone', contactForm).value,
+                contact_subject: qs('#contact_subject', contactForm).value,
+                contact_message: qs('#contact_message', contactForm).value,
+            });
+
+            fetch(greenstarData.ajaxUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (contactStatus) {
+                        contactStatus.textContent = data.data || '';
+                        contactStatus.classList.add(data.success ? 'success' : 'error');
+                    }
+                    if (data.success) {
+                        contactForm.reset();
+                    }
+                })
+                .catch(() => {
+                    if (contactStatus) {
+                        contactStatus.textContent = 'Something went wrong. Please try again.';
+                        contactStatus.classList.add('error');
+                    }
+                })
+                .finally(() => {
+                    contactSubmit.disabled = false;
+                });
+        });
+    }
+
+    /* -----------------------------------------------------------------------
+       11. Facility gallery carousel arrows
+    ----------------------------------------------------------------------- */
+    qsa('.tech-gallery__carousel').forEach((carousel) => {
+        const track = qs('.tech-gallery__grid', carousel);
+        const prev  = qs('.tech-gallery__nav--prev', carousel);
+        const next  = qs('.tech-gallery__nav--next', carousel);
+        if (!track) return;
+
+        const scrollByCard = (dir) => {
+            const card = qs('.gallery-item', track);
+            const amount = card ? card.getBoundingClientRect().width + 24 : 320;
+            track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+        };
+
+        prev?.addEventListener('click', () => scrollByCard(-1));
+        next?.addEventListener('click', () => scrollByCard(1));
+    });
+
+    /* -----------------------------------------------------------------------
+       12. Product archive — FILTER button toggles the sidebar
+    ----------------------------------------------------------------------- */
+    const filterBtn = qs('.gs-filter-btn');
+    const archiveSidebar = qs('.gs-archive-sidebar');
+    const archiveLayout  = qs('.gs-archive-layout');
+    if (filterBtn && archiveSidebar) {
+        filterBtn.setAttribute('aria-expanded', 'true');
+        filterBtn.addEventListener('click', () => {
+            const hidden = archiveSidebar.classList.toggle('is-hidden');
+            archiveLayout?.classList.toggle('sidebar-hidden', hidden);
+            filterBtn.classList.toggle('is-active', !hidden);
+            filterBtn.setAttribute('aria-expanded', String(!hidden));
+        });
+    }
+
+    /* -----------------------------------------------------------------------
+       13. Active nav link based on current page
     ----------------------------------------------------------------------- */
     const currentUrl = window.location.pathname + window.location.search + window.location.hash;
     qsa('.main-nav a').forEach((link) => {

@@ -44,56 +44,42 @@ get_header();
         </div>
     </section>
 
-    <!-- Key Highlights -->
-    <section class="tech-highlights">
-        <div class="container">
-            <h2 class="tech-highlights__title"><?php esc_html_e( 'Key Highlights', 'greenstar-theme' ); ?></h2>
-            <div class="tech-highlights__grid">
-                
-                <div class="highlight-card">
-                    <div class="highlight-card__icon">🏭</div>
-                    <div class="highlight-card__value">1,000</div>
-                    <div class="highlight-card__label">Square Meters</div>
-                    <div class="highlight-card__desc">Modern factory and production area designed for optimal workflow.</div>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-card__icon">📦</div>
-                    <div class="highlight-card__value">500</div>
-                    <div class="highlight-card__label">Tons Capacity</div>
-                    <div class="highlight-card__desc">Consistent supply of high-quality dried rice vermicelli, pho, and glass noodles.</div>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-card__icon">🛡️</div>
-                    <div class="highlight-card__value">100%</div>
-                    <div class="highlight-card__label">Quality Controlled</div>
-                    <div class="highlight-card__desc">Strict standards from raw material selection to packaging and distribution.</div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
     <!-- Factory Gallery -->
     <section class="tech-gallery">
         <div class="container">
             <h2 class="tech-gallery__title"><?php esc_html_e( 'Our Facilities', 'greenstar-theme' ); ?></h2>
-            <div class="tech-gallery__grid">
+            <div class="tech-gallery__carousel">
+                <button type="button" class="tech-gallery__nav tech-gallery__nav--prev" aria-label="<?php esc_attr_e( 'Previous', 'greenstar-theme' ); ?>">&#10094;</button>
 
-                <div class="gallery-item">
-                    <!-- Assuming images are available via wp-content/uploads or theme assets. Using placeholder paths based on standard WordPress. We will use a generic placeholder or dynamic loading if they are attachments. Since these were static in the screenshot, I'll link them assuming they exist in the media library, or I will use a reliable placeholder for the demonstration if I don't have the exact image paths. -->
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder.jpg' ); ?>" alt="Factory Floor">
+                <div class="tech-gallery__grid">
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 366, 'large', false, array( 'alt' => 'Factory Floor' ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 367, 'large', false, array( 'alt' => 'Drying Area' ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 368, 'large', false, array( 'alt' => 'Processing Machinery' ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 369, 'large', false, array( 'alt' => 'Loading Truck' ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 370, 'large', false, array( 'alt' => 'Container Loading' ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 371, 'large', false, array( 'alt' => 'Packaged Products' ) ); ?>
+                    </div>
+
                 </div>
 
-                <div class="gallery-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder.jpg' ); ?>" alt="Drying Area">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder.jpg' ); ?>" alt="Processing Machinery">
-                </div>
-
+                <button type="button" class="tech-gallery__nav tech-gallery__nav--next" aria-label="<?php esc_attr_e( 'Next', 'greenstar-theme' ); ?>">&#10095;</button>
             </div>
         </div>
     </section>

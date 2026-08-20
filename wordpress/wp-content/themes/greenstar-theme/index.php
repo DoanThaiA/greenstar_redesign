@@ -16,8 +16,14 @@ get_header();
         <?php if ( have_posts() ) : ?>
 
             <header class="page-header text-center" style="margin-bottom:3rem;">
-                <h1 class="section-title"><?php the_archive_title(); ?></h1>
-                <?php the_archive_description( '<p class="section-subtitle" style="margin:0 auto;">', '</p>' ); ?>
+                <?php if ( is_search() ) : ?>
+                    <h1 class="section-title">
+                        <?php printf( esc_html__( 'Search Results for: %s', 'greenstar-theme' ), '<span>' . get_search_query() . '</span>' ); ?>
+                    </h1>
+                <?php else : ?>
+                    <h1 class="section-title"><?php the_archive_title(); ?></h1>
+                    <?php the_archive_description( '<p class="section-subtitle" style="margin:0 auto;">', '</p>' ); ?>
+                <?php endif; ?>
             </header>
 
             <div class="product-grid">

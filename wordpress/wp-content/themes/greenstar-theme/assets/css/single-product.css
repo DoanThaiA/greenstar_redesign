@@ -270,32 +270,41 @@
     border-top: 1px solid var(--color-light-gray);
 }
 
+.gsp-tabs-card {
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
 .gsp-tabs {
     display: flex;
-    border-bottom: 2px solid var(--color-light-gray);
-    margin-bottom: 2.5rem;
+    background: var(--color-off-white);
+    border-bottom: 1px solid var(--color-light-gray);
     gap: 0;
 }
 .gsp-tab-btn {
-    padding: .85rem 2rem;
+    padding: .85rem 1.75rem;
     font-family: var(--font-heading);
     font-size: var(--fs-base);
     font-weight: 700;
     color: var(--color-text-light);
     border: none;
+    border-right: 1px solid var(--color-light-gray);
     background: transparent;
     cursor: pointer;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    transition: color var(--transition), border-color var(--transition);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color var(--transition), background var(--transition), border-color var(--transition);
     letter-spacing: .02em;
 }
 .gsp-tab-btn:hover { color: var(--color-primary); }
 .gsp-tab-btn.active {
     color: var(--color-primary);
+    background: var(--color-white);
     border-bottom-color: var(--color-primary);
 }
 
+.gsp-tab-panels { padding: 2rem; }
 .gsp-tab-panel { display: block; }
 .gsp-tab-panel[hidden] { display: none; }
 

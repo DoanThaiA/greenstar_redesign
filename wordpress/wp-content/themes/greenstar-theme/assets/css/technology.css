@@ -150,17 +150,66 @@
     font-size: clamp(2rem, 4vw, 2.5rem);
     margin-bottom: 3rem;
 }
+.tech-gallery__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
 .tech-gallery__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.tech-gallery__grid::-webkit-scrollbar {
+    display: none;
+}
+.tech-gallery__nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(26, 46, 26, .45);
+    color: var(--color-white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%);
+    transition: background .2s ease, opacity .2s ease, visibility .2s ease;
+}
+.tech-gallery__nav--prev {
+    left: .75rem;
+}
+.tech-gallery__nav--next {
+    right: .75rem;
+}
+.tech-gallery__carousel:hover .tech-gallery__nav {
+    opacity: 1;
+    visibility: visible;
+}
+.tech-gallery__nav:hover {
+    background: rgba(26, 46, 26, .75);
 }
 .gallery-item {
     position: relative;
+    flex: 0 0 320px;
     border-radius: var(--radius-lg);
     overflow: hidden;
     aspect-ratio: 4/3;
     box-shadow: var(--shadow-sm);
+    scroll-snap-align: start;
 }
 .gallery-item img {
     width: 100%;
@@ -187,15 +236,17 @@
     .tech-highlights__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .tech-gallery__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 @media (max-width: 768px) {
     .tech-highlights__grid {
         grid-template-columns: 1fr;
     }
-    .tech-gallery__grid {
-        grid-template-columns: 1fr;
+    .gallery-item {
+        flex-basis: 240px;
+    }
+    .tech-gallery__nav {
+        width: 36px;
+        height: 36px;
+        font-size: .9rem;
     }
 }

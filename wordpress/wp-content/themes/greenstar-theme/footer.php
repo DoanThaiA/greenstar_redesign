@@ -22,27 +22,9 @@
                     <?php endif; ?>
                 </a>
 
-                <p><?php esc_html_e( 'Vietnam\'s leading manufacturer of premium freeze-dried herbs, vegetables and natural supplements. Supplying quality natural ingredients to 30+ countries worldwide.', 'greenstar-theme' ); ?></p>
+                <p><?php esc_html_e( 'Green Star Vietnam Import–Export Joint Stock Company is a leading representative in delivering and introducing the finest nutritional values of Vietnamese cuisine, especially rice-based products, one of Vietnam\'s most iconic and traditional ingredients, to customers worldwide.', 'greenstar-theme' ); ?></p>
 
-                <!-- Social links -->
-                <div class="social-links" aria-label="<?php esc_attr_e( 'Social Media', 'greenstar-theme' ); ?>">
-                    <?php
-                    $socials = array(
-                        'facebook'  => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',  'label' => 'Facebook' ),
-                        'instagram' => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>', 'label' => 'Instagram' ),
-                        'linkedin'  => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>', 'label' => 'LinkedIn' ),
-                        'youtube'   => array( 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 7.17c0-1.6 1.3-2.9 2.9-2.9h13.2c1.6 0 2.9 1.3 2.9 2.9v9.66c0 1.6-1.3 2.9-2.9 2.9H5.4c-1.6 0-2.9-1.3-2.9-2.9V7.17z"/><path d="m10 15 5-3-5-3v6z"/></svg>', 'label' => 'YouTube' ),
-                    );
-                    foreach ( $socials as $network => $data ) :
-                        $url = get_theme_mod( "greenstar_{$network}", '#' );
-                    ?>
-                        <a href="<?php echo esc_url( $url ); ?>"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="<?php echo esc_attr( $data['label'] ); ?>">
-                            <?php echo $data['icon']; ?>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
+                <?php $zalo_url = get_theme_mod( 'greenstar_zalo', 'https://zalo.me/0933898896' ); ?>
             </div>
 
             <!-- Products column -->
@@ -54,17 +36,17 @@
                     'container'      => false,
                     'fallback_cb'    => function() {
                         echo '<ul>';
-                        $items = array(
-                            __( 'Freeze-Dried Vegetables', 'greenstar-theme' ) => '/products/',
-                            __( 'Freeze-Dried Fruits',     'greenstar-theme' ) => '/products/',
-                            __( 'Herbal Powders',          'greenstar-theme' ) => '/products/',
-                            __( 'Spices & Seasonings',     'greenstar-theme' ) => '/products/',
-                            __( 'Mushroom Extracts',       'greenstar-theme' ) => '/products/',
-                            __( 'View All Products',       'greenstar-theme' ) => '/products/',
-                        );
-                        foreach ( $items as $label => $path ) {
-                            echo '<li><a href="' . esc_url( home_url( $path ) ) . '">' . esc_html( $label ) . '</a></li>';
+                        $cats = get_terms( array(
+                            'taxonomy'   => 'gs_category',
+                            'parent'     => 0,
+                            'hide_empty' => false,
+                        ) );
+                        if ( ! is_wp_error( $cats ) ) {
+                            foreach ( $cats as $cat ) {
+                                echo '<li><a href="' . esc_url( get_term_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a></li>';
+                            }
                         }
+                        echo '<li><a href="' . esc_url( home_url( '/products/' ) ) . '">' . esc_html__( 'View All Products', 'greenstar-theme' ) . '</a></li>';
                         echo '</ul>';
                     },
                 ) );
@@ -103,19 +85,19 @@
                 <ul class="footer-contact">
                     <li>
                         <span class="icon" aria-hidden="true">📍</span>
-                        <?php echo esc_html( get_theme_mod( 'greenstar_address', __( 'Ho Chi Minh City, Vietnam', 'greenstar-theme' ) ) ); ?>
+                        <?php echo esc_html( get_theme_mod( 'greenstar_address', __( '4th Floor, Viet Tower Building, No. 1 Thai Ha Street, Trung Liet Ward, Dong Da District, Hanoi, Vietnam', 'greenstar-theme' ) ) ); ?>
                     </li>
                     <li>
                         <span class="icon" aria-hidden="true">📞</span>
                         <?php
-                        $phone = get_theme_mod( 'greenstar_phone', '+84 28 3823 0000' );
+                        $phone = get_theme_mod( 'greenstar_phone', '0933 898 896' );
                         echo '<a href="tel:' . esc_attr( preg_replace( '/\s+/', '', $phone ) ) . '">' . esc_html( $phone ) . '</a>';
                         ?>
                     </li>
                     <li>
                         <span class="icon" aria-hidden="true">✉</span>
                         <?php
-                        $email = get_theme_mod( 'greenstar_email', 'info@greenstar.vn' );
+                        $email = get_theme_mod( 'greenstar_email', 'ketoangreenstar2023@gmail.com' );
                         echo '<a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a>';
                         ?>
                     </li>
@@ -146,6 +128,31 @@
     </div><!-- .footer-bottom -->
 
 </footer><!-- #colophon -->
+
+<!-- Zalo floating contact button -->
+<div class="zalo-float-widget">
+    <a href="<?php echo esc_url( $zalo_url ); ?>" target="_blank" rel="noopener noreferrer" class="zalo-float-widget__link" aria-label="Zalo">
+        <span class="zalo-float-widget__ring"></span>
+        <span class="zalo-float-widget__circle">
+            <img src="<?php echo esc_url( GREENSTAR_URI . '/assets/images/zalo-icon.png' ); ?>" alt="Zalo">
+        </span>
+    </a>
+</div>
+
+<!-- Phone floating contact button -->
+<?php
+$phone_raw  = get_theme_mod( 'greenstar_phone', '0933 898 896' );
+$phone_tel  = preg_replace( '/\s+/', '', $phone_raw );
+?>
+<div class="phone-float-widget">
+    <a href="tel:<?php echo esc_attr( $phone_tel ); ?>" class="phone-float-widget__link" aria-label="<?php esc_attr_e( 'Call us', 'greenstar-theme' ); ?>">
+        <span class="phone-float-widget__bar"><?php echo esc_html( $phone_raw ); ?></span>
+        <span class="phone-float-widget__ring"></span>
+        <span class="phone-float-widget__circle">
+            <img src="<?php echo esc_url( GREENSTAR_URI . '/assets/images/phone-icon.png' ); ?>" alt="<?php esc_attr_e( 'Phone', 'greenstar-theme' ); ?>">
+        </span>
+    </a>
+</div>
 
 <!-- Scroll-to-top button -->
 <button class="scroll-top" id="scroll-to-top" aria-label="<?php esc_attr_e( 'Scroll to top', 'greenstar-theme' ); ?>">

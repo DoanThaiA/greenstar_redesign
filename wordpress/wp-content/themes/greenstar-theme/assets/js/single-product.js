@@ -174,7 +174,6 @@
             submitBtn.classList.add( 'loading' );
             submitBtn.disabled = true;
             statusEl.className = 'gsp-form-status';
-            statusEl.style.display = 'none';
 
             const formData = new FormData( form );
             formData.append( 'action', 'gsp_inquiry' );

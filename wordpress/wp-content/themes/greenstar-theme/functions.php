@@ -97,7 +97,7 @@ function greenstar_scripts() {
     // Google Fonts
     wp_enqueue_style(
         'greenstar-fonts',
-        'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap',
         array(),
         null
     );
@@ -174,17 +174,20 @@ function greenstar_scripts() {
         );
     }
 
-    // News/Blog CSS (for home.php and archive.php)
-    if ( is_home() || is_archive() || is_category() ) {
-        // Only enqueue if it's not a product archive
-        if ( ! is_post_type_archive( 'gs_product' ) && ! is_tax( 'gs_category' ) ) {
-            wp_enqueue_style(
-                'greenstar-news',
-                GREENSTAR_URI . '/assets/css/news.css',
-                array( 'greenstar-main' ),
-                filemtime( GREENSTAR_DIR . '/assets/css/news.css' )
-            );
-        }
+    // News/Blog CSS (for home.php, archive.php, and single posts — the
+    // related-posts "You may also be interested in" grid uses these
+    // .news-card styles too)
+    $needs_news_css = ( is_home() || is_archive() || is_category() )
+        ? ( ! is_post_type_archive( 'gs_product' ) && ! is_tax( 'gs_category' ) )
+        : ( is_single() && 'post' === get_post_type() );
+
+    if ( $needs_news_css ) {
+        wp_enqueue_style(
+            'greenstar-news',
+            GREENSTAR_URI . '/assets/css/news.css',
+            array( 'greenstar-main' ),
+            filemtime( GREENSTAR_DIR . '/assets/css/news.css' )
+        );
     }
 
     // Single News/Blog CSS
@@ -353,8 +356,10 @@ function greenstar_nav_fallback() {
         'parent'     => 0,
     ) );
 
+    $products_active = ( is_post_type_archive( 'gs_product' ) || is_tax( 'gs_category' ) || is_singular( 'gs_product' ) ) ? ' current_page_item' : '';
+
     if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-        echo '<li class="menu-item-has-children gs-mega-menu-item"><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a>';
+        echo '<li class="menu-item-has-children gs-mega-menu-item' . $products_active . '"><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a>';
         echo '<div class="gs-mega-menu-wrapper">';
 
         echo '<div class="gs-mega-menu-cats">';
@@ -375,14 +380,14 @@ function greenstar_nav_fallback() {
 
         echo '</div></li>'; // .gs-mega-menu-wrapper, li
     } else {
-        echo '<li><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a></li>';
+        echo '<li' . ( $products_active ? ' class="' . trim( $products_active ) . '"' : '' ) . '><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'Products', 'greenstar-theme' ) . '</a></li>';
     }
-    
-    
+
+
     $about_active = ( is_page_template( 'page-about.php' ) || is_page( array( 'about', 'about-us', 99 ) ) ) ? ' class="current_page_item"' : '';
     echo '<li' . $about_active . '><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About Us', 'greenstar-theme' ) . '</a></li>';
-    
-    $news_active = ( is_home() || is_archive() || is_category() ) && ! is_post_type_archive( 'gs_product' ) ? ' class="current_page_item"' : '';
+
+    $news_active = ( is_home() || is_archive() || is_category() ) && ! is_post_type_archive( 'gs_product' ) && ! is_tax( 'gs_category' ) && ! is_singular( 'gs_product' ) ? ' class="current_page_item"' : '';
     $news_page_id = get_option( 'page_for_posts' );
     $news_url = $news_page_id ? get_permalink( $news_page_id ) : home_url( '/news/' );
     echo '<li' . $news_active . '><a href="' . esc_url( $news_url ) . '">' . esc_html__( 'News', 'greenstar-theme' ) . '</a></li>';
@@ -465,9 +470,16 @@ function greenstar_customize_register( $wp_customize ) {
         $wp_customize->add_control( $id, array( 'label' => $args['label'], 'section' => 'greenstar_hero', 'type' => 'textarea' ) );
     }
 
+    $wp_customize->add_setting( 'greenstar_home_hero_bg', array( 'default' => '', 'sanitize_callback' => 'absint' ) );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'greenstar_home_hero_bg', array(
+        'label'     => __( 'Homepage Hero Background Image', 'greenstar-theme' ),
+        'section'   => 'greenstar_hero',
+        'mime_type' => 'image',
+    ) ) );
+
     $wp_customize->add_setting( 'greenstar_hero_bg', array( 'default' => '', 'sanitize_callback' => 'absint' ) );
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'greenstar_hero_bg', array(
-        'label'     => __( 'Hero Background Image', 'greenstar-theme' ),
+        'label'     => __( 'About Page Hero Background Image', 'greenstar-theme' ),
         'section'   => 'greenstar_hero',
         'mime_type' => 'image',
     ) ) );
@@ -628,6 +640,29 @@ function greenstar_register_cpts() {
         'menu_position'      => 7,
         'menu_icon'          => 'dashicons-awards',
         'supports'           => array( 'title', 'thumbnail' ),
+        'has_archive'        => false,
+    ) );
+
+    /* Newsletter subscriber custom post type */
+    register_post_type( 'gs_subscriber', array(
+        'labels' => array(
+            'name'               => __( 'Newsletter Subscribers', 'greenstar-theme' ),
+            'singular_name'      => __( 'Subscriber', 'greenstar-theme' ),
+            'search_items'       => __( 'Search Subscribers', 'greenstar-theme' ),
+            'not_found'          => __( 'No subscribers found.', 'greenstar-theme' ),
+            'not_found_in_trash' => __( 'No subscribers found in Trash.', 'greenstar-theme' ),
+            'menu_name'          => __( 'Subscribers', 'greenstar-theme' ),
+        ),
+        'public'             => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'menu_position'      => 8,
+        'menu_icon'          => 'dashicons-email-alt2',
+        'supports'           => array( 'title' ),
+        'capabilities'       => array(
+            'create_posts' => 'do_not_allow',
+        ),
+        'map_meta_cap'       => true,
         'has_archive'        => false,
     ) );
 }
@@ -910,6 +945,77 @@ function gsp_handle_inquiry() {
 }
 add_action( 'wp_ajax_gsp_inquiry',        'gsp_handle_inquiry' );
 add_action( 'wp_ajax_nopriv_gsp_inquiry', 'gsp_handle_inquiry' );
+
+/**
+ * AJAX handler for the newsletter subscribe form (CTA banner).
+ */
+function greenstar_handle_subscribe() {
+    check_ajax_referer( 'greenstar_nonce', 'nonce' );
+
+    $email = sanitize_email( $_POST['email'] ?? '' );
+
+    if ( ! $email || ! is_email( $email ) ) {
+        wp_send_json_error( __( 'Please enter a valid email address.', 'greenstar-theme' ) );
+    }
+
+    $existing = get_posts( array(
+        'post_type'      => 'gs_subscriber',
+        'title'          => $email,
+        'posts_per_page' => 1,
+        'fields'         => 'ids',
+    ) );
+    if ( $existing ) {
+        wp_send_json_success( __( 'You are already subscribed. Thank you!', 'greenstar-theme' ) );
+    }
+
+    wp_insert_post( array(
+        'post_type'   => 'gs_subscriber',
+        'post_title'  => $email,
+        'post_status' => 'publish',
+    ) );
+
+    $to      = get_theme_mod( 'greenstar_email', get_option( 'admin_email' ) );
+    $subject = __( '[GreenStar] New Newsletter Subscriber', 'greenstar-theme' );
+    wp_mail( $to, $subject, "New subscriber: {$email}" );
+
+    wp_send_json_success( __( 'Thank you for subscribing!', 'greenstar-theme' ) );
+}
+add_action( 'wp_ajax_greenstar_subscribe',        'greenstar_handle_subscribe' );
+add_action( 'wp_ajax_nopriv_greenstar_subscribe', 'greenstar_handle_subscribe' );
+
+/**
+ * AJAX handler for the Contact page form.
+ */
+function greenstar_handle_contact() {
+    check_ajax_referer( 'greenstar_nonce', 'nonce' );
+
+    $name    = sanitize_text_field( $_POST['contact_name']    ?? '' );
+    $email   = sanitize_email(      $_POST['contact_email']   ?? '' );
+    $phone   = sanitize_text_field( $_POST['contact_phone']   ?? '' );
+    $subject = sanitize_text_field( $_POST['contact_subject'] ?? '' );
+    $message = sanitize_textarea_field( $_POST['contact_message'] ?? '' );
+
+    if ( ! $name || ! $email || ! is_email( $email ) || ! $message ) {
+        wp_send_json_error( __( 'Please fill in all required fields.', 'greenstar-theme' ) );
+    }
+
+    $to      = get_theme_mod( 'greenstar_email', get_option( 'admin_email' ) );
+    $subject_line = $subject ? "[GreenStar Contact] {$subject}" : "[GreenStar Contact] New message from {$name}";
+    $body    = "Name: {$name}\nEmail: {$email}\nPhone: {$phone}\nSubject: {$subject}\n\nMessage:\n{$message}";
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        "Reply-To: {$name} <{$email}>",
+    );
+
+    $sent = wp_mail( $to, $subject_line, $body, $headers );
+    if ( $sent ) {
+        wp_send_json_success( __( 'Thank you! Your message has been sent. We will get back to you shortly.', 'greenstar-theme' ) );
+    } else {
+        wp_send_json_error( __( 'Could not send message. Please contact us directly.', 'greenstar-theme' ) );
+    }
+}
+add_action( 'wp_ajax_greenstar_contact',        'greenstar_handle_contact' );
+add_action( 'wp_ajax_nopriv_greenstar_contact', 'greenstar_handle_contact' );
 
 /* ==========================================================================
    8. Miscellaneous

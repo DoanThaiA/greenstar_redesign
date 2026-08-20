@@ -37,12 +37,13 @@ $video_url     = get_theme_mod( 'greenstar_cta_video_url', '' );
                 <?php echo wp_kses_post( $cta_subtitle ); ?>
             </p>
 
-            <div class="cta-section__newsletter" style="max-width: 500px; margin: 2rem auto; display: flex; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.5rem; border-radius: 50px;">
-                <input type="email" placeholder="<?php esc_attr_e( 'Enter your email address...', 'greenstar-theme' ); ?>" style="flex: 1; border: none; background: transparent; color: white; padding: 0.5rem 1rem; outline: none; border-radius: 50px;" required>
+            <form id="cta-newsletter-form" class="cta-section__newsletter" style="max-width: 500px; margin: 2rem auto; display: flex; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.5rem; border-radius: 50px;">
+                <input type="email" name="email" id="cta-newsletter-email" placeholder="<?php esc_attr_e( 'Enter your email address...', 'greenstar-theme' ); ?>" style="flex: 1; border: none; background: transparent; color: white; padding: 0.5rem 1rem; outline: none; border-radius: 50px;" required>
                 <button type="submit" class="btn btn-primary" style="border-radius: 50px; padding: 0.5rem 1.5rem; border: none;">
                     <?php esc_html_e( 'Subscribe', 'greenstar-theme' ); ?>
                 </button>
-            </div>
+            </form>
+            <p id="cta-newsletter-msg" class="cta-section__newsletter-msg" role="status" aria-live="polite"></p>
 
             <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap; margin-top:2rem;">
                 <a href="<?php echo esc_url( $cta_btn_url ); ?>"
