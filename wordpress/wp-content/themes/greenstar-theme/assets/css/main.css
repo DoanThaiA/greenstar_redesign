@@ -1090,14 +1090,14 @@ input, textarea, select { font-family: inherit; }
 .site-footer {
     background: var(--color-dark);
     color: rgba(255,255,255,.75);
-    padding-top: 4rem;
+    padding-top: 2.5rem;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
+    gap: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
@@ -1105,12 +1105,12 @@ input, textarea, select { font-family: inherit; }
 .footer-brand .custom-logo { width: 140px; max-width: 100%; height: auto; }
 .footer-brand .site-logo__name { font-size: var(--fs-md); }
 .footer-brand p {
-    margin-top: 1rem;
+    margin-top: .75rem;
     font-size: var(--fs-sm);
-    line-height: var(--lh-loose);
+    line-height: var(--lh-normal);
     color: rgba(255,255,255,.6);
 }
-.footer-brand .social-links { display: flex; gap: .65rem; margin-top: 1.5rem; }
+.footer-brand .social-links { display: flex; gap: .65rem; margin-top: 1rem; }
 .footer-brand .social-links a {
     width: 36px; height: 36px; border-radius: 50%;
     background: rgba(255,255,255,.08);
@@ -1164,7 +1164,7 @@ input, textarea, select { font-family: inherit; }
 
 /* Footer bottom bar */
 .footer-bottom {
-    padding: 1.25rem 0;
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
