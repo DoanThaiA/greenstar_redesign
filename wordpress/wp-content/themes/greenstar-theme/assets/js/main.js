@@ -92,6 +92,25 @@
     });
 
     /* -----------------------------------------------------------------------
+       3b. Language switcher dropdown
+    ----------------------------------------------------------------------- */
+    const langSwitcher = qs('.lang-switcher');
+    const langToggle   = qs('.lang-switcher__toggle');
+
+    langToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = langSwitcher?.classList.toggle('open');
+        langToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.lang-switcher')) {
+            langSwitcher?.classList.remove('open');
+            langToggle?.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    /* -----------------------------------------------------------------------
        4. Scroll-to-top button
     ----------------------------------------------------------------------- */
     const scrollTopBtn = qs('.scroll-top');

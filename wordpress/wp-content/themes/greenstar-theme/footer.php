@@ -46,7 +46,7 @@
                                 echo '<li><a href="' . esc_url( get_term_link( $cat ) ) . '">' . esc_html( $cat->name ) . '</a></li>';
                             }
                         }
-                        echo '<li><a href="' . esc_url( home_url( '/products/' ) ) . '">' . esc_html__( 'View All Products', 'greenstar-theme' ) . '</a></li>';
+                        echo '<li><a href="' . esc_url( get_post_type_archive_link( 'gs_product' ) ) . '">' . esc_html__( 'View All Products', 'greenstar-theme' ) . '</a></li>';
                         echo '</ul>';
                     },
                 ) );
@@ -62,16 +62,17 @@
                     'container'      => false,
                     'fallback_cb'    => function() {
                         echo '<ul>';
+                        $news_page_id = get_option( 'page_for_posts' );
                         $items = array(
-                            __( 'About GreenStar', 'greenstar-theme' ) => '/about/',
-                            __( 'Our Story',        'greenstar-theme' ) => '/about/',
-                            __( 'Certifications',   'greenstar-theme' ) => '/certifications/',
-                            __( 'Production',       'greenstar-theme' ) => '/production/',
-                            __( 'News & Updates',   'greenstar-theme' ) => '/news/',
-                            __( 'Contact Us',       'greenstar-theme' ) => '/contact/',
+                            esc_html__( 'About GreenStar', 'greenstar-theme' ) => greenstar_translated_page_url( 99, '/about/' ),
+                            esc_html__( 'Our Technology',   'greenstar-theme' ) => greenstar_translated_page_url( 107, '/our-technology/' ),
+                            esc_html__( 'Certifications',   'greenstar-theme' ) => home_url( '/' ) . '#certifications',
+                            esc_html__( 'Products',         'greenstar-theme' ) => get_post_type_archive_link( 'gs_product' ),
+                            esc_html__( 'News & Updates',   'greenstar-theme' ) => $news_page_id ? get_permalink( $news_page_id ) : greenstar_translated_page_url( 104, '/news/' ),
+                            esc_html__( 'Contact Us',       'greenstar-theme' ) => greenstar_translated_page_url( 109, '/contact/' ),
                         );
-                        foreach ( $items as $label => $path ) {
-                            echo '<li><a href="' . esc_url( home_url( $path ) ) . '">' . esc_html( $label ) . '</a></li>';
+                        foreach ( $items as $label => $url ) {
+                            echo '<li><a href="' . esc_url( $url ) . '">' . $label . '</a></li>';
                         }
                         echo '</ul>';
                     },

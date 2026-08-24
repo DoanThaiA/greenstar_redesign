@@ -13,15 +13,23 @@
     position: relative;
     overflow: hidden;
 }
-.news-hero::before {
-    content: '';
+.news-hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('../images/cta-bg.jpg'); /* Reuse existing pattern/image */
     background-size: cover;
     background-position: center;
-    opacity: 0.15;
     z-index: 0;
+}
+.news-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 40, 10, .6) 0%,
+        rgba(30, 86, 30, .45) 55%,
+        rgba(0, 0, 0, .35) 100%
+    );
 }
 .news-hero__container {
     position: relative;

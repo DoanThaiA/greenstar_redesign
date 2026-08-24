@@ -8,7 +8,7 @@
 $cta_title     = get_theme_mod( 'greenstar_cta_title',     __( 'We Are Now Exporting GreenStar Products Worldwide', 'greenstar-theme' ) );
 $cta_subtitle  = get_theme_mod( 'greenstar_cta_subtitle',  __( 'Partner with us for premium quality, reliable supply and competitive pricing. We support international distributors with full documentation and compliance support.', 'greenstar-theme' ) );
 $cta_btn_label = get_theme_mod( 'greenstar_cta_btn_label', __( 'Become Our Distributor', 'greenstar-theme' ) );
-$cta_btn_url   = get_theme_mod( 'greenstar_cta_btn_url',   home_url( '/contact/' ) );
+$cta_btn_url   = get_theme_mod( 'greenstar_cta_btn_url',   greenstar_translated_page_url( 109, '/contact/' ) );
 $video_url     = get_theme_mod( 'greenstar_cta_video_url', '' );
 ?>
 
@@ -51,7 +51,7 @@ $video_url     = get_theme_mod( 'greenstar_cta_video_url', '' );
                    id="cta-primary-btn">
                     <?php echo esc_html( $cta_btn_label ); ?>
                 </a>
-                <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>"
+                <a href="<?php echo esc_url( get_post_type_archive_link( 'gs_product' ) ); ?>"
                    class="btn btn-white btn-lg"
                    id="cta-products-btn">
                     <?php esc_html_e( 'View Product Catalogue', 'greenstar-theme' ); ?>

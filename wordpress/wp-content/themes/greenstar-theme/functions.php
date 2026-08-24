@@ -91,6 +91,74 @@ function greenstar_setup() {
 add_action( 'after_setup_theme', 'greenstar_setup' );
 
 /* ==========================================================================
+   1b. Open Graph / Twitter Card meta tags
+   ========================================================================== */
+/**
+ * The theme has no SEO plugin, so without this Facebook/Twitter/Zalo link
+ * previews have no og:image to read and fall back to grabbing the first
+ * <img> on the page (the header logo) instead of the actual content image.
+ */
+function greenstar_social_meta_tags() {
+    if ( is_admin() ) {
+        return;
+    }
+
+    $title       = wp_get_document_title();
+    $description = get_bloginfo( 'description' );
+    $url         = home_url( add_query_arg( array(), $GLOBALS['wp']->request ) );
+    $type        = 'website';
+    $image_url   = '';
+
+    if ( is_singular( array( 'gs_product', 'post', 'gs_partner', 'gs_certification', 'page' ) ) ) {
+        global $post;
+        $url = get_permalink( $post );
+
+        if ( is_singular( 'gs_product' ) || is_singular( 'post' ) ) {
+            $type = is_singular( 'post' ) ? 'article' : 'product';
+        }
+
+        $excerpt = has_excerpt( $post ) ? get_the_excerpt( $post ) : $post->post_content;
+        $excerpt = wp_strip_all_tags( $excerpt );
+        if ( $excerpt ) {
+            $description = wp_trim_words( $excerpt, 35 );
+        }
+
+        if ( has_post_thumbnail( $post ) ) {
+            $image_url = get_the_post_thumbnail_url( $post, 'large' );
+        }
+    }
+
+    // Fall back to the site logo if the page has no image of its own.
+    if ( ! $image_url ) {
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        if ( $custom_logo_id ) {
+            $image_url = wp_get_attachment_image_url( $custom_logo_id, 'large' );
+        }
+    }
+
+    ?>
+    <meta property="og:type" content="<?php echo esc_attr( $type ); ?>">
+    <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+    <meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
+    <meta property="og:description" content="<?php echo esc_attr( $description ); ?>">
+    <meta property="og:url" content="<?php echo esc_url( $url ); ?>">
+    <?php if ( function_exists( 'pll_current_language' ) && pll_current_language() ) : ?>
+    <meta property="og:locale" content="<?php echo esc_attr( pll_current_language( 'locale' ) ); ?>">
+    <?php endif; ?>
+    <?php if ( $image_url ) : ?>
+    <meta property="og:image" content="<?php echo esc_url( $image_url ); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="<?php echo esc_url( $image_url ); ?>">
+    <?php else : ?>
+    <meta name="twitter:card" content="summary">
+    <?php endif; ?>
+    <meta name="twitter:title" content="<?php echo esc_attr( $title ); ?>">
+    <meta name="twitter:description" content="<?php echo esc_attr( $description ); ?>">
+    <?php
+}
+add_action( 'wp_head', 'greenstar_social_meta_tags', 1 );
+
+/* ==========================================================================
    2. Enqueue Scripts & Styles
    ========================================================================== */
 function greenstar_scripts() {
@@ -123,7 +191,7 @@ function greenstar_scripts() {
         'greenstar-responsive',
         GREENSTAR_URI . '/assets/css/responsive.css',
         array( 'greenstar-main' ),
-        GREENSTAR_VERSION
+        filemtime( GREENSTAR_DIR . '/assets/css/responsive.css' )
     );
 
     // Main JS
@@ -342,6 +410,28 @@ function greenstar_primary_nav() {
 }
 
 /**
+ * Resolve a static page's URL for the current Polylang language.
+ *
+ * home_url( '/about/' )-style hardcoded paths always resolve to the
+ * default-language slug, since Polylang only rewrites actual post/term
+ * permalinks, not arbitrary path strings — that was causing nav links to
+ * silently drop the visitor back into English when going from Home/Products
+ * (which use language-aware link functions) to About/Technology/Contact.
+ *
+ * @param int    $en_page_id The page ID in the default (English) language.
+ * @param string $fallback_path Path to fall back to if Polylang isn't active.
+ */
+function greenstar_translated_page_url( $en_page_id, $fallback_path ) {
+    if ( function_exists( 'pll_get_post' ) ) {
+        $translated_id = pll_get_post( $en_page_id, pll_current_language() );
+        if ( $translated_id ) {
+            return get_permalink( $translated_id );
+        }
+    }
+    return home_url( $fallback_path );
+}
+
+/**
  * Fallback navigation when no menu is assigned.
  */
 function greenstar_nav_fallback() {
@@ -385,17 +475,17 @@ function greenstar_nav_fallback() {
 
 
     $about_active = ( is_page_template( 'page-about.php' ) || is_page( array( 'about', 'about-us', 99 ) ) ) ? ' class="current_page_item"' : '';
-    echo '<li' . $about_active . '><a href="' . esc_url( home_url( '/about/' ) ) . '">' . esc_html__( 'About Us', 'greenstar-theme' ) . '</a></li>';
+    echo '<li' . $about_active . '><a href="' . esc_url( greenstar_translated_page_url( 99, '/about/' ) ) . '">' . esc_html__( 'About Us', 'greenstar-theme' ) . '</a></li>';
 
     $news_active = ( is_home() || is_archive() || is_category() ) && ! is_post_type_archive( 'gs_product' ) && ! is_tax( 'gs_category' ) && ! is_singular( 'gs_product' ) ? ' class="current_page_item"' : '';
     $news_page_id = get_option( 'page_for_posts' );
     $news_url = $news_page_id ? get_permalink( $news_page_id ) : home_url( '/news/' );
     echo '<li' . $news_active . '><a href="' . esc_url( $news_url ) . '">' . esc_html__( 'News', 'greenstar-theme' ) . '</a></li>';
-    
+
     $tech_active = is_page_template( 'page-technology.php' ) ? ' class="current_page_item"' : '';
-    echo '<li' . $tech_active . '><a href="' . esc_url( home_url( '/our-technology/' ) ) . '">' . esc_html__( 'Our Technology', 'greenstar-theme' ) . '</a></li>';
-    
-    echo '<li><a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'greenstar-theme' ) . '</a></li>';
+    echo '<li' . $tech_active . '><a href="' . esc_url( greenstar_translated_page_url( 107, '/our-technology/' ) ) . '">' . esc_html__( 'Our Technology', 'greenstar-theme' ) . '</a></li>';
+
+    echo '<li><a href="' . esc_url( greenstar_translated_page_url( 109, '/contact/' ) ) . '">' . esc_html__( 'Contact', 'greenstar-theme' ) . '</a></li>';
     echo '</ul></nav>';
 }
 
@@ -408,7 +498,7 @@ function greenstar_add_tech_to_menu( $items, $args ) {
         if ( strpos( $items, 'Our Technology' ) === false && strpos( $items, 'our-technology' ) === false && strpos( $items, 'nha-may' ) === false ) {
             $tech_active = is_page_template( 'page-technology.php' ) ? ' current-menu-item current_page_item' : '';
             // Insert it before the Contact link or just at the end if Contact is not found
-            $tech_link = '<li class="menu-item' . $tech_active . '"><a href="' . esc_url( home_url( '/nha-may/' ) ) . '">' . esc_html__( 'Our Technology', 'greenstar-theme' ) . '</a></li>';
+            $tech_link = '<li class="menu-item' . $tech_active . '"><a href="' . esc_url( greenstar_translated_page_url( 107, '/our-technology/' ) ) . '">' . esc_html__( 'Our Technology', 'greenstar-theme' ) . '</a></li>';
             
             // Try to insert before Contact link
             if ( strpos( $items, 'Contact' ) !== false ) {
@@ -667,6 +757,25 @@ function greenstar_register_cpts() {
     ) );
 }
 add_action( 'init', 'greenstar_register_cpts' );
+
+/**
+ * Make custom post types & taxonomies translatable with Polylang.
+ *
+ * gs_partner and gs_certification are intentionally excluded: they are
+ * logo/image-only entries with no translatable text, and registering them
+ * would make Polylang auto-filter their WP_Query loops by language —
+ * hiding all of them on the Vietnamese site since no vi-language copies
+ * exist. Leaving them unregistered means they show identically on every
+ * language, which is what we want for decorative logos.
+ */
+add_filter( 'pll_get_post_types', function ( $post_types ) {
+    $post_types['gs_product'] = 'gs_product';
+    return $post_types;
+} );
+add_filter( 'pll_get_taxonomies', function ( $taxonomies ) {
+    $taxonomies['gs_category'] = 'gs_category';
+    return $taxonomies;
+} );
 
 /**
  * Register Meta Box for Partner URL

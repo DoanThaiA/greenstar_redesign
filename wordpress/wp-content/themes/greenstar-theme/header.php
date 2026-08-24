@@ -51,11 +51,46 @@
                 </div>
 
                 <!-- Contact CTA -->
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"
+                <a href="<?php echo esc_url( greenstar_translated_page_url( 109, '/contact/' ) ); ?>"
                    class="btn btn-primary btn-sm"
                    id="header-contact-btn">
                     <?php esc_html_e( 'Get A Quote', 'greenstar-theme' ); ?>
                 </a>
+
+                <!-- Language Switcher (dropdown: current language shown, click to reveal the rest) -->
+                <?php if ( function_exists( 'pll_the_languages' ) ) :
+                    $gs_languages = pll_the_languages( array(
+                        'show_flags'    => 1,
+                        'show_names'    => 1,
+                        'display_names_as' => 'slug',
+                        'force_home'    => 0,
+                        'hide_if_empty' => 0,
+                        'raw'           => 1,
+                    ) );
+                    $gs_current = null;
+                    foreach ( $gs_languages as $gs_lang ) {
+                        if ( ! empty( $gs_lang['current_lang'] ) ) { $gs_current = $gs_lang; break; }
+                    }
+                    ?>
+                    <?php if ( $gs_current ) : ?>
+                        <div class="lang-switcher">
+                            <button type="button" class="lang-switcher__toggle" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $gs_current['flag']; ?>
+                                <span><?php echo esc_html( $gs_current['slug'] ); ?></span>
+                            </button>
+                            <ul class="lang-switcher__menu">
+                                <?php foreach ( $gs_languages as $gs_lang ) : ?>
+                                    <li class="<?php echo ! empty( $gs_lang['current_lang'] ) ? 'lang-item-current' : ''; ?>">
+                                        <a lang="<?php echo esc_attr( $gs_lang['locale'] ); ?>" hreflang="<?php echo esc_attr( $gs_lang['locale'] ); ?>" href="<?php echo esc_url( $gs_lang['url'] ); ?>">
+                                            <?php echo $gs_lang['flag']; ?>
+                                            <span><?php echo esc_html( $gs_lang['slug'] ); ?></span>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
 
                 <!-- Mobile hamburger -->
                 <button class="nav-toggle"

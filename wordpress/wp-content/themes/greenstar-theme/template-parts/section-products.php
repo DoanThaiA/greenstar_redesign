@@ -180,7 +180,7 @@ $has_real_products = $featured_products->have_posts();
                         <div class="product-card__body">
                             <h3 class="product-card__name"><?php echo esc_html( $product['name'] ); ?></h3>
                             <p class="product-card__desc"><?php echo esc_html( $product['desc'] ); ?></p>
-                            <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>" class="product-card__link">
+                            <a href="<?php echo esc_url( get_post_type_archive_link( 'gs_product' ) ); ?>" class="product-card__link">
                                 <?php esc_html_e( 'View Details', 'greenstar-theme' ); ?> →
                             </a>
                         </div>
@@ -191,7 +191,7 @@ $has_real_products = $featured_products->have_posts();
 
         <!-- CTA -->
         <div class="products-cta" data-reveal>
-            <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>"
+            <a href="<?php echo esc_url( get_post_type_archive_link( 'gs_product' ) ); ?>"
                class="btn btn-outline"
                id="view-all-products-btn">
                 <?php esc_html_e( 'Browse All Products', 'greenstar-theme' ); ?> &rarr;

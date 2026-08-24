@@ -7,7 +7,7 @@
 
 // Get hero settings
 $hero_badge    = __( 'ABOUT GREENSTAR', 'greenstar-theme' );
-$hero_title    = "Premium Vietnamese\nRice Products";
+$hero_title    = __( "Premium Vietnamese\nRice Products", 'greenstar-theme' );
 $hero_subtitle = __( 'With over 20 years of experience, Greenstar brings the best of Vietnamese cuisine to the world. We specialize in exporting high-quality rice noodles, pho, and rice paper to global markets.', 'greenstar-theme' );
 
 // Hero background image (homepage-only; see greenstar_hero_bg for the

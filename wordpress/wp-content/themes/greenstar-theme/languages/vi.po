@@ -1,0 +1,1083 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: greenstar-theme\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Premium Vietnamese\nRice Products"
+msgstr "Gạo Việt Nam\nChất Lượng Cao Cấp"
+
+msgid "With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, Truong Phuc Vina has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards."
+msgstr "Với nhà xưởng và khu vực sản xuất rộng 1.000 mét vuông, cùng dây chuyền sản xuất hiện đại và được đầu tư bài bản, Trường Phúc Vina có năng lực cung cấp tới 500 tấn các sản phẩm chủ lực như bún gạo khô, bánh phở khô và miến. Quy trình sản xuất được kiểm soát chặt chẽ ở mọi công đoạn, từ lựa chọn nguyên liệu đến chế biến và đóng gói, đảm bảo chất lượng ổn định và tiêu chuẩn an toàn thực phẩm."
+
+msgid "Thanks to its stable manufacturing capacity and efficient operations, Truong Phuc Vina is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets."
+msgstr "Nhờ năng lực sản xuất ổn định và vận hành hiệu quả, Trường Phúc Vina luôn đảm bảo nguồn cung đáng tin cậy và đầy đủ cho đối tác, kể cả trong giai đoạn nhu cầu tăng cao. Năng lực sản xuất mạnh mẽ này giúp công ty đáp ứng các đơn hàng số lượng lớn, hỗ trợ hợp tác lâu dài và linh hoạt thích ứng với yêu cầu của cả thị trường trong nước lẫn quốc tế."
+
+msgid "Factory Floor"
+msgstr "Khu Vực Nhà Xưởng"
+
+msgid "Drying Area"
+msgstr "Khu Vực Sấy"
+
+msgid "Processing Machinery"
+msgstr "Máy Móc Chế Biến"
+
+msgid "Loading Truck"
+msgstr "Xe Tải Bốc Hàng"
+
+msgid "Container Loading"
+msgstr "Đóng Hàng Container"
+
+msgid "Packaged Products"
+msgstr "Sản Phẩm Đóng Gói"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "Zoomed Certification"
+msgstr "Chứng Nhận Phóng To"
+
+msgid "Share on Facebook"
+msgstr "Chia Sẻ Lên Facebook"
+
+msgid "Share on Twitter"
+msgstr "Chia Sẻ Lên Twitter"
+
+msgid "Share on LinkedIn"
+msgstr "Chia Sẻ Lên LinkedIn"
+
+msgid "Share on Pinterest"
+msgstr "Chia Sẻ Lên Pinterest"
+
+msgid "Green Star Vietnam Import–Export Joint Stock Company is a leading representative in delivering and introducing the finest nutritional values of Vietnamese cuisine, especially rice-based products, one of Vietnam's most iconic and traditional ingredients, to customers worldwide."
+msgstr "Công ty Cổ phần Xuất Nhập Khẩu Green Star Việt Nam là đơn vị tiên phong trong việc mang đến và giới thiệu những giá trị dinh dưỡng tinh túy nhất của ẩm thực Việt Nam, đặc biệt là các sản phẩm từ gạo — một trong những nguyên liệu truyền thống và biểu tượng nhất của Việt Nam — đến với khách hàng trên toàn thế giới."
+
+msgid "From Vietnam's Farms\\nTo The World"
+msgstr "Từ Nông Trại Việt Nam\\nVươn Ra Thế Giới"
+
+msgid "We'd love to hear from you. Reach out to discuss partnerships, bulk orders, or any inquiries."
+msgstr "Chúng tôi rất mong được lắng nghe từ bạn. Hãy liên hệ để trao đổi về hợp tác, đơn hàng số lượng lớn hoặc bất kỳ thắc mắc nào."
+
+msgid "I'm interested in %s. Please send pricing and MOQ details."
+msgstr "Tôi quan tâm đến %s. Vui lòng gửi thông tin giá và số lượng đặt hàng tối thiểu."
+
+msgid "Vietnam's Leading Rice-Based Product Manufacturer"
+msgstr "Nhà Sản Xuất Sản Phẩm Từ Gạo Hàng Đầu Việt Nam"
+
+msgid "From our farms in Vietnam's fertile highlands to supermarket shelves and supplement brands across the globe — GreenStar has a proven track record of reliable international supply."
+msgstr "Từ những nông trại trên vùng cao nguyên trù phú của Việt Nam đến kệ hàng siêu thị và các thương hiệu thực phẩm bổ sung trên toàn cầu — GreenStar đã khẳng định uy tín với năng lực cung ứng quốc tế đáng tin cậy."
+
+msgid "Authentic flat rice noodles for Vietnam's famous Pho. Easy to prepare, restaurant-quality texture."
+msgstr "Bánh phở dẹt nguyên bản cho món Phở nổi tiếng của Việt Nam. Dễ chế biến, kết cấu chuẩn vị nhà hàng."
+
+msgid "GreenStar Products"
+msgstr "Sản Phẩm GreenStar"
+
+msgid "Search anythings"
+msgstr "Tìm kiếm bất kỳ điều gì"
+
+msgid "Filter products"
+msgstr "Lọc sản phẩm"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Shop order"
+msgstr "Sắp xếp"
+
+msgid "Next"
+msgstr "Tiếp"
+
+msgid "Prev"
+msgstr "Trước"
+
+msgid "Default sorting"
+msgstr "Sắp xếp mặc định"
+
+msgid "Explore All Products"
+msgstr "Khám Phá Tất Cả Sản Phẩm"
+
+msgid "FILTER"
+msgstr "LỌC"
+
+msgid "Home"
+msgstr "Trang chủ"
+
+msgid "No products found."
+msgstr "Không tìm thấy sản phẩm nào."
+
+msgid "Product Categories"
+msgstr "Danh Mục Sản Phẩm"
+
+msgid "Products"
+msgstr "Sản Phẩm"
+
+msgid "Search for:"
+msgstr "Tìm kiếm cho:"
+
+msgid "Sort by latest"
+msgstr "Sắp xếp theo mới nhất"
+
+msgid "Sort by title (A-Z)"
+msgstr "Sắp xếp theo tên (A-Z)"
+
+msgid "Sort by title (Z-A)"
+msgstr "Sắp xếp theo tên (Z-A)"
+
+msgid "4th Floor, Viet Tower Building, No. 1 Thai Ha Street, Trung Liet Ward, Dong Da District, Hanoi, Vietnam"
+msgstr "Tầng 4, Tòa nhà Việt Tower, số 1 phố Thái Hà, phường Trung Liệt, quận Đống Đa, Hà Nội, Việt Nam"
+
+msgid "About GreenStar"
+msgstr "Về GreenStar"
+
+msgid "Certifications"
+msgstr "Chứng Nhận"
+
+msgid "Contact Us"
+msgstr "Liên Hệ"
+
+msgid "News & Updates"
+msgstr "Tin Tức & Cập Nhật"
+
+msgid "Our Story"
+msgstr "Câu Chuyện Của Chúng Tôi"
+
+msgid "Production"
+msgstr "Sản Xuất"
+
+msgid "Call us"
+msgstr "Gọi cho chúng tôi"
+
+msgid "Phone"
+msgstr "Điện thoại"
+
+msgid "Scroll to top"
+msgstr "Lên đầu trang"
+
+msgid "View All Products"
+msgstr "Xem Tất Cả Sản Phẩm"
+
+msgid "All rights reserved."
+msgstr "Bảo lưu mọi quyền."
+
+msgid "Company"
+msgstr "Công Ty"
+
+msgid "Get In Touch"
+msgstr "Liên Hệ Với Chúng Tôi"
+
+msgid "Mon – Fri: 8:00 AM – 5:30 PM (ICT)"
+msgstr "Thứ 2 – Thứ 6: 8:00 – 17:30 (giờ Việt Nam)"
+
+msgid "Our Products"
+msgstr "Sản Phẩm Của Chúng Tôi"
+
+msgid "Privacy Policy"
+msgstr "Chính Sách Bảo Mật"
+
+msgid "Terms & Conditions"
+msgstr "Điều Khoản & Điều Kiện"
+
+msgid "About Page Hero Background Image"
+msgstr "Ảnh Nền Banner Trang Giới Thiệu"
+
+msgid "Add New Category"
+msgstr "Thêm Danh Mục Mới"
+
+msgid "Add New Certification"
+msgstr "Thêm Chứng Nhận Mới"
+
+msgid "Add New Partner"
+msgstr "Thêm Đối Tác Mới"
+
+msgid "Add New Product"
+msgstr "Thêm Sản Phẩm Mới"
+
+msgid "Add widgets here to appear in the blog sidebar."
+msgstr "Thêm widget vào đây để hiển thị ở thanh bên blog."
+
+msgid "Add widgets here to appear in the footer."
+msgstr "Thêm widget vào đây để hiển thị ở chân trang."
+
+msgid "All Categories"
+msgstr "Tất Cả Danh Mục"
+
+msgid "Become Our Distributor"
+msgstr "Trở Thành Nhà Phân Phối"
+
+msgid "Blog Sidebar"
+msgstr "Thanh Bên Blog"
+
+msgid "CTA Banner Section"
+msgstr "Khu Vực Banner Kêu Gọi Hành Động"
+
+msgid "Categories"
+msgstr "Danh Mục"
+
+msgid "Category"
+msgstr "Danh Mục"
+
+msgid "Certification"
+msgstr "Chứng Nhận"
+
+msgid "Contact Info"
+msgstr "Thông Tin Liên Hệ"
+
+msgid "Could not send email. Please contact us directly."
+msgstr "Không thể gửi email. Vui lòng liên hệ trực tiếp với chúng tôi."
+
+msgid "Could not send message. Please contact us directly."
+msgstr "Không thể gửi tin nhắn. Vui lòng liên hệ trực tiếp với chúng tôi."
+
+msgid "Edit Category"
+msgstr "Sửa Danh Mục"
+
+msgid "Edit Certification"
+msgstr "Sửa Chứng Nhận"
+
+msgid "Edit Partner"
+msgstr "Sửa Đối Tác"
+
+msgid "Edit Product"
+msgstr "Sửa Sản Phẩm"
+
+msgid "Footer Column 1 – Products"
+msgstr "Cột Chân Trang 1 – Sản Phẩm"
+
+msgid "Footer Column 2 – Company"
+msgstr "Cột Chân Trang 2 – Công Ty"
+
+msgid "Footer Widget Area"
+msgstr "Khu Vực Widget Chân Trang"
+
+msgid "GreenStar Theme Options"
+msgstr "Tùy Chọn Giao Diện GreenStar"
+
+msgid "GreenStar Vietnam Import-Export JSC is a leading representative in delivering the finest nutritional values of Vietnamese cuisine to global markets."
+msgstr "Công ty CP Xuất Nhập Khẩu GreenStar Việt Nam là đơn vị tiên phong mang những giá trị dinh dưỡng tinh túy nhất của ẩm thực Việt Nam đến với thị trường toàn cầu."
+
+msgid "Hero Section"
+msgstr "Khu Vực Banner Chính"
+
+msgid "Homepage Hero Background Image"
+msgstr "Ảnh Nền Banner Trang Chủ"
+
+msgid "New Category Name"
+msgstr "Tên Danh Mục Mới"
+
+msgid "New Certification"
+msgstr "Chứng Nhận Mới"
+
+msgid "New Partner"
+msgstr "Đối Tác Mới"
+
+msgid "New Product"
+msgstr "Sản Phẩm Mới"
+
+msgid "Newsletter Subscribers"
+msgstr "Người Đăng Ký Nhận Tin"
+
+msgid "No certifications found in Trash."
+msgstr "Không có chứng nhận nào trong Thùng rác."
+
+msgid "No certifications found."
+msgstr "Không tìm thấy chứng nhận nào."
+
+msgid "No partners found in Trash."
+msgstr "Không có đối tác nào trong Thùng rác."
+
+msgid "No partners found."
+msgstr "Không tìm thấy đối tác nào."
+
+msgid "No products found in Trash."
+msgstr "Không có sản phẩm nào trong Thùng rác."
+
+msgid "No subscribers found in Trash."
+msgstr "Không có người đăng ký nào trong Thùng rác."
+
+msgid "No subscribers found."
+msgstr "Không tìm thấy người đăng ký nào."
+
+msgid "Parent Category"
+msgstr "Danh Mục Cha"
+
+msgid "Partner Website URL"
+msgstr "URL Website Đối Tác"
+
+msgid "Partner with us for premium quality, reliable supply and competitive pricing. We support international distributors."
+msgstr "Hợp tác cùng chúng tôi để có chất lượng cao cấp, nguồn cung ổn định và giá cả cạnh tranh. Chúng tôi hỗ trợ các nhà phân phối quốc tế."
+
+msgid "Partner"
+msgstr "Đối Tác"
+
+msgid "Partners"
+msgstr "Đối Tác"
+
+msgid "Please enter a valid email address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+msgid "Please fill in all required fields."
+msgstr "Vui lòng điền đầy đủ các trường bắt buộc."
+
+msgid "Premium Quality Rice Noodles & Coffee"
+msgstr "Bún Miến Phở Và Cà Phê Chất Lượng Cao"
+
+msgid "Primary Navigation"
+msgstr "Menu Điều Hướng Chính"
+
+msgid "Product Details"
+msgstr "Chi Tiết Sản Phẩm"
+
+msgid "Product Gallery (additional images)"
+msgstr "Thư Viện Ảnh Sản Phẩm (ảnh bổ sung)"
+
+msgid "Product"
+msgstr "Sản Phẩm"
+
+msgid "Search Categories"
+msgstr "Tìm Kiếm Danh Mục"
+
+msgid "Search Certifications"
+msgstr "Tìm Kiếm Chứng Nhận"
+
+msgid "Search Partners"
+msgstr "Tìm Kiếm Đối Tác"
+
+msgid "Search Products"
+msgstr "Tìm Kiếm Sản Phẩm"
+
+msgid "Search Subscribers"
+msgstr "Tìm Kiếm Người Đăng Ký"
+
+msgid "Social Links"
+msgstr "Liên Kết Mạng Xã Hội"
+
+msgid "Subscriber"
+msgstr "Người Đăng Ký"
+
+msgid "Subscribers"
+msgstr "Người Đăng Ký"
+
+msgid "Thank you for subscribing!"
+msgstr "Cảm ơn bạn đã đăng ký!"
+
+msgid "Thank you! Your message has been sent. We will get back to you shortly."
+msgstr "Cảm ơn bạn! Tin nhắn của bạn đã được gửi. Chúng tôi sẽ phản hồi sớm nhất."
+
+msgid "Update Category"
+msgstr "Cập Nhật Danh Mục"
+
+msgid "View Certification"
+msgstr "Xem Chứng Nhận"
+
+msgid "View Partner"
+msgstr "Xem Đối Tác"
+
+msgid "View Product"
+msgstr "Xem Sản Phẩm"
+
+msgid "View Products"
+msgstr "Xem Sản Phẩm"
+
+msgid "We Are Now Exporting GreenStar Products Worldwide"
+msgstr "GreenStar Hiện Đã Xuất Khẩu Sản Phẩm Ra Toàn Thế Giới"
+
+msgid "You are already subscribed. Thank you!"
+msgstr "Bạn đã đăng ký rồi. Cảm ơn bạn!"
+
+msgid "[GreenStar] New Newsletter Subscriber"
+msgstr "[GreenStar] Người Đăng Ký Nhận Tin Mới"
+
+msgid "Add Gallery Images"
+msgstr "Thêm Ảnh Thư Viện"
+
+msgid "Add Image"
+msgstr "Thêm Ảnh"
+
+msgid "Category Image"
+msgstr "Ảnh Danh Mục"
+
+msgid "Remove Image"
+msgstr "Xóa Ảnh"
+
+msgid "Upload/Edit Image"
+msgstr "Tải Lên/Sửa Ảnh"
+
+msgid "Website URL:"
+msgstr "Địa Chỉ Website:"
+
+msgid "About Us"
+msgstr "Giới Thiệu"
+
+msgid "Contact"
+msgstr "Liên Hệ"
+
+msgid "News"
+msgstr "Tin Tức"
+
+msgid "Our Technology"
+msgstr "Công Nghệ"
+
+msgid "Open search"
+msgstr "Mở tìm kiếm"
+
+msgid "Toggle navigation"
+msgstr "Bật/tắt menu"
+
+msgid "Get A Quote"
+msgstr "Nhận Báo Giá"
+
+msgid "Skip to content"
+msgstr "Chuyển đến nội dung chính"
+
+msgid "News Categories"
+msgstr "Danh Mục Tin Tức"
+
+msgid "All News"
+msgstr "Tất Cả Tin Tức"
+
+msgid "No News Articles Found"
+msgstr "Không Tìm Thấy Bài Viết Nào"
+
+msgid "Read Full Story"
+msgstr "Đọc Toàn Bộ Bài Viết"
+
+msgid "Stay updated with the latest news, industry trends, and announcements from GreenStar Vietnam."
+msgstr "Cập nhật những tin tức mới nhất, xu hướng ngành và thông báo từ GreenStar Việt Nam."
+
+msgid "We currently do not have any news articles in this category. Please check back later."
+msgstr "Hiện chúng tôi chưa có bài viết nào trong danh mục này. Vui lòng quay lại sau."
+
+msgid "Search Results for: %s"
+msgstr "Kết Quả Tìm Kiếm Cho: %s"
+
+msgid "It looks like nothing was found at this location. Try a search below."
+msgstr "Có vẻ như không tìm thấy gì ở đây. Hãy thử tìm kiếm bên dưới."
+
+msgid "Nothing Found"
+msgstr "Không Tìm Thấy Gì"
+
+msgid "Read More"
+msgstr "Đọc Thêm"
+
+msgid "Contact Form"
+msgstr "Biểu Mẫu Liên Hệ"
+
+msgid "Google Maps Location"
+msgstr "Vị Trí Trên Google Maps"
+
+msgid "Our Location"
+msgstr "Vị Trí Của Chúng Tôi"
+
+msgid "Business Hours"
+msgstr "Giờ Làm Việc"
+
+msgid "Call Us"
+msgstr "Gọi Cho Chúng Tôi"
+
+msgid "Email Address *"
+msgstr "Địa Chỉ Email *"
+
+msgid "Email Us"
+msgstr "Gửi Email Cho Chúng Tôi"
+
+msgid "Fill out the form below and our team will get back to you shortly."
+msgstr "Điền vào biểu mẫu bên dưới, đội ngũ của chúng tôi sẽ phản hồi bạn sớm nhất."
+
+msgid "Full Name *"
+msgstr "Họ Và Tên *"
+
+msgid "Message *"
+msgstr "Lời Nhắn *"
+
+msgid "Our Office"
+msgstr "Văn Phòng Của Chúng Tôi"
+
+msgid "Phone Number"
+msgstr "Số Điện Thoại"
+
+msgid "Send Message"
+msgstr "Gửi Tin Nhắn"
+
+msgid "Send us a message"
+msgstr "Gửi Tin Nhắn Cho Chúng Tôi"
+
+msgid "Subject"
+msgstr "Chủ Đề"
+
+msgid "Previous"
+msgstr "Trước"
+
+msgid "Our Facilities"
+msgstr "Cơ Sở Vật Chất"
+
+msgid "State-of-the-art facilities and strict quality control processes ensuring the highest standards of food safety."
+msgstr "Cơ sở vật chất hiện đại cùng quy trình kiểm soát chất lượng nghiêm ngặt, đảm bảo tiêu chuẩn an toàn thực phẩm cao nhất."
+
+msgid "Carefully select premium quality raw materials"
+msgstr "Lựa chọn kỹ càng nguyên liệu chất lượng cao"
+
+msgid "Color"
+msgstr "Màu Sắc"
+
+msgid "Contact for quotation"
+msgstr "Liên hệ để báo giá"
+
+msgid "Delivered to global markets with full documentation"
+msgstr "Giao hàng đến thị trường toàn cầu với đầy đủ giấy tờ chứng từ"
+
+msgid "Drying & Preservation"
+msgstr "Sấy Khô & Bảo Quản"
+
+msgid "Ensures maximum nutrition and extended shelf life"
+msgstr "Đảm bảo dinh dưỡng tối đa và kéo dài thời hạn sử dụng"
+
+msgid "Export Ready"
+msgstr "Sẵn Sàng Xuất Khẩu"
+
+msgid "Food Manufacturing"
+msgstr "Sản Xuất Thực Phẩm"
+
+msgid "Food Service & Restaurants"
+msgstr "Dịch Vụ Ẩm Thực & Nhà Hàng"
+
+msgid "Gluten-free and natural ingredients for health-conscious consumers."
+msgstr "Nguyên liệu tự nhiên, không gluten dành cho người tiêu dùng quan tâm sức khỏe."
+
+msgid "Health & Wellness"
+msgstr "Sức Khỏe & Đời Sống"
+
+msgid "Ideal for Asian restaurants, hotels, and catering with consistent quality."
+msgstr "Lý tưởng cho nhà hàng châu Á, khách sạn và dịch vụ ẩm thực nhờ chất lượng ổn định."
+
+msgid "Ingredients are systematically washed to remove dust and impurities"
+msgstr "Nguyên liệu được rửa sạch theo quy trình để loại bỏ bụi bẩn và tạp chất"
+
+msgid "Ingredients"
+msgstr "Thành Phần"
+
+msgid "Inner Packaging"
+msgstr "Bao Bì Trong"
+
+msgid "Labeling"
+msgstr "Nhãn Mác"
+
+msgid "Manufacturer"
+msgstr "Nhà Sản Xuất"
+
+msgid "Net Weight"
+msgstr "Trọng Lượng Tịnh"
+
+msgid "Offer premium dried rice products under your own private label brand."
+msgstr "Cung cấp sản phẩm gạo khô cao cấp dưới thương hiệu riêng của bạn."
+
+msgid "Origin"
+msgstr "Xuất Xứ"
+
+msgid "Outer Packaging"
+msgstr "Bao Bì Ngoài"
+
+msgid "Packaging"
+msgstr "Đóng Gói"
+
+msgid "Packed into cartons, ready for distribution"
+msgstr "Đóng thùng carton, sẵn sàng phân phối"
+
+msgid "Precision processing using modern machinery"
+msgstr "Chế biến chính xác bằng máy móc hiện đại"
+
+msgid "Processing"
+msgstr "Chế Biến"
+
+msgid "Product Name"
+msgstr "Tên Sản Phẩm"
+
+msgid "Quality Control"
+msgstr "Kiểm Soát Chất Lượng"
+
+msgid "Raw Material Inspection"
+msgstr "Kiểm Tra Nguyên Liệu"
+
+msgid "Retail & Supermarkets"
+msgstr "Bán Lẻ & Siêu Thị"
+
+msgid "Rigorous testing to meet international standards"
+msgstr "Kiểm tra nghiêm ngặt để đạt tiêu chuẩn quốc tế"
+
+msgid "Sealed for freshness and convenience"
+msgstr "Đóng kín để giữ độ tươi ngon và tiện lợi"
+
+msgid "Sending…"
+msgstr "Đang gửi…"
+
+msgid "Shelf Life"
+msgstr "Hạn Sử Dụng"
+
+msgid "Something went wrong. Please try again."
+msgstr "Đã có lỗi xảy ra. Vui lòng thử lại."
+
+msgid "Specification"
+msgstr "Thông Số"
+
+msgid "Strand Size"
+msgstr "Kích Thước Sợi"
+
+msgid "Style"
+msgstr "Kiểu Dáng"
+
+msgid "Thank you! We will contact you shortly."
+msgstr "Cảm ơn bạn! Chúng tôi sẽ liên hệ với bạn sớm nhất."
+
+msgid "Thorough Washing"
+msgstr "Rửa Sạch Kỹ Lưỡng"
+
+msgid "Use as a core ingredient for ready-made noodles, soups, and packaged foods."
+msgstr "Dùng làm nguyên liệu chính cho mì ăn liền, súp và thực phẩm đóng gói."
+
+msgid "View image %d"
+msgstr "Xem ảnh %d"
+
+msgid "+1 234 567 8900"
+msgstr "+84 933 898 896"
+
+msgid "Company name (optional)"
+msgstr "Tên công ty (không bắt buộc)"
+
+msgid "Enter your full name"
+msgstr "Nhập họ và tên đầy đủ"
+
+msgid "Next image"
+msgstr "Ảnh tiếp theo"
+
+msgid "Previous image"
+msgstr "Ảnh trước"
+
+msgid "Product information"
+msgstr "Thông tin sản phẩm"
+
+msgid "your@email.com"
+msgstr "ban@email.com"
+
+msgid "Address: 4th Floor, Viet Tower Building, No. 1 Thai Ha Street, Trung Liet Ward, Dong Da District, Hanoi, Vietnam."
+msgstr "Địa chỉ: Tầng 4, Tòa nhà Việt Tower, số 1 phố Thái Hà, phường Trung Liệt, quận Đống Đa, Hà Nội, Việt Nam."
+
+msgid "Applications & Industries"
+msgstr "Ứng Dụng & Ngành Nghề"
+
+msgid "Certifications:"
+msgstr "Chứng nhận:"
+
+msgid "Contact us for pricing, MOQ details, private label options, and bulk order information. Our team responds within 24 hours."
+msgstr "Liên hệ với chúng tôi để biết giá, số lượng đặt hàng tối thiểu, tùy chọn thương hiệu riêng và đặt hàng số lượng lớn. Đội ngũ của chúng tôi phản hồi trong vòng 24 giờ."
+
+msgid "Description"
+msgstr "Mô Tả"
+
+msgid "Email: ketoangreenstar2023@gmail.com"
+msgstr "Email: ketoangreenstar2023@gmail.com"
+
+msgid "Get a Quote"
+msgstr "Nhận Báo Giá"
+
+msgid "Green Star Vietnam Import–Export Joint Stock Company"
+msgstr "Công Ty Cổ Phần Xuất Nhập Khẩu Green Star Việt Nam"
+
+msgid "GreenStar Vietnam specializes in manufacturing and exporting premium rice-based products to global markets. Our products are produced in modern facilities, meeting international standards including HACCP, ISO, FDA, and Halal certifications."
+msgstr "GreenStar Việt Nam chuyên sản xuất và xuất khẩu các sản phẩm cao cấp từ gạo ra thị trường toàn cầu. Sản phẩm được sản xuất tại cơ sở hiện đại, đạt các tiêu chuẩn quốc tế như HACCP, ISO, FDA và Halal."
+
+msgid "GreenStar Vietnam"
+msgstr "GreenStar Việt Nam"
+
+msgid "Hotline: 0933 898 896"
+msgstr "Hotline: 0933 898 896"
+
+msgid "How We Make It"
+msgstr "Quy Trình Sản Xuất"
+
+msgid "ITEM"
+msgstr "HẠNG MỤC"
+
+msgid "Interested in this product?"
+msgstr "Quan tâm đến sản phẩm này?"
+
+msgid "Our Manufacturing Process"
+msgstr "Quy Trình Sản Xuất Của Chúng Tôi"
+
+msgid "Phone / WhatsApp"
+msgstr "Điện Thoại / WhatsApp"
+
+msgid "Price:"
+msgstr "Giá:"
+
+msgid "Related Products"
+msgstr "Sản Phẩm Liên Quan"
+
+msgid "Request Sample"
+msgstr "Yêu Cầu Mẫu Thử"
+
+msgid "Request a Quote or Sample"
+msgstr "Yêu Cầu Báo Giá Hoặc Mẫu Thử"
+
+msgid "SPECIFICATION"
+msgstr "THÔNG SỐ"
+
+msgid "Send Inquiry"
+msgstr "Gửi Yêu Cầu"
+
+msgid "Share:"
+msgstr "Chia sẻ:"
+
+msgid "Specifications"
+msgstr "Thông Số Kỹ Thuật"
+
+msgid "State-of-the-art production facilities ensuring the highest quality standards at every step."
+msgstr "Cơ sở sản xuất hiện đại đảm bảo tiêu chuẩn chất lượng cao nhất trong từng công đoạn."
+
+msgid "Store Information"
+msgstr "Thông Tin Cửa Hàng"
+
+msgid "Versatile Usage"
+msgstr "Ứng Dụng Đa Dạng"
+
+msgid "We offer flexible packaging options to suit your business needs — from standard retail packs to private-label solutions for international distributors."
+msgstr "Chúng tôi cung cấp các tùy chọn đóng gói linh hoạt phù hợp nhu cầu kinh doanh — từ bao bì bán lẻ tiêu chuẩn đến giải pháp thương hiệu riêng cho nhà phân phối quốc tế."
+
+msgid "Website:"
+msgstr "Website:"
+
+msgid "You May Also Like"
+msgstr "Có Thể Bạn Cũng Thích"
+
+msgid "Your Name *"
+msgstr "Họ Tên Của Bạn *"
+
+msgid "Next Article:"
+msgstr "Bài Viết Tiếp Theo:"
+
+msgid "Previous Article:"
+msgstr "Bài Viết Trước:"
+
+msgid "By"
+msgstr "Bởi"
+
+msgid "Recent Articles"
+msgstr "Bài Viết Gần Đây"
+
+msgid "Share this article:"
+msgstr "Chia sẻ bài viết này:"
+
+msgid "You may also be interested in"
+msgstr "Bạn Cũng Có Thể Quan Tâm"
+
+msgid "Key statistics"
+msgstr "Số liệu nổi bật"
+
+msgid "breadcrumb"
+msgstr "đường dẫn điều hướng"
+
+msgid "A leading representative in delivering the finest nutritional values of Vietnamese cuisine — especially rice-based products — to global markets."
+msgstr "Đơn vị tiên phong mang những giá trị dinh dưỡng tinh túy nhất của ẩm thực Việt Nam — đặc biệt là các sản phẩm từ gạo — đến thị trường toàn cầu."
+
+msgid "About"
+msgstr "Giới Thiệu"
+
+msgid "Export Countries"
+msgstr "Quốc Gia Xuất Khẩu"
+
+msgid "Natural Ingredients"
+msgstr "Nguyên Liệu Tự Nhiên"
+
+msgid "Product Lines"
+msgstr "Dòng Sản Phẩm"
+
+msgid "Years Experience"
+msgstr "Năm Kinh Nghiệm"
+
+msgid "Company statistics"
+msgstr "Số liệu công ty"
+
+msgid "Countries Worldwide"
+msgstr "Quốc Gia Trên Thế Giới"
+
+msgid "Global Partners"
+msgstr "Đối Tác Toàn Cầu"
+
+msgid "Years of Experience"
+msgstr "Năm Kinh Nghiệm"
+
+msgid "Main products included: rice vermicelli, pho, glass noodles, rice paper"
+msgstr "Sản phẩm chính bao gồm: bún, phở, miến, bánh tráng"
+
+msgid "GreenStar Vietnam Import-Export Joint Stock Company (Truong Phuc Vina)"
+msgstr "Công Ty Cổ Phần Xuất Nhập Khẩu GreenStar Việt Nam (Trường Phúc Vina)"
+
+msgid "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of our management team, and together with a committed team of key personnel, GreenStar Vietnam has successfully exported to markets around the world including Japan, South Korea, Thailand, Taiwan, Russia, and many more."
+msgstr "Với hơn 20 năm kinh nghiệm trong ngành chế biến bún miến phở xuất khẩu, dưới sự lãnh đạo sáng suốt, tận tâm và tầm nhìn xa của ban lãnh đạo, cùng đội ngũ nhân sự nòng cốt tận tụy, GreenStar Việt Nam đã xuất khẩu thành công đến các thị trường trên thế giới bao gồm Nhật Bản, Hàn Quốc, Thái Lan, Đài Loan, Nga và nhiều quốc gia khác."
+
+msgid "is a leading representative in providing and introducing the finest nutritional values of Vietnamese cuisine — especially products made from rice, a traditional and well-known ingredient of Vietnam."
+msgstr "là đơn vị tiên phong trong việc cung cấp và giới thiệu những giá trị dinh dưỡng tinh túy nhất của ẩm thực Việt Nam — đặc biệt là các sản phẩm làm từ gạo, nguyên liệu truyền thống nổi tiếng của Việt Nam."
+
+msgid "Read Article"
+msgstr "Đọc Bài Viết"
+
+msgid "View details for %s"
+msgstr "Xem chi tiết %s"
+
+msgid "100% authentic, certified agricultural products with guaranteed origin."
+msgstr "Sản phẩm nông nghiệp 100% chính hãng, có chứng nhận và nguồn gốc rõ ràng."
+
+msgid "Competitive Prices"
+msgstr "Giá Cả Cạnh Tranh"
+
+msgid "Dedicated support and streamlined processes for B2B and B2C clients."
+msgstr "Hỗ trợ tận tâm và quy trình tối ưu cho khách hàng B2B và B2C."
+
+msgid "Diverse Selection"
+msgstr "Đa Dạng Lựa Chọn"
+
+msgid "Fast and reliable shipping network ensuring products reach you wherever you are."
+msgstr "Mạng lưới vận chuyển nhanh chóng và đáng tin cậy, đảm bảo sản phẩm đến tay bạn dù ở bất cứ đâu."
+
+msgid "From premium rice noodles to specialized freeze-dried coffee."
+msgstr "Từ bún miến phở cao cấp đến cà phê sấy lạnh chuyên biệt."
+
+msgid "Genuine Products"
+msgstr "Sản Phẩm Chính Hãng"
+
+msgid "Nationwide Delivery"
+msgstr "Giao Hàng Toàn Quốc"
+
+msgid "Optimized Services"
+msgstr "Dịch Vụ Tối Ưu"
+
+msgid "Optimized production and direct supply chain to offer the best market value."
+msgstr "Sản xuất tối ưu và chuỗi cung ứng trực tiếp mang lại giá trị thị trường tốt nhất."
+
+msgid "From seed to shipment, we control every step of the process to deliver the highest quality natural products to global markets."
+msgstr "Từ hạt giống đến khi giao hàng, chúng tôi kiểm soát mọi công đoạn để mang đến sản phẩm tự nhiên chất lượng cao nhất cho thị trường toàn cầu."
+
+msgid "Why Choose GreenStar"
+msgstr "Vì Sao Chọn GreenStar"
+
+msgid "All Natural GreenStar Products"
+msgstr "Sản Phẩm Tự Nhiên GreenStar"
+
+msgid "Explore our extensive catalogue of naturally sourced, clean-label products suitable for the food, supplement and cosmetics industries."
+msgstr "Khám phá bộ sưu tập sản phẩm nguồn gốc tự nhiên, nhãn mác rõ ràng, phù hợp cho ngành thực phẩm, thực phẩm chức năng và mỹ phẩm."
+
+msgid "Our Product Range"
+msgstr "Dòng Sản Phẩm Của Chúng Tôi"
+
+msgid "GreenStar Vietnam upholds the highest international quality, safety and sustainability standards — giving our global partners complete confidence."
+msgstr "GreenStar Việt Nam luôn giữ vững tiêu chuẩn chất lượng, an toàn và phát triển bền vững quốc tế cao nhất — mang lại sự tin tưởng tuyệt đối cho các đối tác toàn cầu."
+
+msgid "No certifications found. Add them in the WordPress Admin under \"Certifications\"."
+msgstr "Không tìm thấy chứng nhận nào. Hãy thêm trong trang Quản trị WordPress ở mục \"Chứng Nhận\"."
+
+msgid "Our Certifications"
+msgstr "Chứng Nhận Của Chúng Tôi"
+
+msgid "Quality Assurance"
+msgstr "Đảm Bảo Chất Lượng"
+
+msgid "Partner with us for premium quality, reliable supply and competitive pricing. We support international distributors with full documentation and compliance support."
+msgstr "Hợp tác cùng chúng tôi để có chất lượng cao cấp, nguồn cung ổn định và giá cả cạnh tranh. Chúng tôi hỗ trợ đầy đủ giấy tờ và tuân thủ quy định cho nhà phân phối quốc tế."
+
+msgid "Enter your email address..."
+msgstr "Nhập địa chỉ email của bạn..."
+
+msgid "Play our company video"
+msgstr "Xem video giới thiệu công ty"
+
+msgid "Subscribe"
+msgstr "Đăng Ký"
+
+msgid "View Product Catalogue"
+msgstr "Xem Danh Mục Sản Phẩm"
+
+msgid "Australia"
+msgstr "Úc"
+
+msgid "Canada"
+msgstr "Canada"
+
+msgid "France"
+msgstr "Pháp"
+
+msgid "Germany"
+msgstr "Đức"
+
+msgid "Japan"
+msgstr "Nhật Bản"
+
+msgid "Netherlands"
+msgstr "Hà Lan"
+
+msgid "New Zealand"
+msgstr "New Zealand"
+
+msgid "Singapore"
+msgstr "Singapore"
+
+msgid "South Korea"
+msgstr "Hàn Quốc"
+
+msgid "UAE"
+msgstr "UAE"
+
+msgid "United Kingdom"
+msgstr "Vương Quốc Anh"
+
+msgid "United States"
+msgstr "Hoa Kỳ"
+
+msgid "Countries we export to"
+msgstr "Các quốc gia chúng tôi xuất khẩu"
+
+msgid "Annual Production"
+msgstr "Sản Lượng Hàng Năm"
+
+msgid "Countries"
+msgstr "Quốc Gia"
+
+msgid "Export to 30+ Countries Worldwide"
+msgstr "Xuất Khẩu Đến Hơn 30 Quốc Gia Trên Thế Giới"
+
+msgid "Global Reach"
+msgstr "Phạm Vi Toàn Cầu"
+
+msgid "Start Exporting With Us"
+msgstr "Bắt Đầu Xuất Khẩu Cùng Chúng Tôi"
+
+msgid "World Map showing GreenStar export locations"
+msgstr "Bản đồ thế giới hiển thị các địa điểm xuất khẩu của GreenStar"
+
+msgid "Years Exporting"
+msgstr "Năm Xuất Khẩu"
+
+msgid "ABOUT GREENSTAR"
+msgstr "VỀ GREENSTAR"
+
+msgid "With over 20 years of experience, Greenstar brings the best of Vietnamese cuisine to the world. We specialize in exporting high-quality rice noodles, pho, and rice paper to global markets."
+msgstr "Với hơn 20 năm kinh nghiệm, GreenStar mang tinh hoa ẩm thực Việt Nam đến với thế giới. Chúng tôi chuyên xuất khẩu bún, phở và bánh tráng chất lượng cao ra thị trường toàn cầu."
+
+msgid "Homepage Hero"
+msgstr "Banner Trang Chủ"
+
+msgid "Key Statistics"
+msgstr "Số Liệu Nổi Bật"
+
+msgid "Committed Team"
+msgstr "Đội Ngũ Tận Tâm"
+
+msgid "Major Markets"
+msgstr "Thị Trường Chính"
+
+msgid "Scroll"
+msgstr "Cuộn xuống"
+
+msgid "No partners found. Add them in the WordPress Admin under \"Partners\"."
+msgstr "Không tìm thấy đối tác nào. Hãy thêm trong trang Quản trị WordPress ở mục \"Đối Tác\"."
+
+msgid "Our Partners"
+msgstr "Đối Tác Của Chúng Tôi"
+
+msgid "Trusted by Global Brands"
+msgstr "Được Các Thương Hiệu Toàn Cầu Tin Tưởng"
+
+msgid "250g Box. A balanced blend of premium Robusta and Arabica beans, perfect for Phin brewing."
+msgstr "Hộp 250g. Hỗn hợp cân bằng giữa hạt Robusta và Arabica cao cấp, hoàn hảo để pha phin."
+
+msgid "250g Box. Specially roasted ground coffee for traditional Phin brewing. Rich, dark, and highly aromatic."
+msgstr "Hộp 250g. Cà phê xay rang đặc biệt dùng để pha phin truyền thống. Đậm đà, đen sánh và thơm nồng."
+
+msgid "30g Paper Box. 100% pure Vietnamese coffee, freeze-dried to preserve maximum aroma and bold flavor."
+msgstr "Hộp giấy 30g. Cà phê Việt Nam nguyên chất 100%, sấy lạnh để giữ trọn hương thơm và vị đậm đà."
+
+msgid "500g Bag. Whole roasted coffee beans carefully selected for espresso and specialty coffee shops."
+msgstr "Túi 500g. Hạt cà phê rang nguyên hạt được tuyển chọn kỹ càng cho espresso và các quán cà phê đặc sản."
+
+msgid "A7 Roasted Coffee Beans"
+msgstr "Cà Phê Hạt Rang A7"
+
+msgid "Aeroco 85 Ground Coffee"
+msgstr "Cà Phê Xay Aeroco 85"
+
+msgid "Aeroco 99 Ground Coffee"
+msgstr "Cà Phê Xay Aeroco 99"
+
+msgid "Bestseller"
+msgstr "Bán Chạy Nhất"
+
+msgid "Dried Pho Noodles"
+msgstr "Phở Khô"
+
+msgid "Dried Rice Vermicelli"
+msgstr "Bún Khô"
+
+msgid "Freeze-Dried Instant Coffee"
+msgstr "Cà Phê Hòa Tan Sấy Lạnh"
+
+msgid "Freshly Dried Pho Noodles"
+msgstr "Phở Tươi Sấy Khô"
+
+msgid "Freshly Dried Rice Vermicelli"
+msgstr "Bún Tươi Sấy Khô"
+
+msgid "Innovative drying technology that retains the moisture and freshness of traditional vermicelli."
+msgstr "Công nghệ sấy hiện đại giữ được độ ẩm và độ tươi ngon của bún truyền thống."
+
+msgid "Popular"
+msgstr "Phổ Biến"
+
+msgid "Premium dried rice vermicelli made from pure Vietnamese rice. Traditional taste, chewy texture, perfect for healthy meals."
+msgstr "Bún khô cao cấp làm từ gạo Việt Nam nguyên chất. Hương vị truyền thống, sợi dai, hoàn hảo cho bữa ăn lành mạnh."
+
+msgid "Premium"
+msgstr "Cao Cấp"
+
+msgid "Soft, tender Pho noodles processed with advanced freeze-drying to lock in freshness without preservatives."
+msgstr "Sợi phở mềm dai, được chế biến bằng công nghệ sấy lạnh hiện đại giữ trọn độ tươi mà không cần chất bảo quản."
+
+msgid "Product categories"
+msgstr "Danh mục sản phẩm"
+
+msgid "All"
+msgstr "Tất Cả"
+
+msgid "Browse All Products"
+msgstr "Xem Tất Cả Sản Phẩm"
+
+msgid "Ethically sourced, scientifically processed and rigorously tested natural ingredients for global markets."
+msgstr "Nguyên liệu tự nhiên có nguồn gốc rõ ràng, chế biến khoa học và kiểm định nghiêm ngặt cho thị trường toàn cầu."
+
+msgid "Explore Our Natural Ingredients"
+msgstr "Khám Phá Nguyên Liệu Tự Nhiên"
+
+msgid "Featured Products"
+msgstr "Sản Phẩm Nổi Bật"
+
+msgid "Premium Coffee"
+msgstr "Cà Phê Cao Cấp"
+
+msgid "Rice Noodles"
+msgstr "Bún Miến Phở"
+
+msgid "View Details"
+msgstr "Xem Chi Tiết"
+
+msgctxt "placeholder"
+msgid "Search ..."
+msgstr "Tìm kiếm ..."
+
+msgctxt "label"
+msgid "Search for:"
+msgstr "Tìm kiếm cho:"
+
+msgctxt "submit button"
+msgid "Search"
+msgstr "Tìm kiếm"
+

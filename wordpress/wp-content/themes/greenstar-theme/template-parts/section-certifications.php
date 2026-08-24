@@ -31,7 +31,7 @@ $certs_query = new WP_Query( array(
         <?php if ( $certs_query->have_posts() ) : ?>
             <!-- Certs slider -->
             <div class="certs-slider-wrapper">
-                <button class="cert-slider-btn prev" aria-label="Previous">❮</button>
+                <button class="cert-slider-btn prev" aria-label="<?php esc_attr_e( 'Previous', 'greenstar-theme' ); ?>">❮</button>
                 <div class="certs-grid" id="certs-grid">
                     <?php while ( $certs_query->have_posts() ) : $certs_query->the_post(); 
                         $img_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';
@@ -44,7 +44,7 @@ $certs_query = new WP_Query( array(
                         </div>
                     <?php endwhile; wp_reset_postdata(); ?>
                 </div>
-                <button class="cert-slider-btn next" aria-label="Next">❯</button>
+                <button class="cert-slider-btn next" aria-label="<?php esc_attr_e( 'Next', 'greenstar-theme' ); ?>">❯</button>
             </div>
 
             <script>
@@ -104,8 +104,8 @@ $certs_query = new WP_Query( array(
 
         <!-- Lightbox HTML -->
         <div id="cert-lightbox" class="cert-lightbox">
-            <span class="cert-lightbox-close" aria-label="Close">&times;</span>
-            <img class="cert-lightbox-content" id="cert-lightbox-img" alt="Zoomed Certification">
+            <span class="cert-lightbox-close" aria-label="<?php esc_attr_e( 'Close', 'greenstar-theme' ); ?>">&times;</span>
+            <img class="cert-lightbox-content" id="cert-lightbox-img" alt="<?php esc_attr_e( 'Zoomed Certification', 'greenstar-theme' ); ?>">
         </div>
 
     </div><!-- .container -->

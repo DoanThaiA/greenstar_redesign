@@ -89,7 +89,7 @@
         --fs-2xl:      1.75rem;
     }
 
-    .hero { min-height: 80vh; }
+    .hero { min-height: 80vh; flex-direction: column; padding: 6rem 0 0; }
     .hero__stats { position: relative; }
     .hero__stats-inner { flex-wrap: wrap; }
     .hero__stat { max-width: 50%; min-width: 50%; border-bottom: 1px solid rgba(255,255,255,.12); }

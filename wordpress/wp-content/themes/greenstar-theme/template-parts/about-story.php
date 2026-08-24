@@ -39,7 +39,7 @@
                 </p>
 
                 <div class="about-story__cta">
-                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary" id="about-contact-btn">
+                    <a href="<?php echo esc_url( greenstar_translated_page_url( 109, '/contact/' ) ); ?>" class="btn btn-primary" id="about-contact-btn">
                         <?php esc_html_e( 'Contact Us', 'greenstar-theme' ); ?>
                     </a>
                 </div>

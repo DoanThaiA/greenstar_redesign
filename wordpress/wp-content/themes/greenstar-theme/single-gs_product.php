@@ -167,7 +167,7 @@ endwhile;
                         <a href="#gsp-inquiry" class="btn btn-primary gsp-btn-quote">
                             <?php esc_html_e( 'Get a Quote', 'greenstar-theme' ); ?>
                         </a>
-                        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline gsp-btn-sample">
+                        <a href="<?php echo esc_url( greenstar_translated_page_url( 109, '/contact/' ) ); ?>" class="btn btn-outline gsp-btn-sample">
                             <?php esc_html_e( 'Request Sample', 'greenstar-theme' ); ?>
                         </a>
                     </div>
@@ -190,13 +190,13 @@ endwhile;
                     <div class="gsp-share-row">
                         <span class="gsp-share-label"><?php esc_html_e( 'Share:', 'greenstar-theme' ); ?></span>
                         <?php $share_url = urlencode( get_permalink() ); ?>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>" target="_blank" rel="noopener noreferrer" class="gsp-share-btn gsp-share-btn--fb" aria-label="Share on Facebook">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>" target="_blank" rel="noopener noreferrer" class="gsp-share-btn gsp-share-btn--fb" aria-label="<?php esc_attr_e( 'Share on Facebook', 'greenstar-theme' ); ?>">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url=<?php echo $share_url; ?>&text=<?php echo urlencode( $product_title ); ?>" target="_blank" rel="noopener noreferrer" class="gsp-share-btn gsp-share-btn--tw" aria-label="Share on Twitter">
+                        <a href="https://twitter.com/intent/tweet?url=<?php echo $share_url; ?>&text=<?php echo urlencode( $product_title ); ?>" target="_blank" rel="noopener noreferrer" class="gsp-share-btn gsp-share-btn--tw" aria-label="<?php esc_attr_e( 'Share on Twitter', 'greenstar-theme' ); ?>">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
                         </a>
-                        <a href="https://pinterest.com/pin/create/button/?url=<?php echo $share_url; ?>" target="_blank" rel="noopener noreferrer" class="gsp-share-btn gsp-share-btn--pt" aria-label="Share on Pinterest">
+                        <a href="https://pinterest.com/pin/create/button/?url=<?php echo $share_url; ?>" target="_blank" rel="noopener noreferrer" class="gsp-share-btn gsp-share-btn--pt" aria-label="<?php esc_attr_e( 'Share on Pinterest', 'greenstar-theme' ); ?>">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.44 7.63 11.18-.1-.96-.2-2.44.04-3.5.22-.94 1.47-6.27 1.47-6.27s-.38-.75-.38-1.86c0-1.74 1.01-3.05 2.27-3.05 1.07 0 1.59.8 1.59 1.76 0 1.07-.68 2.68-1.03 4.17-.29 1.24.62 2.25 1.84 2.25 2.21 0 3.69-2.84 3.69-6.2 0-2.56-1.73-4.35-4.21-4.35-2.87 0-4.55 2.15-4.55 4.37 0 .87.33 1.79.75 2.3a.3.3 0 0 1 .07.28c-.08.31-.25 1-.28 1.14-.04.17-.15.21-.34.13-1.25-.58-2.03-2.42-2.03-3.89 0-3.16 2.3-6.07 6.63-6.07 3.48 0 6.19 2.48 6.19 5.8 0 3.46-2.18 6.24-5.2 6.24-1.02 0-1.97-.53-2.3-1.15l-.62 2.33c-.23.87-.84 1.96-1.25 2.62.94.29 1.94.45 2.97.45 6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>
                         </a>
                     </div>

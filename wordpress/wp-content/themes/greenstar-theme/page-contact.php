@@ -6,12 +6,20 @@
  */
 
 get_header();
+
+// Background image (reuse hero bg from customizer, same as Home/About)
+$hero_bg_id  = get_theme_mod( 'greenstar_hero_bg', 0 );
+$hero_bg_url = $hero_bg_id
+    ? wp_get_attachment_image_url( $hero_bg_id, 'greenstar-hero' )
+    : get_template_directory_uri() . '/assets/images/hero-bg.jpg';
 ?>
 
 <main id="primary" class="site-main" role="main">
 
     <!-- Hero Section -->
     <section class="contact-hero" aria-labelledby="contact-hero-title">
+        <div class="contact-hero__bg" style="background-image:url('<?php echo esc_url( $hero_bg_url ); ?>');" aria-hidden="true"></div>
+        <div class="contact-hero__overlay" aria-hidden="true"></div>
         <div class="container contact-hero__container">
             <h1 class="contact-hero__title" id="contact-hero-title"><?php esc_html_e( 'Contact Us', 'greenstar-theme' ); ?></h1>
             <p class="contact-hero__subtitle">

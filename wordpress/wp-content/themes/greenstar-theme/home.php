@@ -8,12 +8,20 @@
  */
 
 get_header();
+
+// Background image (reuse hero bg from customizer, same as Home/About)
+$hero_bg_id  = get_theme_mod( 'greenstar_hero_bg', 0 );
+$hero_bg_url = $hero_bg_id
+    ? wp_get_attachment_image_url( $hero_bg_id, 'greenstar-hero' )
+    : get_template_directory_uri() . '/assets/images/hero-bg.jpg';
 ?>
 
 <main id="primary" class="site-main" role="main">
 
     <!-- News Hero -->
     <section class="news-hero" aria-labelledby="news-hero-title">
+        <div class="news-hero__bg" style="background-image:url('<?php echo esc_url( $hero_bg_url ); ?>');" aria-hidden="true"></div>
+        <div class="news-hero__overlay" aria-hidden="true"></div>
         <div class="container news-hero__container">
             <?php if ( is_archive() ) : ?>
                 <h1 class="news-hero__title" id="news-hero-title"><?php single_term_title(); ?></h1>

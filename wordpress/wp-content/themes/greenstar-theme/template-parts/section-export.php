@@ -63,7 +63,7 @@ $export_countries = array(
                 </div>
 
                 <div style="margin-top:2rem;">
-                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"
+                    <a href="<?php echo esc_url( greenstar_translated_page_url( 109, '/contact/' ) ); ?>"
                        class="btn btn-white"
                        id="export-contact-btn">
                         <?php esc_html_e( 'Start Exporting With Us', 'greenstar-theme' ); ?> &rarr;

@@ -6,12 +6,20 @@
  */
 
 get_header();
+
+// Background image (reuse hero bg from customizer, same as Home/About)
+$hero_bg_id  = get_theme_mod( 'greenstar_hero_bg', 0 );
+$hero_bg_url = $hero_bg_id
+    ? wp_get_attachment_image_url( $hero_bg_id, 'greenstar-hero' )
+    : get_template_directory_uri() . '/assets/images/hero-bg.jpg';
 ?>
 
 <main id="primary" class="site-main" role="main">
 
     <!-- Hero Section -->
     <section class="tech-hero" aria-labelledby="tech-hero-title">
+        <div class="tech-hero__bg" style="background-image:url('<?php echo esc_url( $hero_bg_url ); ?>');" aria-hidden="true"></div>
+        <div class="tech-hero__overlay" aria-hidden="true"></div>
         <div class="container tech-hero__container">
             <h1 class="tech-hero__title" id="tech-hero-title"><?php esc_html_e( 'Our Technology', 'greenstar-theme' ); ?></h1>
             <p class="tech-hero__subtitle">
@@ -33,10 +41,10 @@ get_header();
                 
                 <div class="tech-overview__content">
                     <p>
-                        With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, Truong Phuc Vina has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards.
+                        <?php esc_html_e( 'With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, Truong Phuc Vina has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards.', 'greenstar-theme' ); ?>
                     </p>
                     <p>
-                        Thanks to its stable manufacturing capacity and efficient operations, Truong Phuc Vina is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets.
+                        <?php esc_html_e( 'Thanks to its stable manufacturing capacity and efficient operations, Truong Phuc Vina is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets.', 'greenstar-theme' ); ?>
                     </p>
                 </div>
                 
@@ -54,27 +62,27 @@ get_header();
                 <div class="tech-gallery__grid">
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 366, 'large', false, array( 'alt' => 'Factory Floor' ) ); ?>
+                        <?php echo wp_get_attachment_image( 366, 'large', false, array( 'alt' => esc_attr__( 'Factory Floor', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 367, 'large', false, array( 'alt' => 'Drying Area' ) ); ?>
+                        <?php echo wp_get_attachment_image( 367, 'large', false, array( 'alt' => esc_attr__( 'Drying Area', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 368, 'large', false, array( 'alt' => 'Processing Machinery' ) ); ?>
+                        <?php echo wp_get_attachment_image( 368, 'large', false, array( 'alt' => esc_attr__( 'Processing Machinery', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 369, 'large', false, array( 'alt' => 'Loading Truck' ) ); ?>
+                        <?php echo wp_get_attachment_image( 369, 'large', false, array( 'alt' => esc_attr__( 'Loading Truck', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 370, 'large', false, array( 'alt' => 'Container Loading' ) ); ?>
+                        <?php echo wp_get_attachment_image( 370, 'large', false, array( 'alt' => esc_attr__( 'Container Loading', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 371, 'large', false, array( 'alt' => 'Packaged Products' ) ); ?>
+                        <?php echo wp_get_attachment_image( 371, 'large', false, array( 'alt' => esc_attr__( 'Packaged Products', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                 </div>

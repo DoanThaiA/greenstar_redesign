@@ -48,7 +48,7 @@ $custom_icons = array(
         <div class="category-grid" data-reveal>
             <?php if ( $use_fallback ) : ?>
                 <?php foreach ( $fallback_cats as $i => $cat ) : ?>
-                    <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>"
+                    <a href="<?php echo esc_url( get_post_type_archive_link( 'gs_product' ) ); ?>"
                        class="category-card"
                        id="cat-<?php echo esc_attr( $cat['slug'] ); ?>">
                         <span class="category-card__img" style="display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--color-light-gray);">
@@ -98,7 +98,7 @@ $custom_icons = array(
 
         <!-- View all link -->
         <div class="text-center" style="margin-top:2.5rem;">
-            <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>"
+            <a href="<?php echo esc_url( get_post_type_archive_link( 'gs_product' ) ); ?>"
                class="btn btn-primary"
                id="view-all-categories-btn">
                 <?php esc_html_e( 'View All Products', 'greenstar-theme' ); ?> &rarr;
