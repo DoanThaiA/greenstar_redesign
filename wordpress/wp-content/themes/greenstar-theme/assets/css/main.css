@@ -1102,6 +1102,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* Footer brand column */
+.footer-brand .custom-logo { width: 140px; max-width: 100%; height: auto; }
 .footer-brand .site-logo__name { font-size: var(--fs-md); }
 .footer-brand p {
     margin-top: 1rem;
