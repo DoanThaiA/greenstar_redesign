@@ -811,14 +811,17 @@ msgstr "Năm Kinh Nghiệm"
 msgid "Main products included: rice vermicelli, pho, glass noodles, rice paper"
 msgstr "Sản phẩm chính bao gồm: bún, phở, miến, bánh tráng"
 
-msgid "GreenStar Vietnam Import-Export Joint Stock Company (Truong Phuc Vina)"
-msgstr "Công Ty Cổ Phần Xuất Nhập Khẩu GreenStar Việt Nam (Trường Phúc Vina)"
+msgid "Introduction of Truong Phuc Vina Trading, Production and Import–Export Company Limited"
+msgstr "Giới Thiệu Công Ty TNHH Thương Mại Sản Xuất Xuất Nhập Khẩu Trường Phúc Vina"
 
-msgid "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of our management team, and together with a committed team of key personnel, GreenStar Vietnam has successfully exported to markets around the world including Japan, South Korea, Thailand, Taiwan, Russia, and many more."
-msgstr "Với hơn 20 năm kinh nghiệm trong ngành chế biến bún miến phở xuất khẩu, dưới sự lãnh đạo sáng suốt, tận tâm và tầm nhìn xa của ban lãnh đạo, cùng đội ngũ nhân sự nòng cốt tận tụy, GreenStar Việt Nam đã xuất khẩu thành công đến các thị trường trên thế giới bao gồm Nhật Bản, Hàn Quốc, Thái Lan, Đài Loan, Nga và nhiều quốc gia khác."
+msgid "Truong Phuc Vina Company"
+msgstr "Công Ty Trường Phúc Vina"
 
-msgid "is a leading representative in providing and introducing the finest nutritional values of Vietnamese cuisine — especially products made from rice, a traditional and well-known ingredient of Vietnam."
-msgstr "là đơn vị tiên phong trong việc cung cấp và giới thiệu những giá trị dinh dưỡng tinh túy nhất của ẩm thực Việt Nam — đặc biệt là các sản phẩm làm từ gạo, nguyên liệu truyền thống nổi tiếng của Việt Nam."
+msgid "is a typical representative in providing and introducing to consumers the best nutritional values of Vietnamese cuisine, especially products made from rice – a traditional and well-known ingredient of Vietnam. We aim to bring you distinctive product experiences and unique flavors such as rice vermicelli, fresh rice noodles, dried rice noodles, dried pho noodles, fresh pho noodles, glass noodles (mung bean noodles), rice paper for spring rolls, and more."
+msgstr "là đơn vị tiêu biểu trong việc cung cấp và giới thiệu đến người tiêu dùng những giá trị dinh dưỡng tốt nhất của ẩm thực Việt Nam, đặc biệt là các sản phẩm từ gạo – nguyên liệu truyền thống nổi tiếng của Việt Nam. Chúng tôi mong muốn mang đến cho bạn những trải nghiệm sản phẩm đặc trưng và hương vị độc đáo như bún gạo, bún tươi, bún khô, bánh phở khô, bánh phở tươi, miến (miến đậu xanh), bánh tráng cuốn, và nhiều sản phẩm khác."
+
+msgid "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of the company's management, together with a team of key personnel who are fully committed to the company's shared mission, Truong Phuc Vina has successfully exported numerous orders to markets around the world, including Japan, South Korea, Thailand, Taiwan, Russia, and others."
+msgstr "Với hơn 20 năm kinh nghiệm trong ngành chế biến bún miến phở xuất khẩu, dưới sự lãnh đạo sáng suốt, tận tâm và có tầm nhìn xa của ban lãnh đạo công ty, cùng đội ngũ nhân sự nòng cốt luôn tận tâm với sứ mệnh chung của công ty, Trường Phúc Vina đã xuất khẩu thành công nhiều đơn hàng đến các thị trường trên thế giới, bao gồm Nhật Bản, Hàn Quốc, Thái Lan, Đài Loan, Nga và nhiều quốc gia khác."
 
 msgid "Read Article"
 msgstr "Đọc Bài Viết"
