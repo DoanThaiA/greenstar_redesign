@@ -73,6 +73,39 @@ msgstr "Từ những nông trại trên vùng cao nguyên trù phú của Việt
 msgid "Authentic flat rice noodles for Vietnam's famous Pho. Easy to prepare, restaurant-quality texture."
 msgstr "Bánh phở dẹt nguyên bản cho món Phở nổi tiếng của Việt Nam. Dễ chế biến, kết cấu chuẩn vị nhà hàng."
 
+msgid "Production Line Warehouse"
+msgstr "Nhà Xưởng Dây Chuyền Sản Xuất"
+
+msgid "Empty Factory Warehouse"
+msgstr "Nhà Xưởng Nhà Máy"
+
+msgid "Cold Storage Entrance"
+msgstr "Lối Vào Kho Lạnh"
+
+msgid "Storage Room"
+msgstr "Phòng Kho"
+
+msgid "Drying Trays"
+msgstr "Khay Sấy"
+
+msgid "Production Corridor"
+msgstr "Hành Lang Sản Xuất"
+
+msgid "Processing Equipment Corridor"
+msgstr "Hành Lang Thiết Bị Chế Biến"
+
+msgid "Drying Chambers"
+msgstr "Buồng Sấy"
+
+msgid "Storage Area"
+msgstr "Khu Vực Lưu Kho"
+
+msgid "Factory Exterior Gate"
+msgstr "Cổng Nhà Máy"
+
+msgid "Factory Building"
+msgstr "Tòa Nhà Nhà Máy"
+
 msgid "GreenStar Products"
 msgstr "Sản Phẩm GreenStar"
 

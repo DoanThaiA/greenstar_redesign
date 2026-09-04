@@ -62,27 +62,51 @@ $hero_bg_url = $hero_bg_id
                 <div class="tech-gallery__grid">
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 366, 'large', false, array( 'alt' => esc_attr__( 'Factory Floor', 'greenstar-theme' ) ) ); ?>
+                        <?php echo wp_get_attachment_image( 497, 'large', false, array( 'alt' => esc_attr__( 'Production Line Warehouse', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 367, 'large', false, array( 'alt' => esc_attr__( 'Drying Area', 'greenstar-theme' ) ) ); ?>
+                        <?php echo wp_get_attachment_image( 498, 'large', false, array( 'alt' => esc_attr__( 'Empty Factory Warehouse', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 368, 'large', false, array( 'alt' => esc_attr__( 'Processing Machinery', 'greenstar-theme' ) ) ); ?>
+                        <?php echo wp_get_attachment_image( 499, 'large', false, array( 'alt' => esc_attr__( 'Cold Storage Entrance', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 369, 'large', false, array( 'alt' => esc_attr__( 'Loading Truck', 'greenstar-theme' ) ) ); ?>
+                        <?php echo wp_get_attachment_image( 500, 'large', false, array( 'alt' => esc_attr__( 'Storage Room', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 370, 'large', false, array( 'alt' => esc_attr__( 'Container Loading', 'greenstar-theme' ) ) ); ?>
+                        <?php echo wp_get_attachment_image( 501, 'large', false, array( 'alt' => esc_attr__( 'Drying Trays', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                     <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 371, 'large', false, array( 'alt' => esc_attr__( 'Packaged Products', 'greenstar-theme' ) ) ); ?>
+                        <?php echo wp_get_attachment_image( 502, 'large', false, array( 'alt' => esc_attr__( 'Production Corridor', 'greenstar-theme' ) ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 503, 'large', false, array( 'alt' => esc_attr__( 'Processing Equipment Corridor', 'greenstar-theme' ) ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 504, 'large', false, array( 'alt' => esc_attr__( 'Processing Machinery', 'greenstar-theme' ) ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 505, 'large', false, array( 'alt' => esc_attr__( 'Drying Chambers', 'greenstar-theme' ) ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 506, 'large', false, array( 'alt' => esc_attr__( 'Storage Area', 'greenstar-theme' ) ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 507, 'large', false, array( 'alt' => esc_attr__( 'Factory Exterior Gate', 'greenstar-theme' ) ) ); ?>
+                    </div>
+
+                    <div class="gallery-item">
+                        <?php echo wp_get_attachment_image( 508, 'large', false, array( 'alt' => esc_attr__( 'Factory Building', 'greenstar-theme' ) ) ); ?>
                     </div>
 
                 </div>
