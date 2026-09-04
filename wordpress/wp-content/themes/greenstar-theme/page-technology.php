@@ -60,55 +60,33 @@ $hero_bg_url = $hero_bg_id
                 <button type="button" class="tech-gallery__nav tech-gallery__nav--prev" aria-label="<?php esc_attr_e( 'Previous', 'greenstar-theme' ); ?>">&#10094;</button>
 
                 <div class="tech-gallery__grid">
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 497, 'large', false, array( 'alt' => esc_attr__( 'Production Line Warehouse', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 498, 'large', false, array( 'alt' => esc_attr__( 'Empty Factory Warehouse', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 499, 'large', false, array( 'alt' => esc_attr__( 'Cold Storage Entrance', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 500, 'large', false, array( 'alt' => esc_attr__( 'Storage Room', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 501, 'large', false, array( 'alt' => esc_attr__( 'Drying Trays', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 502, 'large', false, array( 'alt' => esc_attr__( 'Production Corridor', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 503, 'large', false, array( 'alt' => esc_attr__( 'Processing Equipment Corridor', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 504, 'large', false, array( 'alt' => esc_attr__( 'Processing Machinery', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 505, 'large', false, array( 'alt' => esc_attr__( 'Drying Chambers', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 506, 'large', false, array( 'alt' => esc_attr__( 'Storage Area', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 507, 'large', false, array( 'alt' => esc_attr__( 'Factory Exterior Gate', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
-                    <div class="gallery-item">
-                        <?php echo wp_get_attachment_image( 508, 'large', false, array( 'alt' => esc_attr__( 'Factory Building', 'greenstar-theme' ) ) ); ?>
-                    </div>
-
+                    <?php
+                    // Referenced by file path (not attachment ID): the numeric media
+                    // library ID for the same file can differ between environments
+                    // (local vs demo have separate databases with independent ID
+                    // sequences), so an ID that means "factory photo" here could
+                    // resolve to a completely different, pre-existing image there.
+                    $tech_gallery_images = array(
+                        1  => __( 'Production Line Warehouse', 'greenstar-theme' ),
+                        2  => __( 'Empty Factory Warehouse', 'greenstar-theme' ),
+                        3  => __( 'Cold Storage Entrance', 'greenstar-theme' ),
+                        4  => __( 'Storage Room', 'greenstar-theme' ),
+                        5  => __( 'Drying Trays', 'greenstar-theme' ),
+                        6  => __( 'Production Corridor', 'greenstar-theme' ),
+                        7  => __( 'Processing Equipment Corridor', 'greenstar-theme' ),
+                        8  => __( 'Processing Machinery', 'greenstar-theme' ),
+                        9  => __( 'Drying Chambers', 'greenstar-theme' ),
+                        10 => __( 'Storage Area', 'greenstar-theme' ),
+                        11 => __( 'Factory Exterior Gate', 'greenstar-theme' ),
+                        12 => __( 'Factory Building', 'greenstar-theme' ),
+                    );
+                    foreach ( $tech_gallery_images as $gs_i => $gs_alt ) :
+                        $gs_url = content_url( "uploads/2026/09/tech-facility-{$gs_i}.jpg" );
+                        ?>
+                        <div class="gallery-item">
+                            <img src="<?php echo esc_url( $gs_url ); ?>" alt="<?php echo esc_attr( $gs_alt ); ?>" loading="lazy">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
 
                 <button type="button" class="tech-gallery__nav tech-gallery__nav--next" aria-label="<?php esc_attr_e( 'Next', 'greenstar-theme' ); ?>">&#10095;</button>
