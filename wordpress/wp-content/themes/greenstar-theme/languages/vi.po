@@ -10,6 +10,27 @@ msgstr ""
 msgid "Premium Vietnamese\nRice Products"
 msgstr "Gạo Việt Nam\nChất Lượng Cao Cấp"
 
+msgid "Message From Us"
+msgstr "Thông Điệp Từ Chúng Tôi"
+
+msgid "First of all, Truong Phuc Vina would like to extend our sincere greetings and best wishes for good health, prosperity, and success to our valued customers and business partners."
+msgstr "Trước hết, Truong Phuc Vina xin gửi lời chào trân trọng cùng lời chúc sức khỏe, thịnh vượng và thành công đến quý khách hàng và đối tác kinh doanh."
+
+msgid "Truong Phuc Vina is a professional manufacturer, exporter, and OEM supplier of rice-based food products in Vietnam. We specialize in the production, import–export, and OEM manufacturing of rice noodles, including dried rice noodles, dried pho noodles, glass noodles (mung bean noodles), fresh rice noodles, fresh pho noodles, and rice paper for spring rolls, serving both domestic and international markets."
+msgstr "Truong Phuc Vina là nhà sản xuất, xuất khẩu và gia công (OEM) chuyên nghiệp các sản phẩm thực phẩm từ gạo tại Việt Nam. Chúng tôi chuyên sản xuất, xuất nhập khẩu và gia công các loại bún, phở, bao gồm bún gạo khô, phở khô, miến (bún dong), bún tươi, phở tươi và bánh tráng cuốn, phục vụ cả thị trường trong nước và quốc tế."
+
+msgid "With a strong commitment to cooperation and sustainable growth, we aim to become a reliable OEM partner and trusted exporter of Vietnamese rice noodle products for organizations, enterprises, and individual clients worldwide. Our products are manufactured under strict quality control processes to meet international export standards, ensuring consistency, food safety, and customer satisfaction."
+msgstr "Với cam kết mạnh mẽ về hợp tác và phát triển bền vững, chúng tôi hướng tới trở thành đối tác gia công đáng tin cậy và nhà xuất khẩu uy tín các sản phẩm bún, phở Việt Nam cho các tổ chức, doanh nghiệp và khách hàng cá nhân trên toàn thế giới. Sản phẩm của chúng tôi được sản xuất theo quy trình kiểm soát chất lượng nghiêm ngặt nhằm đáp ứng tiêu chuẩn xuất khẩu quốc tế, đảm bảo tính ổn định, an toàn thực phẩm và sự hài lòng của khách hàng."
+
+msgid "Through continuous improvement and dedication, Truong Phuc Vina is committed to providing our partners with high-quality products, competitive pricing, reliable supply, and professional OEM services. We always prioritize credibility, attentiveness, and long-term cooperation in every partnership."
+msgstr "Thông qua sự cải tiến không ngừng và tận tâm, Truong Phuc Vina cam kết mang đến cho đối tác những sản phẩm chất lượng cao, giá cả cạnh tranh, nguồn cung ổn định và dịch vụ gia công chuyên nghiệp. Chúng tôi luôn đặt uy tín, sự tận tình và hợp tác lâu dài lên hàng đầu trong mọi mối quan hệ đối tác."
+
+msgid "For all these reasons, we firmly believe that our customers and partners will be fully satisfied."
+msgstr "Vì tất cả những lý do đó, chúng tôi tin tưởng chắc chắn rằng quý khách hàng và đối tác sẽ hoàn toàn hài lòng."
+
+msgid "We sincerely wish you success and prosperity in your business."
+msgstr "Chúng tôi xin chân thành chúc quý vị thành công và thịnh vượng trong kinh doanh."
+
 msgid "With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, GreenStar Vietnam has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards."
 msgstr "Với nhà xưởng và khu vực sản xuất rộng 1.000 mét vuông, cùng dây chuyền sản xuất hiện đại và được đầu tư bài bản, GreenStar Việt Nam có năng lực cung cấp tới 500 tấn các sản phẩm chủ lực như bún gạo khô, bánh phở khô và miến. Quy trình sản xuất được kiểm soát chặt chẽ ở mọi công đoạn, từ lựa chọn nguyên liệu đến chế biến và đóng gói, đảm bảo chất lượng ổn định và tiêu chuẩn an toàn thực phẩm."
 
