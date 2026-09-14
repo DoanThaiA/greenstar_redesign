@@ -71,8 +71,6 @@ $hero_bg_url = $hero_bg_id
         <div class="container">
             <h2 class="tech-gallery__title"><?php esc_html_e( 'Our Facilities', 'greenstar-theme' ); ?></h2>
             <div class="tech-gallery__carousel">
-                <button type="button" class="tech-gallery__nav tech-gallery__nav--prev" aria-label="<?php esc_attr_e( 'Previous', 'greenstar-theme' ); ?>">&#10094;</button>
-
                 <div class="tech-gallery__grid">
                     <?php
                     // Referenced by file path (not attachment ID): the numeric media
@@ -102,8 +100,6 @@ $hero_bg_url = $hero_bg_id
                         </div>
                     <?php endforeach; ?>
                 </div>
-
-                <button type="button" class="tech-gallery__nav tech-gallery__nav--next" aria-label="<?php esc_attr_e( 'Next', 'greenstar-theme' ); ?>">&#10095;</button>
             </div>
         </div>
     </section>

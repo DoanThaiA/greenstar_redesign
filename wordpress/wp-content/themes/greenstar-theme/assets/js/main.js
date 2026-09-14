@@ -368,25 +368,6 @@
     }
 
     /* -----------------------------------------------------------------------
-       11. Facility gallery carousel arrows
-    ----------------------------------------------------------------------- */
-    qsa('.tech-gallery__carousel').forEach((carousel) => {
-        const track = qs('.tech-gallery__grid', carousel);
-        const prev  = qs('.tech-gallery__nav--prev', carousel);
-        const next  = qs('.tech-gallery__nav--next', carousel);
-        if (!track) return;
-
-        const scrollByCard = (dir) => {
-            const card = qs('.gallery-item', track);
-            const amount = card ? card.getBoundingClientRect().width + 24 : 320;
-            track.scrollBy({ left: dir * amount, behavior: 'smooth' });
-        };
-
-        prev?.addEventListener('click', () => scrollByCard(-1));
-        next?.addEventListener('click', () => scrollByCard(1));
-    });
-
-    /* -----------------------------------------------------------------------
        12. Product archive — FILTER button toggles the sidebar
     ----------------------------------------------------------------------- */
     const filterBtn = qs('.gs-filter-btn');
