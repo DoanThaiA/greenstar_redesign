@@ -44,16 +44,16 @@ $hero_bg_url = $hero_bg_id
                         <?php esc_html_e( 'Message From Us', 'greenstar-theme' ); ?>
                     </h2>
                     <p>
-                        <?php esc_html_e( 'First of all, Truong Phuc Vina would like to extend our sincere greetings and best wishes for good health, prosperity, and success to our valued customers and business partners.', 'greenstar-theme' ); ?>
+                        <?php esc_html_e( 'First of all, GreenStar Vietnam would like to extend our sincere greetings and best wishes for good health, prosperity, and success to our valued customers and business partners.', 'greenstar-theme' ); ?>
                     </p>
                     <p>
-                        <?php esc_html_e( 'Truong Phuc Vina is a professional manufacturer, exporter, and OEM supplier of rice-based food products in Vietnam. We specialize in the production, import–export, and OEM manufacturing of rice noodles, including dried rice noodles, dried pho noodles, glass noodles (mung bean noodles), fresh rice noodles, fresh pho noodles, and rice paper for spring rolls, serving both domestic and international markets.', 'greenstar-theme' ); ?>
+                        <?php esc_html_e( 'GreenStar Vietnam is a professional manufacturer, exporter, and OEM supplier of rice-based food products in Vietnam. We specialize in the production, import–export, and OEM manufacturing of rice noodles, including dried rice noodles, dried pho noodles, glass noodles (mung bean noodles), fresh rice noodles, fresh pho noodles, and rice paper for spring rolls, serving both domestic and international markets.', 'greenstar-theme' ); ?>
                     </p>
                     <p>
                         <?php esc_html_e( 'With a strong commitment to cooperation and sustainable growth, we aim to become a reliable OEM partner and trusted exporter of Vietnamese rice noodle products for organizations, enterprises, and individual clients worldwide. Our products are manufactured under strict quality control processes to meet international export standards, ensuring consistency, food safety, and customer satisfaction.', 'greenstar-theme' ); ?>
                     </p>
                     <p>
-                        <?php esc_html_e( 'Through continuous improvement and dedication, Truong Phuc Vina is committed to providing our partners with high-quality products, competitive pricing, reliable supply, and professional OEM services. We always prioritize credibility, attentiveness, and long-term cooperation in every partnership.', 'greenstar-theme' ); ?>
+                        <?php esc_html_e( 'Through continuous improvement and dedication, GreenStar Vietnam is committed to providing our partners with high-quality products, competitive pricing, reliable supply, and professional OEM services. We always prioritize credibility, attentiveness, and long-term cooperation in every partnership.', 'greenstar-theme' ); ?>
                     </p>
                     <p>
                         <?php esc_html_e( 'For all these reasons, we firmly believe that our customers and partners will be fully satisfied.', 'greenstar-theme' ); ?>
