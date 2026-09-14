@@ -889,7 +889,7 @@ function gsp_render_product_meta_box( $post ) {
     $fields = array(
         'gs_price'         => array( 'label' => 'Price',          'type' => 'text',     'placeholder' => 'Contact for quotation' ),
         'gs_origin'        => array( 'label' => 'Origin',         'type' => 'text',     'placeholder' => 'Vietnam (Hanoi)' ),
-        'gs_manufacturer'  => array( 'label' => 'Manufacturer',   'type' => 'text',     'placeholder' => 'Truong Phuc Vina' ),
+        'gs_manufacturer'  => array( 'label' => 'Manufacturer',   'type' => 'text',     'placeholder' => 'GreenStar Vietnam' ),
         'gs_net_weight'    => array( 'label' => 'Net Weight',      'type' => 'text',     'placeholder' => '400g' ),
         'gs_packaging'     => array( 'label' => 'Packaging',       'type' => 'text',     'placeholder' => 'Bagged' ),
         'gs_certifications'=> array( 'label' => 'Certifications',  'type' => 'text',     'placeholder' => 'HACCP, ISO, FDA, Halal' ),

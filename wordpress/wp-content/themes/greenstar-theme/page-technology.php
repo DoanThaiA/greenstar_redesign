@@ -41,10 +41,10 @@ $hero_bg_url = $hero_bg_id
                 
                 <div class="tech-overview__content">
                     <p>
-                        <?php esc_html_e( 'With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, Truong Phuc Vina has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards.', 'greenstar-theme' ); ?>
+                        <?php esc_html_e( 'With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, GreenStar Vietnam has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards.', 'greenstar-theme' ); ?>
                     </p>
                     <p>
-                        <?php esc_html_e( 'Thanks to its stable manufacturing capacity and efficient operations, Truong Phuc Vina is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets.', 'greenstar-theme' ); ?>
+                        <?php esc_html_e( 'Thanks to its stable manufacturing capacity and efficient operations, GreenStar Vietnam is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets.', 'greenstar-theme' ); ?>
                     </p>
                 </div>
                 

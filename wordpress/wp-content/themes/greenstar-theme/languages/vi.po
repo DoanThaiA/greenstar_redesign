@@ -10,11 +10,11 @@ msgstr ""
 msgid "Premium Vietnamese\nRice Products"
 msgstr "Gạo Việt Nam\nChất Lượng Cao Cấp"
 
-msgid "With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, Truong Phuc Vina has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards."
-msgstr "Với nhà xưởng và khu vực sản xuất rộng 1.000 mét vuông, cùng dây chuyền sản xuất hiện đại và được đầu tư bài bản, Trường Phúc Vina có năng lực cung cấp tới 500 tấn các sản phẩm chủ lực như bún gạo khô, bánh phở khô và miến. Quy trình sản xuất được kiểm soát chặt chẽ ở mọi công đoạn, từ lựa chọn nguyên liệu đến chế biến và đóng gói, đảm bảo chất lượng ổn định và tiêu chuẩn an toàn thực phẩm."
+msgid "With a factory and production area covering 1,000 square meters, along with a modern and well-invested production line, GreenStar Vietnam has the capacity to supply up to 500 tons of key products such as dried rice vermicelli, dried pho noodles, and glass noodles. The production process is strictly controlled at every stage, from raw material selection to processing and packaging, ensuring consistent quality and food safety standards."
+msgstr "Với nhà xưởng và khu vực sản xuất rộng 1.000 mét vuông, cùng dây chuyền sản xuất hiện đại và được đầu tư bài bản, GreenStar Việt Nam có năng lực cung cấp tới 500 tấn các sản phẩm chủ lực như bún gạo khô, bánh phở khô và miến. Quy trình sản xuất được kiểm soát chặt chẽ ở mọi công đoạn, từ lựa chọn nguyên liệu đến chế biến và đóng gói, đảm bảo chất lượng ổn định và tiêu chuẩn an toàn thực phẩm."
 
-msgid "Thanks to its stable manufacturing capacity and efficient operations, Truong Phuc Vina is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets."
-msgstr "Nhờ năng lực sản xuất ổn định và vận hành hiệu quả, Trường Phúc Vina luôn đảm bảo nguồn cung đáng tin cậy và đầy đủ cho đối tác, kể cả trong giai đoạn nhu cầu tăng cao. Năng lực sản xuất mạnh mẽ này giúp công ty đáp ứng các đơn hàng số lượng lớn, hỗ trợ hợp tác lâu dài và linh hoạt thích ứng với yêu cầu của cả thị trường trong nước lẫn quốc tế."
+msgid "Thanks to its stable manufacturing capacity and efficient operations, GreenStar Vietnam is always able to maintain a reliable and sufficient supply for partners, even during peak demand periods. This strong production capability allows the company to meet large-volume orders, support long-term cooperation, and respond flexibly to the requirements of both domestic and international markets."
+msgstr "Nhờ năng lực sản xuất ổn định và vận hành hiệu quả, GreenStar Việt Nam luôn đảm bảo nguồn cung đáng tin cậy và đầy đủ cho đối tác, kể cả trong giai đoạn nhu cầu tăng cao. Năng lực sản xuất mạnh mẽ này giúp công ty đáp ứng các đơn hàng số lượng lớn, hỗ trợ hợp tác lâu dài và linh hoạt thích ứng với yêu cầu của cả thị trường trong nước lẫn quốc tế."
 
 msgid "Factory Floor"
 msgstr "Khu Vực Nhà Xưởng"
@@ -844,17 +844,17 @@ msgstr "Năm Kinh Nghiệm"
 msgid "Main products included: rice vermicelli, pho, glass noodles, rice paper"
 msgstr "Sản phẩm chính bao gồm: bún, phở, miến, bánh tráng"
 
-msgid "Introduction of Truong Phuc Vina Trading, Production and Import–Export Company Limited"
-msgstr "Giới Thiệu Công Ty TNHH Thương Mại Sản Xuất Xuất Nhập Khẩu Trường Phúc Vina"
+msgid "Introduction of GreenStar Vietnam Trading, Production and Import–Export Company Limited"
+msgstr "Giới Thiệu Công Ty TNHH Thương Mại Sản Xuất Xuất Nhập Khẩu GreenStar Việt Nam"
 
-msgid "Truong Phuc Vina Company"
-msgstr "Công Ty Trường Phúc Vina"
+msgid "GreenStar Vietnam Company"
+msgstr "Công Ty GreenStar Việt Nam"
 
 msgid "is a typical representative in providing and introducing to consumers the best nutritional values of Vietnamese cuisine, especially products made from rice – a traditional and well-known ingredient of Vietnam. We aim to bring you distinctive product experiences and unique flavors such as rice vermicelli, fresh rice noodles, dried rice noodles, dried pho noodles, fresh pho noodles, glass noodles (mung bean noodles), rice paper for spring rolls, and more."
 msgstr "là đơn vị tiêu biểu trong việc cung cấp và giới thiệu đến người tiêu dùng những giá trị dinh dưỡng tốt nhất của ẩm thực Việt Nam, đặc biệt là các sản phẩm từ gạo – nguyên liệu truyền thống nổi tiếng của Việt Nam. Chúng tôi mong muốn mang đến cho bạn những trải nghiệm sản phẩm đặc trưng và hương vị độc đáo như bún gạo, bún tươi, bún khô, bánh phở khô, bánh phở tươi, miến (miến đậu xanh), bánh tráng cuốn, và nhiều sản phẩm khác."
 
-msgid "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of the company's management, together with a team of key personnel who are fully committed to the company's shared mission, Truong Phuc Vina has successfully exported numerous orders to markets around the world, including Japan, South Korea, Thailand, Taiwan, Russia, and others."
-msgstr "Với hơn 20 năm kinh nghiệm trong ngành chế biến bún miến phở xuất khẩu, dưới sự lãnh đạo sáng suốt, tận tâm và có tầm nhìn xa của ban lãnh đạo công ty, cùng đội ngũ nhân sự nòng cốt luôn tận tâm với sứ mệnh chung của công ty, Trường Phúc Vina đã xuất khẩu thành công nhiều đơn hàng đến các thị trường trên thế giới, bao gồm Nhật Bản, Hàn Quốc, Thái Lan, Đài Loan, Nga và nhiều quốc gia khác."
+msgid "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of the company's management, together with a team of key personnel who are fully committed to the company's shared mission, GreenStar Vietnam has successfully exported numerous orders to markets around the world, including Japan, South Korea, Thailand, Taiwan, Russia, and others."
+msgstr "Với hơn 20 năm kinh nghiệm trong ngành chế biến bún miến phở xuất khẩu, dưới sự lãnh đạo sáng suốt, tận tâm và có tầm nhìn xa của ban lãnh đạo công ty, cùng đội ngũ nhân sự nòng cốt luôn tận tâm với sứ mệnh chung của công ty, GreenStar Việt Nam đã xuất khẩu thành công nhiều đơn hàng đến các thị trường trên thế giới, bao gồm Nhật Bản, Hàn Quốc, Thái Lan, Đài Loan, Nga và nhiều quốc gia khác."
 
 msgid "Read Article"
 msgstr "Đọc Bài Viết"

@@ -26,16 +26,16 @@
                 </span>
                 
                 <h2 class="section-title" id="story-title" style="margin-bottom: 1.5rem; font-size: clamp(1.6rem, 2.6vw, 2.2rem);">
-                    <?php esc_html_e( 'Introduction of Truong Phuc Vina Trading, Production and Import–Export Company Limited', 'greenstar-theme' ); ?>
+                    <?php esc_html_e( 'Introduction of GreenStar Vietnam Trading, Production and Import–Export Company Limited', 'greenstar-theme' ); ?>
                 </h2>
 
                 <p class="about-story__para" style="font-size: 1.2rem; margin-bottom: 1.5rem;">
-                    <strong><?php esc_html_e( 'Truong Phuc Vina Company', 'greenstar-theme' ); ?></strong>
+                    <strong><?php esc_html_e( 'GreenStar Vietnam Company', 'greenstar-theme' ); ?></strong>
                     <?php esc_html_e( 'is a typical representative in providing and introducing to consumers the best nutritional values of Vietnamese cuisine, especially products made from rice – a traditional and well-known ingredient of Vietnam. We aim to bring you distinctive product experiences and unique flavors such as rice vermicelli, fresh rice noodles, dried rice noodles, dried pho noodles, fresh pho noodles, glass noodles (mung bean noodles), rice paper for spring rolls, and more.', 'greenstar-theme' ); ?>
                 </p>
 
                 <p class="about-story__para" style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    <?php esc_html_e( "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of the company's management, together with a team of key personnel who are fully committed to the company's shared mission, Truong Phuc Vina has successfully exported numerous orders to markets around the world, including Japan, South Korea, Thailand, Taiwan, Russia, and others.", 'greenstar-theme' ); ?>
+                    <?php esc_html_e( "With more than 20 years of experience in the export rice noodle processing industry, under the wise, dedicated, and visionary leadership of the company's management, together with a team of key personnel who are fully committed to the company's shared mission, GreenStar Vietnam has successfully exported numerous orders to markets around the world, including Japan, South Korea, Thailand, Taiwan, Russia, and others.", 'greenstar-theme' ); ?>
                 </p>
 
                 <div class="about-story__cta">
