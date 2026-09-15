@@ -5,13 +5,16 @@
  * @package greenstar-theme
  */
 
-$certs_query = new WP_Query( array(
-    'post_type'      => 'gs_certification',
-    'posts_per_page' => -1,
-    'post_status'    => 'publish',
-    'orderby'        => 'date',
-    'order'          => 'DESC'
-) );
+// Referenced by file path (not attachment ID / CPT posts): the numeric
+// media library ID and post IDs for the same content can differ between
+// environments (local vs demo have separate databases with independent ID
+// sequences), so this section renders directly from files bundled with the
+// theme rather than from the gs_certification post type.
+$certs_images = array(
+    'cert-food-safety-hungyen.jpg' => __( 'Food Safety Certificate', 'greenstar-theme' ),
+    'cert-halal.jpg'                => __( 'Halal Certificate', 'greenstar-theme' ),
+    'cert-iso22000.jpg'             => __( 'ISO 22000:2018 Certificate', 'greenstar-theme' ),
+);
 ?>
 
 <section class="certs-section section-py" id="certifications" aria-labelledby="certs-title">
@@ -28,21 +31,18 @@ $certs_query = new WP_Query( array(
             </p>
         </div>
 
-        <?php if ( $certs_query->have_posts() ) : ?>
+        <?php if ( ! empty( $certs_images ) ) : ?>
             <!-- Certs slider -->
             <div class="certs-slider-wrapper">
                 <button class="cert-slider-btn prev" aria-label="<?php esc_attr_e( 'Previous', 'greenstar-theme' ); ?>">❮</button>
                 <div class="certs-grid" id="certs-grid">
-                    <?php while ( $certs_query->have_posts() ) : $certs_query->the_post(); 
-                        $img_url = get_template_directory_uri() . '/assets/images/placeholder.jpg';
-                        if ( has_post_thumbnail() ) {
-                            $img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-                        }
+                    <?php foreach ( $certs_images as $gs_file => $gs_title ) :
+                        $img_url = content_url( "uploads/2026/09/{$gs_file}" );
                     ?>
                         <div class="cert-card" data-reveal>
-                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="cert-card__img" loading="lazy">
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $gs_title ); ?>" class="cert-card__img" loading="lazy">
                         </div>
-                    <?php endwhile; wp_reset_postdata(); ?>
+                    <?php endforeach; ?>
                 </div>
                 <button class="cert-slider-btn next" aria-label="<?php esc_attr_e( 'Next', 'greenstar-theme' ); ?>">❯</button>
             </div>

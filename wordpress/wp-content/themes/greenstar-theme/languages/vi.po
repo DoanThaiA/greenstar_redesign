@@ -13,6 +13,15 @@ msgstr "Gạo Việt Nam\nChất Lượng Cao Cấp"
 msgid "Message From Us"
 msgstr "Thông Điệp Từ Chúng Tôi"
 
+msgid "Food Safety Certificate"
+msgstr "Giấy Chứng Nhận An Toàn Thực Phẩm"
+
+msgid "Halal Certificate"
+msgstr "Chứng Nhận Halal"
+
+msgid "ISO 22000:2018 Certificate"
+msgstr "Chứng Nhận ISO 22000:2018"
+
 msgid "GreenStar Vietnam Factory"
 msgstr "Nhà Máy GreenStar Việt Nam"
 
