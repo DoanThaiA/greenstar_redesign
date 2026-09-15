@@ -53,6 +53,17 @@ $certs_images = array(
                     const prev = document.querySelector('.cert-slider-btn.prev');
                     const next = document.querySelector('.cert-slider-btn.next');
                     if(grid && prev && next) {
+                        // Only show the arrows when the cards actually overflow the
+                        // visible width — with few cards (e.g. 3) they all fit and
+                        // the arrows would falsely imply there's more to scroll to.
+                        const updateNavVisibility = () => {
+                            const hasOverflow = grid.scrollWidth > grid.clientWidth + 1;
+                            prev.hidden = !hasOverflow;
+                            next.hidden = !hasOverflow;
+                        };
+                        updateNavVisibility();
+                        window.addEventListener('resize', updateNavVisibility);
+
                         prev.addEventListener('click', () => {
                             const itemWidth = grid.children[0].offsetWidth + 24; // 1.5rem gap approx 24px
                             grid.scrollBy({ left: -itemWidth, behavior: 'smooth' });
