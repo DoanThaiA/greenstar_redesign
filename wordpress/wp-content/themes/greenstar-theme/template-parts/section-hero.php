@@ -10,12 +10,11 @@ $hero_badge    = __( 'ABOUT GREENSTAR', 'greenstar-theme' );
 $hero_title    = __( "Premium Vietnamese\nRice Products", 'greenstar-theme' );
 $hero_subtitle = __( 'With over 20 years of experience, Greenstar brings the best of Vietnamese cuisine to the world. We specialize in exporting high-quality rice noodles, pho, and rice paper to global markets.', 'greenstar-theme' );
 
-// Hero background image (homepage-only; see greenstar_hero_bg for the
-// About page hero, kept separate so setting one doesn't affect the other)
-$hero_bg_id  = get_theme_mod( 'greenstar_home_hero_bg', 0 );
-$hero_bg_url = $hero_bg_id
-    ? wp_get_attachment_image_url( $hero_bg_id, 'greenstar-hero' )
-    : get_template_directory_uri() . '/assets/images/hero-bg.jpg';
+// Hero background image (homepage-only). Bundled with the theme (not a
+// media-library attachment) so the same file renders identically on every
+// environment the theme is deployed to, regardless of that environment's
+// database contents.
+$hero_bg_url = get_template_directory_uri() . '/assets/images/home-hero-rice-terrace.jpg';
 
 // Parse title to highlight last word with <span>
 $title_parts = preg_split( '/(\n)/', trim( $hero_title ) );
