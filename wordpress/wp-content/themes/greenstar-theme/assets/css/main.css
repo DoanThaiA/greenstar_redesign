@@ -860,8 +860,7 @@ input, textarea, select { font-family: inherit; }
 
 .cert-card__img {
     width: 100%;
-    height: auto;
-    max-height: 400px;
+    height: 400px;
     object-fit: contain;
     border-radius: var(--radius-sm);
     cursor: zoom-in;
@@ -952,9 +951,11 @@ input, textarea, select { font-family: inherit; }
     .cert-slider-btn { width: 34px; height: 34px; font-size: 1rem; }
     .cert-slider-btn.prev { left: -10px; }
     .cert-slider-btn.next { right: -10px; }
+    .cert-card__img { height: 280px; }
 }
 @media (max-width: 480px) {
     .certs-grid > * { flex: 0 0 100%; }
+    .cert-card__img { height: 320px; }
 }
 
 /* --------------------------------------------------------------------------
